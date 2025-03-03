@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>01语法元素 | 宋子源的个人网站</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一部分 数据类型1.基本数据类型 ：数字、字符串、布尔1.1数字类型 int整型 整数  12   float浮点型 小数  11.2   comples 复数  11+5j  1.2字符串类型 str 字符串 视作文本 组成：由数字、字母、空格、其他字符等组合而成 表达：用””或’’  1&#x27;My favorite singer is Teresa Teng.&#x27;  1.3布尔">
+<meta property="og:type" content="website">
+<meta property="og:title" content="01语法元素">
+<meta property="og:url" content="http://example.com/2025/03/03/01%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/index.html">
+<meta property="og:site_name" content="宋子源的个人网站">
+<meta property="og:description" content="第一部分 数据类型1.基本数据类型 ：数字、字符串、布尔1.1数字类型 int整型 整数  12   float浮点型 小数  11.2   comples 复数  11+5j  1.2字符串类型 str 字符串 视作文本 组成：由数字、字母、空格、其他字符等组合而成 表达：用””或’’  1&#x27;My favorite singer is Teresa Teng.&#x27;  1.3布尔">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-03-03T02:56:32.000Z">
+<meta property="article:modified_time" content="2025-03-03T02:57:40.291Z">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/03/03/01%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '01语法元素',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'title'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">宋子源的个人网站</span></a></span><div id="menus"></div></nav><div id="page-site-info"><h1 id="site-title">01语法元素</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第一部分-数据类型"><a href="#第一部分-数据类型" class="headerlink" title="第一部分 数据类型"></a>第一部分 数据类型</h1><h2 id="1-基本数据类型-：数字、字符串、布尔"><a href="#1-基本数据类型-：数字、字符串、布尔" class="headerlink" title="1.基本数据类型 ：数字、字符串、布尔"></a>1.基本数据类型 ：数字、字符串、布尔</h2><h3 id="1-1数字类型"><a href="#1-1数字类型" class="headerlink" title="1.1数字类型"></a>1.1数字类型</h3><ul>
+<li>int整型 整数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>float浮点型 小数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>comples 复数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">5j</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2字符串类型"><a href="#1-2字符串类型" class="headerlink" title="1.2字符串类型"></a>1.2字符串类型</h3><ul>
+<li>str 字符串 视作文本</li>
+<li>组成：由数字、字母、空格、其他字符等组合而成</li>
+<li>表达：用””或’’</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;My favorite singer is Teresa Teng.&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3布尔类型"><a href="#1-3布尔类型" class="headerlink" title="1.3布尔类型"></a>1.3布尔类型</h3><ul>
+<li>bool 布尔类型</li>
+<li>主要用于逻辑运算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = <span class="number">2</span> &lt; <span class="number">1</span></span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = <span class="number">2</span> &gt; <span class="number">1</span></span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>True
+</code></pre>
+<h2 id="2-组合数据类型：列表、元组、字典、集合"><a href="#2-组合数据类型：列表、元组、字典、集合" class="headerlink" title="2.组合数据类型：列表、元组、字典、集合"></a>2.组合数据类型：列表、元组、字典、集合</h2><h3 id="2-1-列表"><a href="#2-1-列表" class="headerlink" title="2.1 列表"></a>2.1 列表</h3><ul>
+<li>list 列表  序列类型：数据有位置顺序</li>
+<li>表示方式：[data1,data2…]</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list_test = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="built_in">print</span>(list_test)</span><br><span class="line">list_test[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>[1, 2, 3, 1, 2, 3, 4, 5]
+
+
+
+
+
+1
+</code></pre>
+<h3 id="2-2元组"><a href="#2-2元组" class="headerlink" title="2.2元组"></a>2.2元组</h3><ul>
+<li>tuple元组   序列类型：数据有位置顺序</li>
+<li>表示方式：(data1,data2…)</li>
+<li>元素不支持修改————“不可变的列表”</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tuple_test = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(tuple_test)</span><br><span class="line">tuple_test[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>(1, 2, 3, 1, 2, 3, 4, 5)
+
+
+
+
+
+1
+</code></pre>
+<h3 id="2-3-字典"><a href="#2-3-字典" class="headerlink" title="2.3 字典"></a>2.3 字典</h3><ul>
+<li>dict 字典   映射类型：通过”键”-“值”的映射实现数据存储和查找</li>
+<li>表示方式：   {key1:value,key2:value….}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict_test = &#123;<span class="string">&quot;Teresa Teng&quot;</span>:<span class="string">&quot;邓丽君&quot;</span>,<span class="string">&quot;PI&quot;</span>:<span class="number">3.1415926</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dict_test)</span><br><span class="line">dict_test[<span class="string">&quot;Teresa Teng&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;Teresa Teng&#39;: &#39;邓丽君&#39;, &#39;PI&#39;: 3.1415926&#125;
+
+
+
+
+
+&#39;邓丽君&#39;
+</code></pre>
+<h3 id="2-4集合"><a href="#2-4集合" class="headerlink" title="2.4集合"></a>2.4集合</h3><ul>
+<li>set 集合    一系列互不相等的元素集合，不重复且无序</li>
+<li>表示方式：{data1,data2…..}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set_test = &#123;<span class="string">&quot;Teresa Teng&quot;</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line">set_test</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#123;1, 2, 3, 4, 5, &#39;Teresa Teng&#39;&#125;
+</code></pre>
+<h1 id="第二部分-变量"><a href="#第二部分-变量" class="headerlink" title="第二部分 变量"></a>第二部分 变量</h1><h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1. 变量"></a>1. 变量</h2><ul>
+<li>量体现在，这是一个实在的对象，或是具体的数据，或是抽象的运算结果</li>
+<li>变体现在，可以进行运算、查找、修改、删除等操作</li>
+<li>两个要素： 变量名和赋值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Teresa_Teng = <span class="string">&quot;My favorite singer&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-变量的命名"><a href="#2-变量的命名" class="headerlink" title="2. 变量的命名"></a>2. 变量的命名</h2><h3 id="2-1-那些可以用来做变量名"><a href="#2-1-那些可以用来做变量名" class="headerlink" title="2.1 那些可以用来做变量名"></a>2.1 那些可以用来做变量名</h3><ul>
+<li>大小字母、数字、下划线、汉字机器组合</li>
+<li>严格区分大小写</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Python_is_最好的语言 = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(Python_is_最好的语言)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+</code></pre>
+<h3 id="2-2-以下情况不可以做变量名"><a href="#2-2-以下情况不可以做变量名" class="headerlink" title="2.2 以下情况不可以做变量名"></a>2.2 以下情况不可以做变量名</h3><ul>
+<li>首字母为数字</li>
+<li>变量名中间有空格</li>
+<li>与Python保留字相同</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">关键字</th>
+<th align="left">关键字</th>
+<th align="left">关键字</th>
+<th align="left">关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">False</td>
+<td align="left">await</td>
+<td align="left">else</td>
+<td align="left">import</td>
+<td align="left">pass</td>
+</tr>
+<tr>
+<td align="left">None</td>
+<td align="left">break</td>
+<td align="left">except</td>
+<td align="left">in</td>
+<td align="left">raise</td>
+</tr>
+<tr>
+<td align="left">True</td>
+<td align="left">class</td>
+<td align="left">finally</td>
+<td align="left">is</td>
+<td align="left">return</td>
+</tr>
+<tr>
+<td align="left">and</td>
+<td align="left">continue</td>
+<td align="left">for</td>
+<td align="left">lambda</td>
+<td align="left">try</td>
+</tr>
+<tr>
+<td align="left">as</td>
+<td align="left">def</td>
+<td align="left">from</td>
+<td align="left">nonlocal</td>
+<td align="left">while</td>
+</tr>
+<tr>
+<td align="left">assert</td>
+<td align="left">del</td>
+<td align="left">global</td>
+<td align="left">not</td>
+<td align="left">with</td>
+</tr>
+<tr>
+<td align="left">async</td>
+<td align="left">elif</td>
+<td align="left">if</td>
+<td align="left">or</td>
+<td align="left">yield</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-变量名定义注意事项"><a href="#2-3-变量名定义注意事项" class="headerlink" title="2.3 变量名定义注意事项"></a>2.3 变量名定义注意事项</h3><ul>
+<li>变量名尽可能有实际意义，表征数据的某种性质</li>
+<li>下划线（一般在变量名或函数名中使用）变量名由多个单词组成：用_连接多个单词</li>
+<li>驼峰体（一般在类名中使用）变量名多个单词组成：单词首字母大写</li>
+</ul>
+<h2 id="3-变量的赋值"><a href="#3-变量的赋值" class="headerlink" title="3.变量的赋值"></a>3.变量的赋值</h2><h3 id="3-1-一般的赋值"><a href="#3-1-一般的赋值" class="headerlink" title="3.1 一般的赋值"></a>3.1 一般的赋值</h3><ul>
+<li>通过等号自右向左进行赋值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Teresa_Teng = <span class="string">&quot;My favorite singer&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-增量赋值"><a href="#3-2-增量赋值" class="headerlink" title="3.2 增量赋值"></a>3.2 增量赋值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">x += <span class="number">10</span></span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>20
+</code></pre>
+<h3 id="3-3-打包赋值"><a href="#3-3-打包赋值" class="headerlink" title="3.3 打包赋值"></a>3.3 打包赋值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x, y = <span class="number">1</span>,<span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(x,y)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1 2
+</code></pre>
+<h1 id="第三部分-控制流程"><a href="#第三部分-控制流程" class="headerlink" title="第三部分 控制流程"></a>第三部分 控制流程</h1><h2 id="1-顺序流程"><a href="#1-顺序流程" class="headerlink" title="1.顺序流程"></a>1.顺序流程</h2><ul>
+<li>自上而下依次执行</li>
+</ul>
+<p><strong>eg：实现1到5的整数和</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># res = 1+2+3+4+5</span></span><br><span class="line">res = <span class="number">0</span>    <span class="comment"># 赋初始值</span></span><br><span class="line">res += <span class="number">1</span></span><br><span class="line">res += <span class="number">2</span></span><br><span class="line">res += <span class="number">3</span></span><br><span class="line">res += <span class="number">4</span></span><br><span class="line">res += <span class="number">5</span>   </span><br><span class="line">res     <span class="comment"># 显示结果</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>15
+</code></pre>
+<h1 id="2-循环流程——遍历循环（for）"><a href="#2-循环流程——遍历循环（for）" class="headerlink" title="2. 循环流程——遍历循环（for）"></a>2. 循环流程——遍历循环（for）</h1><p><strong>主要形式</strong></p>
+<ul>
+<li><p>for元素in可迭代对象：</p>
+<p>执行语句</p>
+</li>
+</ul>
+<p><strong>执行过程：</strong></p>
+<ul>
+<li>从可迭代对象中，依次取出一个元素，并进行相应的操作</li>
+</ul>
+<p><strong>eg：实现1到5的整数和</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]: <span class="comment"># 每次迭代取出一个</span></span><br><span class="line">    res += i    <span class="comment"># 对每次迭代取出的i进行相应操作</span></span><br><span class="line">res        <span class="comment"># 遍历结束执行后续语句</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>15
+</code></pre>
+<h2 id="3-循环流程——无限循环（while）"><a href="#3-循环流程——无限循环（while）" class="headerlink" title="3.循环流程——无限循环（while）"></a>3.循环流程——无限循环（while）</h2><p><strong>主要形式：</strong><br> while判断条件：</p>
+<pre><code>   条件为真执行语句
+</code></pre>
+<p> 条件为假，循环结束</p>
+<p><strong>eg：实现1到5的整数和</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">5</span>:</span><br><span class="line">    res += i</span><br><span class="line">    i +=<span class="number">1</span></span><br><span class="line">res</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>15
+</code></pre>
+<h2 id="4-分支流程if"><a href="#4-分支流程if" class="headerlink" title="4. 分支流程if"></a>4. 分支流程if</h2><p><strong>最简单的形式：</strong><br>if判断条件：<br>    条件为真，执行语句<br>else：<br>    条件为假，执行语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span></span><br><span class="line"><span class="keyword">if</span> age &gt; <span class="number">22</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;可以结婚了&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;再忍忍&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>再忍忍
+</code></pre>
+<h1 id="第四部分-输入输出"><a href="#第四部分-输入输出" class="headerlink" title="第四部分 输入输出"></a>第四部分 输入输出</h1><h2 id="1-数据从哪里来"><a href="#1-数据从哪里来" class="headerlink" title="1.数据从哪里来"></a>1.数据从哪里来</h2><ol>
+<li>外部文件导入<ul>
+<li>从本地硬盘、网络端输入</li>
+</ul>
+</li>
+<li>程序中定义</li>
+<li>动态交互输入input<ul>
+<li>在程序运行中输入</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入您的年龄&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> age &gt; <span class="number">22</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;可以结婚了&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;再忍忍&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>请输入您的年龄 18
+
+
+再忍忍
+</code></pre>
+<p>由于上述demo中input函数输入的数据类型为字符串，需要使用eval函数改为数字类型</p>
+<p>eval与int函数相比，执行更快且可以根据输入内容处理整数和浮点数，而int只能处理整数。</p>
+<h2 id="2-数据哪里去"><a href="#2-数据哪里去" class="headerlink" title="2. 数据哪里去"></a>2. 数据哪里去</h2><ol>
+<li>存储到本地硬盘或网络</li>
+<li>打印输出print<ul>
+<li>直接打印数据</li>
+<li>打印变量</li>
+<li>简单的组合打印</li>
+</ul>
+</li>
+<li>格式化输出方法format</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 1：基本用法</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, &#123;&#125;!&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;world&quot;</span>))  <span class="comment"># 输出：Hello, world!</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Hello, world!
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 2：位置参数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, &#123;0&#125;! &#123;1&#125; is awesome.&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;world&quot;</span>, <span class="string">&quot;Python&quot;</span>))  </span><br><span class="line"><span class="comment"># 输出：Hello, world! Python is awesome.</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Hello, world! Python is awesome.
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 3：关键字参数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, &#123;name&#125;! &#123;language&#125; is awesome.&quot;</span>.<span class="built_in">format</span>(name=<span class="string">&quot;Alice&quot;</span>, language=<span class="string">&quot;Python&quot;</span>))  </span><br><span class="line"><span class="comment"># 输出：Hello, Alice! Python is awesome.</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Hello, Alice! Python is awesome.
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 4：索引重复使用</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Coordinates: (&#123;0&#125;, &#123;1&#125;) and (&#123;0&#125;, &#123;2&#125;)&quot;</span>.<span class="built_in">format</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>))  </span><br><span class="line"><span class="comment"># 输出：Coordinates: (10, 20) and (10, 30)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Coordinates: (10, 20) and (10, 30)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 5：格式化数字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Pi is approximately &#123;0:.3f&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">3.1415926</span>))  </span><br><span class="line"><span class="comment"># 输出：Pi is approximately 3.142</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Pi is approximately 3.142
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 6：对齐和宽度</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Left aligned: &#123;0:&lt;10&#125; Right aligned: &#123;0:&gt;10&#125;&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;text&quot;</span>))  </span><br><span class="line"><span class="comment"># 输出：Left aligned: text        Right aligned:        text</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Left aligned: text       Right aligned:       text
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例 7：格式化日期</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">now = datetime.now()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Today is &#123;0:%Y-%m-%d&#125; and the time is &#123;0:%H:%M:%S&#125;&quot;</span>.<span class="built_in">format</span>(now))  </span><br><span class="line"><span class="comment"># 输出：Today is 2025-02-22 and the time is 14:30:00</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Today is 2025-02-22 and the time is 19:52:39
+</code></pre>
+<p>formate函数是python原生函数，上述的demo只是简单使用，还有诸如给数字添加千分位符，百分号，科学计数法等诸多功能。</p>
+<p><a target="_blank" rel="noopener" href="https://realpython.com/ref/builtin-functions/format/">点击了解更多formate函数</a></p>
+<h1 id="第五部分-程序格式"><a href="#第五部分-程序格式" class="headerlink" title="第五部分 程序格式"></a>第五部分 程序格式</h1><h2 id="1-行最大长度"><a href="#1-行最大长度" class="headerlink" title="1.行最大长度"></a>1.行最大长度</h2><p>所有行限制的最大字符数为79</p>
+<h2 id="2-缩进"><a href="#2-缩进" class="headerlink" title="2.缩进"></a>2.缩进</h2><ul>
+<li>用缩进来表示语句间的逻辑</li>
+<li>在for while def class等：之后下一行开始进行缩进，表示代码与前句之间的从属关系</li>
+<li>缩进量:一般用Tab键，4字符</li>
+</ul>
+<h2 id="3-使用空格"><a href="#3-使用空格" class="headerlink" title="3.使用空格"></a>3.使用空格</h2><ul>
+<li>二元运算符两边加一个空格</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">2</span>  <span class="comment"># 赋值 </span></span><br><span class="line">x += <span class="number">2</span> <span class="comment"># 增量</span></span><br><span class="line"><span class="number">6</span> &gt; <span class="number">2</span>  <span class="comment"># 比较</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用不同优先级的运算符，考虑在最低优先级的运算符周围添加空格</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = x*<span class="number">2</span> - <span class="number">1</span></span><br><span class="line">z = x*x + y*y</span><br><span class="line">c = (a+b) * (a-b)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在逗号后面使用空格</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x, y = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不要使用一个以上的空格</li>
+</ul>
+<h2 id="4-避免使用空格"><a href="#4-避免使用空格" class="headerlink" title="4. 避免使用空格"></a>4. 避免使用空格</h2><ul>
+<li>在制定关键字参数或者默认参数值的时候，不要在&#x3D;附近加上空格</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">n=<span class="number">1</span>, m=<span class="number">2</span></span>)</span><br><span class="line">    <span class="built_in">print</span>(n, m)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>以上属于PEP8格式指南的部分内容，养成良好的编码习惯利人利己</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JasonW41k3r/pep-8-zh_cn">点击了解更多PEP8（中英对照）</a></p>
+</li>
+<li><p>格式约定的目的：</p>
+<ul>
+<li>使大量Python代码风格一致</li>
+<li>提升可读性</li>
+</ul>
+</li>
+<li><p>在实际项目中，项目要求与代码规范相冲突时，项目优先</p>
+</li>
+</ol>
+<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5. 注释"></a>5. 注释</h2><ul>
+<li>单行注释</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我是单行注释</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行注释</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">这是一个多行注释。</span></span><br><span class="line"><span class="string">可以包含多行文本，用于详细说明代码的功能。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/03/03/01%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/">http://example.com/2025/03/03/01%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">又大又粗，干谁谁哭</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/03/01%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/" title="01语法元素">01语法元素</a><time datetime="2025-03-03T02:56:32.000Z" title="Created 2025-03-03 10:56:32">2025-03-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" title="这是一个测试文件">这是一个测试文件</a><time datetime="2025-02-20T10:16:26.000Z" title="Created 2025-02-20 18:16:26">2025-02-20</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              March 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              February 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-03T02:58:09.837Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
