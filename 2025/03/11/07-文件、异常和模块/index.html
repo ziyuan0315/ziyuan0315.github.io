@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>07.文件、异常和模块 | 宋子源的个人网站</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  【例1】一个简单的文件读取  文件路径   完整路径，如上例所示，使用绝对路径 在字符串前加 r，表示这是一个原始字符串，不会解析转义字符 程序与文件在同一文件夹，可以简化成文件名   打开模式   “r”  只读模式，如文件不存在，报错 “w” 覆盖写模式，如文">
+<meta property="og:type" content="website">
+<meta property="og:title" content="07.文件、异常和模块">
+<meta property="og:url" content="http://example.com/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="宋子源的个人网站">
+<meta property="og:description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  【例1】一个简单的文件读取  文件路径   完整路径，如上例所示，使用绝对路径 在字符串前加 r，表示这是一个原始字符串，不会解析转义字符 程序与文件在同一文件夹，可以简化成文件名   打开模式   “r”  只读模式，如文件不存在，报错 “w” 覆盖写模式，如文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ziyuan.jpg">
+<meta property="article:published_time" content="2025-03-11T07:49:45.000Z">
+<meta property="article:modified_time" content="2025-03-11T12:19:44.827Z">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '07.文件、异常和模块',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'title'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">宋子源的个人网站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">07.文件、异常和模块</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="文件、异常和模块"><a href="#文件、异常和模块" class="headerlink" title="文件、异常和模块"></a>文件、异常和模块</h1><p><strong>实际应用中，我们绝大多数的数据都是通过文件的交互完成的</strong></p>
+<h3 id="1-1-文件的读写"><a href="#1-1-文件的读写" class="headerlink" title="1.1 文件的读写"></a>1.1 文件的读写</h3><h4 id="1-1-1-文件的打开"><a href="#1-1-1-文件的打开" class="headerlink" title="1.1.1 文件的打开"></a>1.1.1 文件的打开</h4><ul>
+<li>文件的打开通用格式</li>
+</ul>
+<p>【例1】一个简单的文件读取</p>
+<ol>
+<li>文件路径</li>
+</ol>
+<ul>
+<li>完整路径，如上例所示，使用绝对路径</li>
+<li>在字符串前加 r，表示这是一个原始字符串，不会解析转义字符</li>
+<li>程序与文件在同一文件夹，可以简化成文件名</li>
+</ul>
+<ol start="2">
+<li>打开模式</li>
+</ol>
+<ul>
+<li>“r”  只读模式，如文件不存在，报错</li>
+<li>“w” 覆盖写模式，如文件不存在，则创建；如文件存在，则完全覆盖原文件</li>
+<li>“x” 创建写模式，如文件不存在，则创建；如文件存在，报错</li>
+<li>“a”  追加写模式，如文件不存在，则创建；如文件存在，则在原文件后追加内容</li>
+<li>“b” 二进制文件模式，不能单独使用，需要配合使用如”rb”，“wb”，“ab”，该模式不需指定encoding</li>
+<li>“t” 文本文件模式，默认值，需配合使用 如”rt”，“wt”，“at”，一般省略，简写成如”r”，“w”，“a”</li>
+<li>“+”，与”r”,“w”,“x”,”a”配合使用，在原功能基础上，增加读写功能</li>
+<li>打开模式缺省，默认为只读模式</li>
+</ul>
+<ol start="3">
+<li>字符编码</li>
+</ol>
+<ul>
+<li>万国码 utf-8<br>包含全世界所有国家需要用到的字符</li>
+<li>中文编码 gbk<br>专门解决中文编码问题</li>
+<li>windows系统下，如果缺省，则默认为gbk（所在区域的编码）</li>
+<li>为清楚起见，除了处理二进制文件，建议不要缺省encoding</li>
+</ul>
+<h4 id="1-1-2-文件的读取"><a href="#1-1-2-文件的读取" class="headerlink" title="1.1.2 文件的读取"></a>1.1.2 文件的读取</h4><ol>
+<li><p>读取整个内容</p>
+<p>《天外天上天无涯》<br>作词：晨曦<br>作曲：飞鸟凉<br>演唱：邓丽君<br>高挂在天边一颗星儿呀，<br>能不能听到我许愿的话？<br>隐藏在心底一种情感啊，<br>能不能如同星儿一般潇洒？<br>飞到天外天上天无涯，<br>再也不必费心挣扎，<br>再也没有这些伤感的眼泪，<br>不必回答那悲欢离合的真假。<br>这一切烦忧，让它远离我身旁，<br>不必回答那心中纠缠如麻，<br>为什么不明白，我的一切执着不更改。<br>高挂在天边一颗星儿呀，<br>能不能听到我许愿的话？<br>隐藏在心底一种情感啊，<br>能不能如同星儿一般潇洒？<br>飞到天外天上天无涯，<br>再也不必费心挣扎，<br>再也没有这些伤感的眼泪，<br>不必回答那悲欢离合的真假。<br>这一切烦忧，让它远离我身旁，<br>不必回答那心中纠缠如麻，<br>为什么不明白，我的一切执着不更改。</p>
+</li>
+<li><p>逐行进行读取——f.readline()</p>
+<p>《天外天上天无涯》</p>
+<p>作词：晨曦</p>
+<p>作曲：飞鸟凉</p>
+<p>演唱：邓丽君</p>
+<p>《天外天上天无涯》<br> 作词：晨曦<br> 作曲：飞鸟凉<br> 演唱：邓丽君<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。</p>
+</li>
+<li><p>读入所有行，以每行为元素形成一个列表——f.readlines()</p>
+<p>[‘《天外天上天无涯》\n’, ‘作词：晨曦\n’, ‘作曲：飞鸟凉\n’, ‘演唱：邓丽君\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’]</p>
+<p>《天外天上天无涯》<br> 作词：晨曦<br> 作曲：飞鸟凉<br> 演唱：邓丽君<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。</p>
+</li>
+<li><p>大文件读取</p>
+</li>
+</ol>
+<p>文件比较大时，read()和readlines()占用内存过大，不建议使用</p>
+<p>readline用起来又不太方便</p>
+<pre><code>《天外天上天无涯》
+ 作词：晨曦
+ 作曲：飞鸟凉
+ 演唱：邓丽君
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+</code></pre>
+<ol start="5">
+<li>二进制文件</li>
+</ol>
+<p>图片：二进制文件</p>
+<pre><code>4028
+</code></pre>
+<h4 id="1-1-3-文件的写入"><a href="#1-1-3-文件的写入" class="headerlink" title="1.1.3 文件的写入"></a>1.1.3 文件的写入</h4><ol>
+<li>向文件写入一个字符串或字节流（二进制）——f.write()</li>
+</ol>
+<ul>
+<li>如果文件不存在则立刻创建一个</li>
+<li>如果需要换行，需要在末尾加换行符\n</li>
+<li>如果文件存在，新写入内容会覆盖原内容</li>
+</ul>
+<ol start="3">
+<li><p>将一个元素为字符串的列表整体写入文件——f.writelines()</p>
+<p>[‘《天外天上天无涯》\n’, ‘作词：晨曦\n’, ‘作曲：飞鸟凉\n’, ‘演唱：邓丽君\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’]</p>
+</li>
+</ol>
+<h4 id="1-1-4-读-写"><a href="#1-1-4-读-写" class="headerlink" title="1.1.4 读 + 写"></a>1.1.4 读 + 写</h4><ol>
+<li>‘w+’</li>
+</ol>
+<ul>
+<li><p>若文件不存在，则创建</p>
+</li>
+<li><p>若文件存在，会立刻清空原内容</p>
+<p>Celine dion的力量是爆发的，<br>但是邓的仔细听就会发现也是很有力的,<br>区别在于dion的是直接有力，<br>邓的是婉转的具有东方情怀的力量，<br>所以就会给人造成没有力量的错觉。</p>
+</li>
+</ul>
+<ol start="2">
+<li>‘r+’</li>
+</ol>
+<ul>
+<li>如果文件名不存在，则报错</li>
+<li>指针在开始</li>
+<li>要把指针移到末尾才能开始写，否则会覆盖前面内容</li>
+</ul>
+<ol start="3">
+<li>‘a+’</li>
+</ol>
+<ul>
+<li><p>若指针不存在，则创建</p>
+</li>
+<li><p>指针在末尾，添加新内容，不会清楚原内容</p>
+<p>Celine dion的力量是爆发的，<br>但是邓的仔细听就会发现也是很有力的,<br>区别在于dion的是直接有力，<br>邓的是婉转的具有东方情怀的力量，<br>所以就会给人造成没有力量的错觉。<br>邓的歌曲虽然易唱但是要唱好很难，<br>她的咬字、力量、气息各种都很优秀。<br>我觉得风格不同，<br>不过更喜欢邓的,<br>那种润物细无声的力量。<br>1984年，Jennifer Rush写下了这首《The power of love》，并亲自演唱。<br>1985年，邓丽君在日本NHK大会堂演唱了这首歌曲。<br>1993年，Celine Dion灌录了这首歌曲，并在Billboard上蝉联四周冠军。</p>
+</li>
+</ul>
+<h4 id="1-1-5-数据的存储与读取"><a href="#1-1-5-数据的存储与读取" class="headerlink" title="1.1.5 数据的存储与读取"></a>1.1.5 数据的存储与读取</h4><ul>
+<li>通用的数据结构，可以在不同语言中加载和储存</li>
+<li>本节简单了解两种数据存储结构csv和json</li>
+</ul>
+<ol>
+<li><p>csv格式</p>
+<p>由逗号将数据分开的字符序列，可以由excel打开</p>
+</li>
+</ol>
+<ul>
+<li>写入</li>
+</ul>
+<p>也可以借助cxv模块完成上述操作（Pandas库）</p>
+<p><img src="/07.%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97_files/2238488a-84d4-4630-894f-101dec9c8722.png" alt="utf-8乱码.png"></p>
+<p>encoding&#x3D;’utf-8’乱码</p>
+<p><img src="/07.%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97_files/efac8482-ca2c-4e71-b5b4-391c241d9a97.png" alt="gbk编码.png"></p>
+<p>encoding&#x3D;’ gbk’编码</p>
+<p>由于windows系统在中国地区默认设置为gbk，因此对于csv文件默认显示编码为gbk。</p>
+<p>文件若使用utf-8写入，但用gbk显示，会出现乱码。</p>
+<p>而在前面的例子中，使用记事本打开utf-8文件，可以自动识别，并将显示编码改为utf-8。</p>
+<p>excel文件只会按照预设的显示编码显示。对于csv文件也可以使用记事本打开。</p>
+<ul>
+<li><p>读取</p>
+<p>  [‘编号’, ‘ 数学成绩’, ‘语文成绩’]<br>  [‘1’, ‘100’, ‘98’]<br>  [‘2’, ‘96’, ‘99’]<br>  [‘3’, ‘97’, ‘95’]</p>
+</li>
+</ul>
+<ol start="2">
+<li>json格式</li>
+</ol>
+<p>常被用来存储字典类型</p>
+<ul>
+<li><p>写入——dump（）</p>
+</li>
+<li><p>读取——load()</p>
+<p>Oliveira 80<br>Maru 96<br>李培楠 80</p>
+</li>
+</ul>
+<h2 id="2-异常"><a href="#2-异常" class="headerlink" title="2.异常"></a>2.异常</h2><h3 id="2-1-常见异常的产生"><a href="#2-1-常见异常的产生" class="headerlink" title="2.1 常见异常的产生"></a>2.1 常见异常的产生</h3><ol>
+<li><p>除0运算——ZeroDivisionError</p>
+</li>
+<li><p>找不到可读文件——FileNotFoundError</p>
+</li>
+<li><p>值错误——ValueError</p>
+</li>
+<li><p>索引错误——IndexError</p>
+</li>
+</ol>
+<p>下标超出序列边界</p>
+<ol start="5">
+<li>类型错误——TypeError</li>
+</ol>
+<p>传入对象类型与要求不符</p>
+<ol start="6">
+<li>其他常见的异常类型</li>
+</ol>
+<p>NameError使用一个未被定义的变量</p>
+<p>KeyError试图访问字典里不存在的键</p>
+<p>…..</p>
+<p>当异常发生的时候，如果不预先设定处理方法，程序就会中断</p>
+<h3 id="2-2-异常的处理"><a href="#2-2-异常的处理" class="headerlink" title="2.2 异常的处理"></a>2.2 异常的处理</h3><p>提高程序的稳定性和可靠性</p>
+<ol>
+<li>try_except</li>
+</ol>
+<ul>
+<li><p>如果try内代码块顺利执行，except不被触发</p>
+</li>
+<li><p>如果try内代码块发生错误，触发except，执行except内代码块</p>
+</li>
+<li><p>单分支</p>
+<p>0不可以被除</p>
+</li>
+<li><p>多分支</p>
+<p>索引超出界限</p>
+</li>
+<li><p>万能异常 Exception</p>
+<p>变量名不存在</p>
+</li>
+<li><p>捕获异常的值 as</p>
+<p>list index out of range</p>
+</li>
+</ul>
+<ol start="2">
+<li>try_except_else</li>
+</ol>
+<ul>
+<li><p>如果try模块执行，则else也执行</p>
+<p>开始执行除法运算…<br>结果是：5.0<br>错误：除数不能为零！<br>错误：请输入有效的数字！</p>
+</li>
+</ul>
+<ol start="2">
+<li>try_except_finally</li>
+</ol>
+<ul>
+<li><p>无论try是否执行，finally都会执行</p>
+<p>开始执行文件读取操作…<br>尝试打开文件：example.txt<br>错误：文件 example.txt 未找到！<br>执行清理操作：关闭文件或释放资源。</p>
+<h2 id="无论成功或失败，finally块总是会执行！"><a href="#无论成功或失败，finally块总是会执行！" class="headerlink" title="无论成功或失败，finally块总是会执行！"></a>无论成功或失败，finally块总是会执行！</h2><p>尝试打开文件：nonexistent_file.txt<br>错误：文件 nonexistent_file.txt 未找到！<br>执行清理操作：关闭文件或释放资源。<br>无论成功或失败，finally块总是会执行！</p>
+</li>
+</ul>
+<h1 id="第三部分-模块"><a href="#第三部分-模块" class="headerlink" title="第三部分 模块"></a>第三部分 模块</h1><p>已经被封装好</p>
+<p>声明导入后，拿来即用</p>
+<h3 id="3-1-广义模块分类"><a href="#3-1-广义模块分类" class="headerlink" title="3.1 广义模块分类"></a>3.1 广义模块分类</h3><ol>
+<li>python内置</li>
+</ol>
+<p>时间库time&#x2F; 随机库random&#x2F; 容器数据类型collection&#x2F; 迭代器函数itertools</p>
+<ol start="2">
+<li>第三方库</li>
+</ol>
+<p>数据分析numpy、pandas&#x2F; 数据可视化matplotilb&#x2F; 机器学习scikit-learn&#x2F; 深度学习Tensorflow、PyTorch</p>
+<p>3.自定义文件</p>
+<ul>
+<li>单独的py文件</li>
+<li>包——多个py文件</li>
+</ul>
+<p>文件夹内多个py文件，再加一个__init__.py文件（内容可为空）</p>
+<pre><code>Seaborn 安装路径: D:\Program Files\anaconda\Lib\site-packages\seaborn\__init__.py
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/">http://example.com/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">宋子源的个人网站</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">又大又粗，干谁谁哭</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12.Matplotlib%E5%BA%93/" title="无标题">无标题</a><time datetime="2025-03-11T12:16:12.784Z" title="发表于 2025-03-11 20:16:12">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/test/" title="无标题">无标题</a><time datetime="2025-03-11T08:08:13.724Z" title="发表于 2025-03-11 16:08:13">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">16</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-11T12:25:14.228Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

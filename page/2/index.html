@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>宋子源的个人网站 - 祝大家越来越大</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="又大又粗，干谁谁哭">
+<meta property="og:type" content="website">
+<meta property="og:title" content="宋子源的个人网站">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="宋子源的个人网站">
+<meta property="og:description" content="又大又粗，干谁谁哭">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ziyuan.jpg">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '宋子源的个人网站',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">宋子源的个人网站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">宋子源的个人网站</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/11/04-%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" title="04.程序控制结构">04.程序控制结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-11T07:48:22.000Z" title="发表于 2025-03-11 15:48:22">2025-03-11</time></span></div><div class="content">程序控制结构非顺序式的程序控制，往往需要根据一定的条件，决定程序运行的路线。  第一部分 条件测试 比较运算  True False True True    非空   空的    逻辑运算   与、或、非   False  False  True  复合逻辑运算的优先级   非&gt;与&gt;或 True False   存在运算  元素in列表&#x2F;字符串 True False  元素not in列表&#x2F;字符串 False True  第二部分 分支结构——if语句1.单分支 if条件： 缩进的代码块  大于一百   二分支  if条件： 缩进的代码块  else: 缩进的代码块  不到一百   多分支  if 条件： 所进的代码块  elif条件: 所进的代码块  … else: 缩进的代码块  请输入你的分数（0-100）： 100   你的成绩是A级，非常优秀！   嵌套语句  第三部分 遍历循环for循环1.直接迭代——列表[]、元组()、集合{}、字符串’’ 15   变换迭代——字典  [(‘Oliveira’, 80), (‘Maru’,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/11/03-%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="03.复杂数据类型">03.复杂数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-11T07:47:59.000Z" title="发表于 2025-03-11 15:47:59">2025-03-11</time></span></div><div class="content">第一部分 列表1.1 列表1.1.1列表的表达 序列类型：内部元素有位置关系，能通过位置序号访问其中元素  列表是一个可以使用多种类型元素，支持元素的增、删、查、改等操作的序列类型   [‘Python’, 1989, {‘version’: 3.12}]  另一种产生方式：list(可迭代的对象)  可迭代的对象包括：字符串、元组、集合、range()等   字符串转列表 [&#39;我&#39;, &#39;最&#39;, &#39;喜&#39;, &#39;欢&#39;, &#39;的&#39;, &#39;歌&#39;, &#39;手&#39;, &#39;是&#39;, &#39;邓&#39;, &#39;丽&#39;, &#39;君&#39;]  元组转列表 [&#39;我&#39;, &#39;最&#39;, &#39;喜&#39;, &#39;欢&#39;, &#39;的&#39;, &#39;歌&#39;, &#39;手&#39;, &#39;是&#39;, &#39;邓&#39;, &#39;丽&#39;,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="02.基本数据类型">02.基本数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-11T07:47:26.000Z" title="发表于 2025-03-11 15:47:26">2025-03-11</time></span></div><div class="content">第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制  二进制0b、八进制0o、十六进制0x   True  十进制的转换   0b10000 0o20 0x10   str  其他进制转十进制   16 16 16   int   1.1.2 浮点数——不确定性 不确定小数问题   False   0.30000000000000004   计算机采用二进制小数来表示浮点数的小数部分  部分小数不能使用二进制完全表示  通常情况下不会影响计算精度  如果涉及严格的数值上的比较可以四舍五入   0.3   True   1.1.3 复数——a+bj 大写J和小写j都可以  虚部系数为1时，要显式写出   (2+1j)   1.2 数字运算操作符 加减乘除 + - &#x2F; *  取反 -   -1  乘方**   8  整数商&#x2F;&#x2F; 和 模运算%   2   3   几点说明  整数与浮点数运算结果为浮点数  除法运算的结果是浮点数   2.0   2.0   1.3 数字运算操作函数 绝对值abs()   5  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/05/%E5%8A%A0%E4%B8%80%E6%89%98%E7%A6%8F%E9%98%85%E8%AF%BBDAY1/" title="加一托福阅读DAY1">加一托福阅读DAY1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-05T14:33:05.000Z" title="发表于 2025-03-05 22:33:05">2025-03-05</time></span></div><div class="content">加一的托福阅读笔记Day1 读文章&amp;做题方法论总述1 托福阅读长啥样1.1 阅读所需的技能1.1.1 定位 1.1.2 同义改写 取同   取反 1.2 标准化考试的启示1.2.1 能力考试&amp;知识考试 答案一定在原文给你（常识除外） 1.2.2 正确答案&amp;最佳答案  most nearly means which one best represents  只有正确&#x2F;错误之分，没有好&#x2F;更好之分用排除法，不是用比较法 1.2.3 套路固定 文章固定（长度，题材，风格）题型固定&#x2F;问法固定选项设置固定 1.3 文章概述36 分钟里面完成 2 篇阅读没有加试一篇 700 字，每篇 10 个题目，18 分钟（包含读文章&amp;做题） 1.4 文章题材自然科学：50%社科+人文：50% 1.5 题型分类单选多选 1.6 算分问题30 题→30 分20 题→30 分 2 文章怎么读2.1 主旨2.1.1 什么是主旨 main idea &amp; topicmain idea &#x3D; Attitude +...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/05/%E5%8A%A0%E4%B8%80%E6%89%98%E7%A6%8F%E9%98%85%E8%AF%BBDAY2/" title="加一托福阅读DAY2">加一托福阅读DAY2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-05T14:33:05.000Z" title="发表于 2025-03-05 22:33:05">2025-03-05</time></span></div><div class="content">加一的托福阅读笔记Day2 词汇题&amp;句子简化题1 复习做题方法1.1 定位先读段落，做段落对应的题目上策：读文章时预测考点（主旨、视角、论证结构、爱考逻辑）中策：题干关键词（N）下策：找没有出题的地方，放弃难题 1.2 同义改写    文中有吗 和文中一致吗 是题目问的吗    正确选项 √ √ √   无中生有 × - -   偷换概念 √ × -   答非所问 √ √ ×   2 题型分类2.1 OG 分类   Basic Comprehension Factual Information 事实信息（2-5）     Negative Factual Information 否定事实信息（0-2）    Inference 推断（1-2）    Rhetoric Purpose 目的（1-2）    Vocabulary 词汇（1-2）    Reference 指代（0-2）    Sentence Simplification 句子简化（0-1）    Insert Text 句子插入（1）   Reading to Learn Prose...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/03/01-%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/" title="01-语法元素">01-语法元素</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-03-03T02:56:32.000Z" title="发表于 2025-03-03 10:56:32">2025-03-03</time></span></div><div class="content">第一部分 数据类型1.基本数据类型 ：数字、字符串、布尔1.1数字类型 int整型 整数  12   float浮点型 小数  11.2   comples 复数  11+5j  1.2字符串类型 str 字符串 视作文本 组成：由数字、字母、空格、其他字符等组合而成 表达：用””或’’  1&#x27;My favorite singer is Teresa Teng.&#x27;  1.3布尔类型 bool 布尔类型 主要用于逻辑运算  12y = 2 &lt; 1y     False  12y = 2 &gt; 1y     True  2.组合数据类型：列表、元组、字典、集合2.1 列表 list 列表  序列类型：数据有位置顺序 表示方式：[data1,data2…]  123list_test = [1,2,3,1,2,3,4,5]print(list_test)list_test[0]  [1, 2, 3, 1, 2, 3, 4, 5]      1  2.2元组 tuple元组  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/02/20/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" title="这是一个测试文件">这是一个测试文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-20T10:16:26.828Z" title="发表于 2025-02-20 18:16:26">2025-02-20</time></span></div><div class="content">一级标题：Markdown示例文档这是一个Markdown格式的示例文档，展示了Markdown的基本语法和功能。 二级标题：数学公式三级标题：积分公式积分公式是数学中的重要工具。例如，一个简单的不定积分公式如下： ∫xndx&#x3D;n+1xn+1​+C(n&#x3D;−1) 三级标题：微分公式微分公式用于描述函数的变化率。例如，函数 f(x)&#x3D;x2 的导数为： f′(x)&#x3D;dxd​(x2)&#x3D;2x 二级标题：表格示例表格可以用于展示结构化的数据。以下是一个简单的表格示例：    序号 内容 描述    1 Markdown 一种轻量级标记语言   2 LaTeX 用于排版数学公式的工具   3 GitHub Pages 用于托管静态网站的服务   二级标题：超链接超链接可以链接到其他网页或资源。例如，访问GitHub 或 查看Markdown教程。 二级标题：更多内容你可以继续添加更多内容，如图片、代码块等。Markdown的灵活性使其成为编写文档的理想选择。  希望这个示例对你有帮助！ </div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">又大又粗，干谁谁哭</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12.Matplotlib%E5%BA%93/" title="无标题">无标题</a><time datetime="2025-03-11T12:16:12.784Z" title="发表于 2025-03-11 20:16:12">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/test/" title="无标题">无标题</a><time datetime="2025-03-11T08:08:13.724Z" title="发表于 2025-03-11 16:08:13">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">16</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-11T12:25:14.228Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

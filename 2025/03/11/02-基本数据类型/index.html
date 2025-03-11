@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>02.基本数据类型 | 宋子源的个人网站</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制  二进制0b、八进制0o、十六进制0x   True  十进制的转换   0b10000 0o20 0x10   str  其他进制转十进制   16 16 16   int   1.1.2 浮点数——不确定性 不确定小数问题   False   0.30000000000000004   计算机采用二进制小数">
+<meta property="og:type" content="website">
+<meta property="og:title" content="02.基本数据类型">
+<meta property="og:url" content="http://example.com/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="宋子源的个人网站">
+<meta property="og:description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制  二进制0b、八进制0o、十六进制0x   True  十进制的转换   0b10000 0o20 0x10   str  其他进制转十进制   16 16 16   int   1.1.2 浮点数——不确定性 不确定小数问题   False   0.30000000000000004   计算机采用二进制小数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ziyuan.jpg">
+<meta property="article:published_time" content="2025-03-11T07:47:26.000Z">
+<meta property="article:modified_time" content="2025-03-11T12:17:04.234Z">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '02.基本数据类型',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'titile'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">宋子源的个人网站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">02.基本数据类型</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第一部分-数字类型"><a href="#第一部分-数字类型" class="headerlink" title="第一部分 数字类型"></a>第一部分 数字类型</h1><h2 id="1-1-数字类型的组成"><a href="#1-1-数字类型的组成" class="headerlink" title="1.1 数字类型的组成"></a>1.1 数字类型的组成</h2><h3 id="1-1-1-整数不同进制的转换"><a href="#1-1-1-整数不同进制的转换" class="headerlink" title="1.1.1 整数不同进制的转换"></a>1.1.1 整数不同进制的转换</h3><ul>
+<li><p>默认输入十进制</p>
+</li>
+<li><p>二进制0b、八进制0o、十六进制0x</p>
+<p>  True</p>
+</li>
+<li><p>十进制的转换</p>
+<p>  0b10000 0o20 0x10</p>
+<p>  str</p>
+</li>
+<li><p>其他进制转十进制</p>
+<p>  16 16 16</p>
+<p>  int</p>
+</li>
+</ul>
+<h3 id="1-1-2-浮点数——不确定性"><a href="#1-1-2-浮点数——不确定性" class="headerlink" title="1.1.2 浮点数——不确定性"></a>1.1.2 浮点数——不确定性</h3><ul>
+<li><p>不确定小数问题</p>
+<p>  False</p>
+<p>  0.30000000000000004</p>
+</li>
+</ul>
+<p>计算机采用二进制小数来表示浮点数的小数部分</p>
+<ul>
+<li><p>部分小数不能使用二进制完全表示</p>
+</li>
+<li><p>通常情况下不会影响计算精度</p>
+</li>
+<li><p>如果涉及严格的数值上的比较可以四舍五入</p>
+<p>  0.3</p>
+<p>  True</p>
+</li>
+</ul>
+<h3 id="1-1-3-复数——a-bj"><a href="#1-1-3-复数——a-bj" class="headerlink" title="1.1.3 复数——a+bj"></a>1.1.3 复数——a+bj</h3><ul>
+<li><p>大写J和小写j都可以</p>
+</li>
+<li><p>虚部系数为1时，要显式写出</p>
+<p>  (2+1j)</p>
+</li>
+</ul>
+<h2 id="1-2-数字运算操作符"><a href="#1-2-数字运算操作符" class="headerlink" title="1.2 数字运算操作符"></a>1.2 数字运算操作符</h2><ul>
+<li><p>加减乘除 + - &#x2F; *</p>
+</li>
+<li><p>取反 -</p>
+<p>  -1</p>
+</li>
+<li><p>乘方**</p>
+<p>  8</p>
+</li>
+<li><p>整数商&#x2F;&#x2F; 和 模运算%</p>
+<p>  2</p>
+<p>  3</p>
+</li>
+</ul>
+<p><strong>几点说明</strong></p>
+<ul>
+<li><p>整数与浮点数运算结果为浮点数</p>
+</li>
+<li><p>除法运算的结果是浮点数</p>
+<p>  2.0</p>
+<p>  2.0</p>
+</li>
+</ul>
+<h2 id="1-3-数字运算操作函数"><a href="#1-3-数字运算操作函数" class="headerlink" title="1.3 数字运算操作函数"></a>1.3 数字运算操作函数</h2><ul>
+<li><p>绝对值abs()</p>
+<p>  5</p>
+<p>  5.0</p>
+</li>
+<li><p>幂次方pow()</p>
+<p>  32</p>
+<p>  2</p>
+</li>
+<li><p>四舍五入round(x, n)</p>
+<p>  3</p>
+<p>  3.14</p>
+<p>  3.14159</p>
+</li>
+<li><p>整数商和模运算divmod(x, y)</p>
+</li>
+<li><p>等价于返回二元数组(x&#x2F;&#x2F;y,x%y)</p>
+<p>  (2, 3)</p>
+</li>
+<li><p>序列最大&#x2F;最小值max()&#x2F;min()</p>
+<p>  5<br>  1</p>
+</li>
+<li><p>求和sum()</p>
+<p>  15</p>
+</li>
+<li><p>借助科学计算库math和numpy数学运算库</p>
+<p>  2.718281828459045<br>  1.0<br>  2.0</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/math.html">点击了解更多math库函数</a></p>
+<pre><code>4.428571428571429
+4.0
+2.770102775666474
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/">点击了解更多numpy</a></p>
+<p>在后续的介绍中也会涉及Numpy的应用</p>
+<h1 id="第二部分-字符串类型"><a href="#第二部分-字符串类型" class="headerlink" title="第二部分 字符串类型"></a>第二部分 字符串类型</h1><h2 id="2-1-字符串的表达"><a href="#2-1-字符串的表达" class="headerlink" title="2.1 字符串的表达"></a>2.1 字符串的表达</h2><ul>
+<li><p>用””或’’括起来的任意字符</p>
+</li>
+<li><p>字符串中有单双引号的情况</p>
+<p>  I say “My favorite singer is Teresa Teng.”</p>
+</li>
+</ul>
+<p>也可以使用转义符\</p>
+<pre><code>I say &quot;My favorite singer is Teresa Teng.&quot;
+</code></pre>
+<p>转义符也可以用来换行后继续输入</p>
+<pre><code>My favorite singer is Teresa Teng.
+</code></pre>
+<h3 id="2-2-字符串的性质"><a href="#2-2-字符串的性质" class="headerlink" title="2.2 字符串的性质"></a>2.2 字符串的性质</h3><h4 id="2-2-1-字符串的索引"><a href="#2-2-1-字符串的索引" class="headerlink" title="2.2.1 字符串的索引"></a>2.2.1 字符串的索引</h4><p>索引只能获得一个字符</p>
+<pre><code>M
+f
+i
+.
+r
+</code></pre>
+<h4 id="2-2-2-字符串的切片"><a href="#2-2-2-字符串的切片" class="headerlink" title="2.2.2 字符串的切片"></a>2.2.2 字符串的切片</h4><p>变量名[开始位置:结束位置:步长]</p>
+<ul>
+<li><p>步长不设置默认为1，可以忽略。</p>
+</li>
+<li><p>切片范围不包含结束位置。</p>
+</li>
+<li><p>起始位置默认为0，可以忽略。</p>
+</li>
+<li><p>结束位置可以忽略，默认取到最后一个。</p>
+</li>
+<li><p>可以使用反向切片。</p>
+</li>
+<li><p>如果反向切片步长为负数，起始位置可忽略，默认取到第一个字符。</p>
+<p>  Pyt<br>  Pt<br>  Pyt<br>  Python<br>  Python<br>  noht<br>  nhy</p>
+</li>
+</ul>
+<h4 id="2-3-1-字符串的拼接"><a href="#2-3-1-字符串的拼接" class="headerlink" title="2.3.1 字符串的拼接"></a>2.3.1 字符串的拼接</h4><ul>
+<li><p>字符串1+字符串2</p>
+<p>  ‘My favorite singer isTeresa Teng.’</p>
+</li>
+</ul>
+<h4 id="2-3-2-字符串的成倍复制"><a href="#2-3-2-字符串的成倍复制" class="headerlink" title="2.3.2 字符串的成倍复制"></a>2.3.2 字符串的成倍复制</h4><ul>
+<li><p>字符串<em>n或n</em>字符串</p>
+<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.</p>
+<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.</p>
+</li>
+</ul>
+<h4 id="2-3-3成员运算"><a href="#2-3-3成员运算" class="headerlink" title="2.3.3成员运算"></a>2.3.3成员运算</h4><ul>
+<li>子集in全集</li>
+</ul>
+<p>任何一个连续的切片都是原字符串的子集</p>
+<pre><code>True
+
+
+
+T
+e
+r
+e
+s
+a
+ 
+T
+e
+n
+g
+</code></pre>
+<h3 id="2-4-字符串处理函数"><a href="#2-4-字符串处理函数" class="headerlink" title="2.4 字符串处理函数"></a>2.4 字符串处理函数</h3><h4 id="2-4-1-字符串的长度——len-字符串"><a href="#2-4-1-字符串的长度——len-字符串" class="headerlink" title="2.4.1 字符串的长度——len(字符串)"></a>2.4.1 字符串的长度——len(字符串)</h4><ul>
+<li><p>所含字符的个数</p>
+<p>  11</p>
+</li>
+</ul>
+<h4 id="2-4-2-字符编码"><a href="#2-4-2-字符编码" class="headerlink" title="2.4.2 字符编码"></a>2.4.2 字符编码</h4><p><strong>讲中文字库、英文字母、数字、特殊字符等转换成计算机可识别的二进制数</strong></p>
+<ul>
+<li>每个大一字符串对应一个唯一的互不重复的二进制编码</li>
+<li>Python中使用的是Unicode编码</li>
+</ul>
+<p>将字符转化为Unicode码——ord（字符）</p>
+<pre><code>73
+10084
+37011
+20029
+21531
+</code></pre>
+<p>将Unicode码转化成字符——chr(Unicode码)</p>
+<pre><code>2
+Ǵ
+ᎈ
+썐
+</code></pre>
+<h3 id="2-5-字符串的处理方法"><a href="#2-5-字符串的处理方法" class="headerlink" title="2.5 字符串的处理方法"></a>2.5 字符串的处理方法</h3><h4 id="2-5-1-字符串的分割——字符串-spllit-字符串"><a href="#2-5-1-字符串的分割——字符串-spllit-字符串" class="headerlink" title="2.5.1 字符串的分割——字符串.spllit(字符串)"></a>2.5.1 字符串的分割——字符串.spllit(字符串)</h4><ul>
+<li><p>返回一个列表</p>
+</li>
+<li><p>原字符串不变</p>
+<p>  [‘Python’, ‘C’, ‘Cpp’, ‘C#’, ‘Java’, ‘JS’, ‘Ruby’]<br>  Python C Cpp C# Java JS Ruby</p>
+</li>
+</ul>
+<h4 id="2-5-2-字符串的聚合——‘聚合字符’-join-可迭代数据类型"><a href="#2-5-2-字符串的聚合——‘聚合字符’-join-可迭代数据类型" class="headerlink" title="2.5.2 字符串的聚合——‘聚合字符’.join(可迭代数据类型)"></a>2.5.2 字符串的聚合——‘聚合字符’.join(可迭代数据类型)</h4><ul>
+<li><p>可迭代类型 如：字符串、列表</p>
+<p>  ‘1,2,3,4,5’</p>
+</li>
+<li><p>列表类型的元素必须是字符串类型</p>
+<p>  ‘1<em>2</em>3<em>4</em>5’</p>
+</li>
+</ul>
+<h4 id="2-5-3-删除两端特定字符——字符串-strip-删除字符串"><a href="#2-5-3-删除两端特定字符——字符串-strip-删除字符串" class="headerlink" title="2.5.3 删除两端特定字符——字符串.strip(删除字符串)"></a>2.5.3 删除两端特定字符——字符串.strip(删除字符串)</h4><ul>
+<li><p>strip从两侧开始搜索，遇到指定字符执行删除，遇到非指定字符，搜索停止。</p>
+</li>
+<li><p>类似的还有左删除lstrip和右删除rstrip。</p>
+<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>        My favorite singer is Teresa Teng.</p>
+</li>
+</ul>
+<h4 id="2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”"><a href="#2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”" class="headerlink" title="2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)"></a>2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)</h4><pre><code>My favorite singer is Teresa Teng.
+</code></pre>
+<h4 id="3-5-5-字符串统计——字符串-count-“待统计字符串”"><a href="#3-5-5-字符串统计——字符串-count-“待统计字符串”" class="headerlink" title="3.5.5 字符串统计——字符串.count(“待统计字符串”)"></a>3.5.5 字符串统计——字符串.count(“待统计字符串”)</h4><pre><code>s: 3
+</code></pre>
+<h4 id="3-3-5-字符串字母大小写"><a href="#3-3-5-字符串字母大小写" class="headerlink" title="3.3.5 字符串字母大小写"></a>3.3.5 字符串字母大小写</h4><ul>
+<li><p>字符串.upper()字母全部大写</p>
+</li>
+<li><p>字符串.lower()字母全部小写</p>
+</li>
+<li><p>字符串.title()首字母大写</p>
+<p>  MY FAVORITE SINGER IS TERESA TENG.<br>  my favorite singer is teresa teng.<br>  My Favorite Singer Is Teresa Teng.</p>
+</li>
+</ul>
+<h1 id="第三部分-布尔类型-TRUE-OR-FALSE"><a href="#第三部分-布尔类型-TRUE-OR-FALSE" class="headerlink" title="第三部分 布尔类型 TRUE OR FALSE"></a>第三部分 布尔类型 TRUE OR FALSE</h1><h3 id="3-1-逻辑运算结果"><a href="#3-1-逻辑运算结果" class="headerlink" title="3.1 逻辑运算结果"></a>3.1 逻辑运算结果</h3><pre><code>True
+False
+True
+True
+</code></pre>
+<ul>
+<li><p>any()——或</p>
+</li>
+<li><p>all()——与</p>
+<p>  True<br>  False</p>
+</li>
+</ul>
+<h3 id="3-2-指示条件"><a href="#3-2-指示条件" class="headerlink" title="3.2 指示条件"></a>3.2 指示条件</h3><p><strong>eg：猜数字</strong></p>
+<pre><code>请输入一个0~100的整数 28
+
+
+猜对了
+</code></pre>
+<h3 id="3-3作为掩码"><a href="#3-3作为掩码" class="headerlink" title="3.3作为掩码"></a>3.3作为掩码</h3><pre><code>[False False  True  True  True]
+
+
+
+
+
+array([3, 4, 5])
+</code></pre>
+<h1 id="第四部分-类别判别及类型转换"><a href="#第四部分-类别判别及类型转换" class="headerlink" title="第四部分 类别判别及类型转换"></a>第四部分 类别判别及类型转换</h1><h3 id="4-1-类型判别"><a href="#4-1-类型判别" class="headerlink" title="4.1 类型判别"></a>4.1 类型判别</h3><ul>
+<li><p>tpye(变量)</p>
+<p>  &lt;class ‘int’&gt;<br>  &lt;class ‘str’&gt;</p>
+</li>
+<li><p>isinstance(变量,预判类型)承认继承（在后续的关于类的介绍中谈及继承这一概念）</p>
+</li>
+<li><p>变量类型是预判类型的子类型，则为真，否则为假</p>
+<p>  True<br>  False<br>  True<br>  True</p>
+</li>
+<li><p>字符串检查方法<br>字符串.isdigit()是否只有数字组成<br>字符串.isalpha()是否只有字母组成<br>字符串.isalnum()是否只有数字和字母组成</p>
+<p>  False<br>  True<br>  True</p>
+</li>
+</ul>
+<h3 id="4-2-类型转换"><a href="#4-2-类型转换" class="headerlink" title="4.2 类型转换"></a>4.2 类型转换</h3><ul>
+<li><p>数字类型转字符串 str()</p>
+</li>
+<li><p>仅有数字组成的字符串转数字 int() float() eval()</p>
+<p>  &lt;class ‘str’&gt;</p>
+<p>  &lt;class ‘int’&gt;<br>  18<br>  &lt;class ‘float’&gt;<br>  18.0<br>  &lt;class ‘float’&gt;<br>  18.1<br>  &lt;class ‘int’&gt;<br>  18<br>  &lt;class ‘float’&gt;<br>  18.1</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">http://example.com/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">宋子源的个人网站</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">又大又粗，干谁谁哭</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12.Matplotlib%E5%BA%93/" title="无标题">无标题</a><time datetime="2025-03-11T12:16:12.784Z" title="发表于 2025-03-11 20:16:12">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/test/" title="无标题">无标题</a><time datetime="2025-03-11T08:08:13.724Z" title="发表于 2025-03-11 16:08:13">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">16</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-11T12:25:14.228Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

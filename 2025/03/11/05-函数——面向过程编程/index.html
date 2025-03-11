@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05.函数——面向过程编程 | 宋子源的个人网站</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数  将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想  利于代码的维护和管理  120   抽象成函数 120  白箱子：输入——处理——输出 三要素：参数、函数体、返回值 1.1.2 形参与实参 形参（形式参数）：函数定义时的参数，实际上就是变量名 实参（实际参数）：函数调用时的参数，实际">
+<meta property="og:type" content="website">
+<meta property="og:title" content="05.函数——面向过程编程">
+<meta property="og:url" content="http://example.com/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="宋子源的个人网站">
+<meta property="og:description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数  将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想  利于代码的维护和管理  120   抽象成函数 120  白箱子：输入——处理——输出 三要素：参数、函数体、返回值 1.1.2 形参与实参 形参（形式参数）：函数定义时的参数，实际上就是变量名 实参（实际参数）：函数调用时的参数，实际">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ziyuan.jpg">
+<meta property="article:published_time" content="2025-03-11T07:48:54.000Z">
+<meta property="article:modified_time" content="2025-03-11T12:18:28.475Z">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '05.函数——面向过程编程',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'titile'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">宋子源的个人网站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">05.函数——面向过程编程</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="1-1-函数的定义及调用"><a href="#1-1-函数的定义及调用" class="headerlink" title="1.1 函数的定义及调用"></a>1.1 函数的定义及调用</h3><h5 id="1-1-1-为什么要用函数"><a href="#1-1-1-为什么要用函数" class="headerlink" title="1.1.1 为什么要用函数"></a>1.1.1 为什么要用函数</h5><ol>
+<li><p>提高代码复用性——抽象出来，封装为函数</p>
+</li>
+<li><p>将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想</p>
+</li>
+<li><p>利于代码的维护和管理</p>
+<p> 120</p>
+</li>
+</ol>
+<p>抽象成函数</p>
+<pre><code>120
+</code></pre>
+<p><strong>白箱子：输入——处理——输出</strong></p>
+<p><strong>三要素：参数、函数体、返回值</strong></p>
+<h4 id="1-1-2-形参与实参"><a href="#1-1-2-形参与实参" class="headerlink" title="1.1.2 形参与实参"></a>1.1.2 形参与实参</h4><ul>
+<li>形参（形式参数）：函数定义时的参数，实际上就是变量名</li>
+<li>实参（实际参数）：函数调用时的参数，实际上就是变量的值</li>
+</ul>
+<ol>
+<li>位置参数</li>
+</ol>
+<ul>
+<li><p>严格按照位置顺序，用实参对形参进行赋值（关联）</p>
+</li>
+<li><p>一般用在参数比较少的时候</p>
+<p>  1 2 3</p>
+</li>
+<li><p>实参与形参个数必须一一对应，一个不能多，一个不能少</p>
+</li>
+</ul>
+<ol start="2">
+<li>关键字参数</li>
+</ol>
+<ul>
+<li><p>打破位置限制，直呼其名的进行值得传递（形参&#x3D;实参）</p>
+</li>
+<li><p>必须遵守实参与形参数量上一一对应</p>
+</li>
+<li><p>多用在参数比较多得场合</p>
+</li>
+<li><p>位置参数可以与关键字参数混合使用</p>
+</li>
+<li><p>位置参数必须放在关键字参数前面</p>
+</li>
+<li><p>不能为同一个形参重复赋值</p>
+<p>  1 3 2</p>
+</li>
+</ul>
+<ol start="3">
+<li>默认参数</li>
+</ol>
+<ul>
+<li><p>再定义阶段就给形参赋值——该形参得常用值</p>
+</li>
+<li><p>机器学习库中类得方法里非常常见</p>
+</li>
+<li><p>调用函数时，可以不对该形参传值</p>
+<p>  宋子源 18 male</p>
+</li>
+<li><p>也可以按正常得形参进行传值</p>
+<p>  邓丽君 18 female</p>
+</li>
+<li><p>位置形参必须再默认形参得前面</p>
+</li>
+<li><p>默认参数应该设置为不可变类型（数字、字符串、元组）</p>
+<p>  1917694319168<br>  1917694319168<br>  [1]</p>
+<p>  1917694319168<br>  1917694319168<br>  [1, 1]</p>
+</li>
+</ul>
+<p>id()函数返回这个对象在内存中的地址，这个地址在对象的生命周期内是唯一的，但不同的对象可能在不同的时间点拥有相同的地址（因为 Python 的内存管理机制会在对象被销毁后重新分配内存地址）</p>
+<p>因此，对于上述的function函数，以列表等可变元素作为参数，会导致在后续的操作中，对同一列表进行反复操作。</p>
+<ul>
+<li><p>让参数变成可选的</p>
+<p>  November Annabella Terra<br>  November Terra</p>
+</li>
+</ul>
+<ol start="4">
+<li>可变长参数 *args</li>
+</ol>
+<ul>
+<li><p>不知道会传多少参数*args</p>
+</li>
+<li><p>该形参必须放在参数列表的最后</p>
+<p>  1 2 3<br>  4 5 6</p>
+</li>
+<li><p>实参打散</p>
+<p>  1 2 3<br>  ([4, 5, 6],)<br>  1 2 3<br>  (4, 5, 6)</p>
+</li>
+</ul>
+<ol start="5">
+<li><p>可变长参数 **kwargs</p>
+<p> 1 2 3<br> {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
+</li>
+</ol>
+<ul>
+<li><p>字典打散实参</p>
+<p>  1 2 3<br>  {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
+</li>
+<li><p>可变长参数的组合使用</p>
+<p>  (1, 2, 3)<br>  {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
+</li>
+</ul>
+<h4 id="1-1-4-函数体与变量作用域"><a href="#1-1-4-函数体与变量作用域" class="headerlink" title="1.1.4 函数体与变量作用域"></a>1.1.4 函数体与变量作用域</h4><ul>
+<li><p>函数体就是一段只在函数被调用时，才会执行的代码，代码构成与其他代码并无不同</p>
+</li>
+<li><p>局部变量——仅在函数体内定义和发挥作用</p>
+</li>
+<li><p>全局变量——外部定义的全是全局变量</p>
+</li>
+<li><p>全局变量可以在函数体内直接被使用</p>
+<p>  18</p>
+<p>  90</p>
+</li>
+<li><p>全局变量可以使用global声明</p>
+<p>  18<br>  18</p>
+</li>
+</ul>
+<h4 id="1-1-5-返回值"><a href="#1-1-5-返回值" class="headerlink" title="1.1.5 返回值"></a>1.1.5 返回值</h4><ol>
+<li><p>单个返回值</p>
+<p> (4, 8)<br> 4<br> 8</p>
+</li>
+<li><p>可以有多个return语句，一旦执行一个，代表函数运行的结束</p>
+<p> 这是一个负数。<br> 这是零。<br> 这是一个介于1到10之间的正数。<br> 这是一个介于11到100之间的正数。<br> 这是一个大于100的正数。</p>
+<p> 嘿！没问题！宝贝儿！<br> None</p>
+</li>
+</ol>
+<h4 id="1-1-6-几点建议"><a href="#1-1-6-几点建议" class="headerlink" title="1.1.6 几点建议"></a>1.1.6 几点建议</h4><ol>
+<li>函数及其参数的命名参照变量的命名</li>
+</ol>
+<ul>
+<li>字母小写及下划线组合</li>
+<li>具有实际意义</li>
+</ul>
+<ol start="2">
+<li>应包含简要阐述函数功能的注释，注释紧跟函数定义后面</li>
+<li>函数定义前后各空两行</li>
+<li>默认参数赋值等号两侧不需要加空格</li>
+</ol>
+<h3 id="1-2-函数编程实例"><a href="#1-2-函数编程实例" class="headerlink" title="1.2 函数编程实例"></a>1.2 函数编程实例</h3><p><strong>【问题描述】</strong></p>
+<ul>
+<li><p>阿丹和阿伟都是羽毛球运动员，水平相近，但阿丹的水平略高一点，每打100个球，阿丹赢52个，阿伟赢48个。</p>
+</li>
+<li><p>但每次大型比赛（三局两胜，采取21分制），阿丹赢的概率远大于阿伟。</p>
+</li>
+<li><p>通过模拟实验，来解释其中原因。</p>
+<p>  请输入运动员阿丹的每球的胜率（0<del>1）： 0.52<br>  请输入运动员阿伟的每球的胜率（0</del>1）： 0.48<br>  请输入模拟的场次： 1000</p>
+<p>  模拟比赛总次数： 1000<br>  运动员阿丹的每球的胜率 0.52<br>  运动员阿伟的每球的胜率 0.48<br>  共模拟1000场比赛<br>  运动员阿丹获胜596场，占比59.6%<br>  运动员阿伟获胜404场，占比40.4%</p>
+</li>
+</ul>
+<p>林丹与李宗伟的职业生涯中，共交手40次，林丹胜28场，李宗伟胜12场。</p>
+<h4 id="1-2-1-断言"><a href="#1-2-1-断言" class="headerlink" title="1.2.1 断言"></a>1.2.1 断言</h4><ul>
+<li>assert expression</li>
+<li>表达式结构为false的时候出发异常</li>
+</ul>
+<h3 id="1-3-匿名函数"><a href="#1-3-匿名函数" class="headerlink" title="1.3 匿名函数"></a>1.3 匿名函数</h3><ol>
+<li>基本形式</li>
+</ol>
+<p>lambda变量:函数体  </p>
+<ol start="3">
+<li>常用用法</li>
+</ol>
+<p>在参数列表中最适合使用匿名函数，尤其是与key &#x3D; 搭配</p>
+<ul>
+<li><p>排序sort()sorted()</p>
+<p>  [(20, 100), (40, 66), (93, 88), (99, 101)]</p>
+<p>  [(99, 101), (93, 88), (20, 100), (40, 66)]</p>
+</li>
+</ul>
+<h3 id="1-4-面向对象编程和面向过程编程"><a href="#1-4-面向对象编程和面向过程编程" class="headerlink" title="1.4 面向对象编程和面向过程编程"></a>1.4 面向对象编程和面向过程编程</h3><h4 id="1-4-1-面向对象编程（oop）"><a href="#1-4-1-面向对象编程（oop）" class="headerlink" title="1.4.1 面向对象编程（oop）"></a>1.4.1 面向对象编程（oop）</h4><p>面向对象编程是一种以“对象”为中心的编程范式，它将现实世界中的事物抽象为“对象”，并通过对象之间的交互来实现程序的功能。核心概念包括：</p>
+<ul>
+<li>对象（Object）：对象是类的实例，它封装了数据（属性）和行为（方法）。例如，一个“汽车”对象可以有颜色、速度等属性，以及加速、刹车等方法。</li>
+<li>类（Class）：类是对象的模板，它定义了对象的结构和行为。所有属于该类的对象都共享相同的属性和方法。例如，“汽车”类可以定义所有汽车对象的通用特征。</li>
+<li>封装（Encapsulation）：封装是将对象的属性和方法封装在一起，隐藏内部实现细节，只通过接口（方法）与外界交互。封装可以保护对象的数据不被外部直接访问，提高代码的安全性和可维护性。</li>
+<li>继承（Inheritance）：继承允许一个类（子类）继承另一个类（父类）的属性和方法，从而实现代码的复用。子类可以扩展或修改父类的行为。例如，“电动汽车”类可以继承“汽车”类的属性和方法。</li>
+<li>多态（Polymorphism）：多态允许不同类的对象对同一消息做出响应，即同一个方法可以在不同的对象中有不同的实现。例如，不同类型的动物对象都可以调用“叫”这个方法，但具体的行为（如狗叫“汪汪”，猫叫“喵喵”）是不同的。</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>抽象性：通过类和对象对现实世界进行建模，便于理解和设计。</li>
+<li>复用性：通过继承和类的复用，减少重复代码。</li>
+<li>可维护性：封装和模块化使得代码更容易维护和扩展。</li>
+</ul>
+<h4 id="1-4-2-面向过程编程（pp）"><a href="#1-4-2-面向过程编程（pp）" class="headerlink" title="1.4.2 面向过程编程（pp）"></a>1.4.2 面向过程编程（pp）</h4><p>面向过程编程是一种以“过程”为中心的编程范式，它将程序分解为一系列的步骤（过程），通过函数或模块来实现每个步骤，然后按顺序执行这些步骤来完成任务。PP 的核心是“过程调用”，即通过函数的调用和返回来实现程序的逻辑。</p>
+<p>特点：</p>
+<ul>
+<li>过程抽象：将复杂的任务分解为多个小的子任务（函数），每个函数完成一个具体的任务。</li>
+<li>顺序执行：程序按照一定的顺序调用函数，逐步完成任务。</li>
+<li>简单直接：代码逻辑清晰，易于理解和实现，适合初学者。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/">http://example.com/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">宋子源的个人网站</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">又大又粗，干谁谁哭</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12.Matplotlib%E5%BA%93/" title="无标题">无标题</a><time datetime="2025-03-11T12:16:12.784Z" title="发表于 2025-03-11 20:16:12">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/test/" title="无标题">无标题</a><time datetime="2025-03-11T08:08:13.724Z" title="发表于 2025-03-11 16:08:13">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">16</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-11T12:25:14.228Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
