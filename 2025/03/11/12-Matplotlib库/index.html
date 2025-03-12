@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>12.Matplotlib库 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Matplotlib库0.1 加州房价数据集下载0.2 设置样式[&lt;matplotlib.lines.Line2D at 0x1d2f2b21f40&gt;]  ​​     [&#39;Solarize_Light2&#39;,  &#39;_classic_test_patch&#39;,  &#39;_mpl-gallery&#39;,  &#39;_mpl-gallery-nogri">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>12.Matplotlib库 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Matplotlib库0.1 加州房价数据集下载123#import kagglehub#path &#x3D; kagglehub.dataset_download(&quot;samsonqian&#x2F;california-housing&quot;)#print(&quot;Path to dataset files:&quot;, path)  0.2 设置样式123import matplotlib.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="12.Matplotlib库">
 <meta property="og:url" content="https://ziyuan0315.github.io/2025/03/11/12-Matplotlib%E5%BA%93/index.html">
 <meta property="og:site_name" content="‘太湖之光也有报错的情况&#39;">
-<meta property="og:description" content="Matplotlib库0.1 加州房价数据集下载0.2 设置样式[&lt;matplotlib.lines.Line2D at 0x1d2f2b21f40&gt;]  ​​     [&#39;Solarize_Light2&#39;,  &#39;_classic_test_patch&#39;,  &#39;_mpl-gallery&#39;,  &#39;_mpl-gallery-nogri">
+<meta property="og:description" content="Matplotlib库0.1 加州房价数据集下载123#import kagglehub#path &#x3D; kagglehub.dataset_download(&quot;samsonqian&#x2F;california-housing&quot;)#print(&quot;Path to dataset files:&quot;, path)  0.2 设置样式123import matplotlib.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg">
 <meta property="article:published_time" content="2025-03-11T07:52:21.000Z">
-<meta property="article:modified_time" content="2025-03-11T12:24:42.032Z">
+<meta property="article:modified_time" content="2025-03-12T08:42:41.235Z">
 <meta property="article:author" content="ZI YUAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ziyuan0315.github.io/2025/03/11/12-Matplotlib%E5%BA%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -143,9 +143,13 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'title'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">12.Matplotlib库</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Matplotlib库"><a href="#Matplotlib库" class="headerlink" title="Matplotlib库"></a>Matplotlib库</h1><h2 id="0-1-加州房价数据集下载"><a href="#0-1-加州房价数据集下载" class="headerlink" title="0.1 加州房价数据集下载"></a>0.1 加州房价数据集下载</h2><h2 id="0-2-设置样式"><a href="#0-2-设置样式" class="headerlink" title="0.2 设置样式"></a>0.2 设置样式</h2><pre><code>[&lt;matplotlib.lines.Line2D at 0x1d2f2b21f40&gt;]
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_5_1.png" alt="png"><br>​    </p>
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">12.Matplotlib库</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Matplotlib库"><a href="#Matplotlib库" class="headerlink" title="Matplotlib库"></a>Matplotlib库</h1><h2 id="0-1-加州房价数据集下载"><a href="#0-1-加州房价数据集下载" class="headerlink" title="0.1 加州房价数据集下载"></a>0.1 加州房价数据集下载</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import kagglehub</span></span><br><span class="line"><span class="comment">#path = kagglehub.dataset_download(&quot;samsonqian/california-housing&quot;)</span></span><br><span class="line"><span class="comment">#print(&quot;Path to dataset files:&quot;, path)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0-2-设置样式"><a href="#0-2-设置样式" class="headerlink" title="0.2 设置样式"></a>0.2 设置样式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">y = [<span class="number">1</span> ,<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>]</span><br><span class="line">plt.ylabel(<span class="string">&#x27;squares&#x27;</span>)</span><br><span class="line">plt.plot(x,y)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_5_1.png" alt="png"><br>    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.style.available</span><br></pre></td></tr></table></figure></p>
 <pre><code>[&#39;Solarize_Light2&#39;,
  &#39;_classic_test_patch&#39;,
  &#39;_mpl-gallery&#39;,
@@ -175,309 +179,341 @@
  &#39;seaborn-v0_8-whitegrid&#39;,
  &#39;tableau-colorblind10&#39;]
 </code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_7_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> plt.style.context(<span class="string">&#x27;seaborn-v0_8-dark-palette&#x27;</span>):</span><br><span class="line">    plt.plot(x,y)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_7_0.png" alt="png"><br>​    </p>
 <p>如果想永久设置样式，可以用下面方法</p>
-<h2 id="0-3-图像另存为"><a href="#0-3-图像另存为" class="headerlink" title="0.3 图像另存为"></a>0.3 图像另存为</h2><p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_11_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plt.style.use(&#x27;seaborn-v0_8-dark-palette&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0-3-图像另存为"><a href="#0-3-图像另存为" class="headerlink" title="0.3 图像另存为"></a>0.3 图像另存为</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">100</span>)</span><br><span class="line">plt.plot(x, np.exp(x))</span><br><span class="line">plt.savefig(<span class="string">&#x27;image.png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_11_0.png" alt="png"><br>​    </p>
 <p>注意代码调用顺序，plt.show() 会清空当前的绘图缓冲区，因此在调用 plt.show() 之后，plt.savefig() 将无法保存任何内容。这两个函数写反了会导致保存一张空白图像。</p>
-<h1 id="1-matplotlib-库"><a href="#1-matplotlib-库" class="headerlink" title="1. matplotlib 库"></a>1. matplotlib 库</h1><h2 id="1-1-折线图"><a href="#1-1-折线图" class="headerlink" title="1.1 折线图"></a>1.1 折线图</h2><p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_15_0.png" alt="png"><br>​    </p>
-<p><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_16_0.png" alt="png"></p>
-<p><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_17_0.png" alt="png"></p>
+<h1 id="1-matplotlib-库"><a href="#1-matplotlib-库" class="headerlink" title="1. matplotlib 库"></a>1. matplotlib 库</h1><h2 id="1-1-折线图"><a href="#1-1-折线图" class="headerlink" title="1.1 折线图"></a>1.1 折线图</h2>   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)   <span class="comment"># 取一百个点</span></span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_15_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">10</span>)    <span class="comment"># 取十个点</span></span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_16_0.png" alt="png">   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)    </span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.plot(x, np.cos(x))     <span class="comment"># 绘制多条曲线</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_17_0.png" alt="png"></p>
 <h3 id="1-1-1-调整线条颜色与风格"><a href="#1-1-1-调整线条颜色与风格" class="headerlink" title="1.1.1 调整线条颜色与风格"></a>1.1.1 调整线条颜色与风格</h3><ul>
 <li>调整线条颜色</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_19_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">offsets = np.linspace(<span class="number">0</span>, np.pi, <span class="number">5</span>)</span><br><span class="line">colors = [<span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>, <span class="string">&#x27;pink&#x27;</span>]   <span class="comment"># 颜色可以缩写用首字母代替</span></span><br><span class="line"><span class="keyword">for</span> offset, color <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, colors):</span><br><span class="line">    plt.plot(x, np.sin(x-offset), color=color)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_19_0.png" alt="png"><br>​    </p>
 <ul>
 <li>调整线条风格</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_21_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">8</span>))</span><br><span class="line">linestyles = [<span class="string">&#x27;solid&#x27;</span>, <span class="string">&#x27;dashed&#x27;</span>, <span class="string">&#x27;dashdot&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;--&#x27;</span>, <span class="string">&#x27;-.&#x27;</span>, <span class="string">&#x27;:&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> offset, linestyle <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, linestyles):</span><br><span class="line">    plt.plot(x, x+offset, linestyle = linestyle)     <span class="comment"># linestyle可以简写为ls</span></span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_21_0.png" alt="png"><br>​    </p>
 <ul>
 <li>调整线宽</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_23_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets =<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">12</span>, <span class="number">3</span>))</span><br><span class="line">linewidths = (i*<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line"><span class="keyword">for</span> offset, linewidth <span class="keyword">in</span> <span class="built_in">zip</span>(offsets,linewidths):</span><br><span class="line">    plt.plot(x, x+offset, linewidth = linewidth)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_23_0.png" alt="png"><br>​    </p>
 <ul>
 <li>调整数据点标记</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_25_0.png" alt="png"><br>​    </p>
-<p><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_26_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">12</span>, <span class="number">3</span>))</span><br><span class="line">markers = [<span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;s&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> offset, marker <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, markers):</span><br><span class="line">    plt.plot(x, x+offset, marker=marker)      <span class="comment"># markersize可以简写为ms</span></span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_25_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">12</span>, <span class="number">3</span>))</span><br><span class="line">markers = [<span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;s&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> offset, marker <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, markers):</span><br><span class="line">    plt.plot(x, x+offset, marker=marker, markersize = <span class="number">10</span>)      <span class="comment"># markersize可以简写为ms</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_26_0.png" alt="png"></p>
 <ul>
 <li>颜色跟风格设置的简写</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_28_0.png" alt="png"><br>​    </p>
-<p><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_29_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">8</span>, <span class="number">2</span>))</span><br><span class="line">color_linestyles = [<span class="string">&#x27;g--&#x27;</span>, <span class="string">&#x27;b-&#x27;</span>, <span class="string">&#x27;k-&#x27;</span>, <span class="string">&#x27;r:&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> offset, color_linestyle <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, color_linestyles):</span><br><span class="line">    plt.plot(x, x+offset, color_linestyle)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_28_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">11</span>)</span><br><span class="line">offsets = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">8</span>, <span class="number">2</span>))</span><br><span class="line">color_marker_linestyles = [<span class="string">&#x27;g*-&#x27;</span>, <span class="string">&#x27;b+--&#x27;</span>, <span class="string">&#x27;ko-.&#x27;</span>, <span class="string">&#x27;rs:&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> offset, color_marker_linestyle <span class="keyword">in</span> <span class="built_in">zip</span>(offsets, color_marker_linestyles):</span><br><span class="line">    plt.plot(x, x+offset, color_marker_linestyle)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_29_0.png" alt="png"></p>
 <h3 id="1-1-2-调整坐标轴"><a href="#1-1-2-调整坐标轴" class="headerlink" title="1.1.2 调整坐标轴"></a>1.1.2 调整坐标轴</h3><ul>
-<li><p>xlim, ylim</p>
-<p>  (-1.5, 1.5)</p>
-</li>
+<li>xlim, ylim</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_31_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)   <span class="comment"># 取一百个点</span></span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.xlim(-<span class="number">1</span>,<span class="number">7</span>)</span><br><span class="line">plt.ylim(-<span class="number">1.5</span>,<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_31_1.png" alt="png"></p>
 <ul>
-<li><p>axis</p>
-<p>  (-2.0, 8.0, -2.0, 2.0)</p>
-</li>
+<li>axis</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_33_1.png" alt="png"><br>​    </p>
-<pre><code>(-0.3141592653589793,
- 6.5973445725385655,
- -1.0998615404412626,
- 1.0998615404412626)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_34_1.png" alt="png"><br>​    </p>
-<pre><code>(-0.3141592653589793,
- 6.5973445725385655,
- -1.0998615404412626,
- 1.0998615404412626)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_35_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.axis([-<span class="number">2</span>, <span class="number">8</span>, -<span class="number">2</span>, <span class="number">2</span>])      <span class="comment"># 前两个参数设置x后两个参数设置y</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_33_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.axis(<span class="string">&#x27;tight&#x27;</span>)      <span class="comment"># 紧凑</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_34_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.axis(<span class="string">&#x27;equal&#x27;</span>)      <span class="comment"># 扁平</span></span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_35_1.png" alt="png"><br>​    </p>
 <ul>
 <li>对数坐标</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_37_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.logspace(<span class="number">0</span>, <span class="number">5</span>, <span class="number">100</span>)</span><br><span class="line">plt.plot(x, np.log(x))</span><br><span class="line">plt.xscale(<span class="string">&#x27;log&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>   <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_37_0.png" alt="png"></p>
 <ul>
-<li><p>调整坐标轴刻度</p>
-<p>  ([&lt;matplotlib.axis.XTick at 0x1d2f42bd9d0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f42bd4f0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f3e4ec90&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f42ff8f0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431c470&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431cdd0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431d790&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f42ff5c0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431deb0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431e780&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431f0b0&gt;,<br>&lt;matplotlib.axis.XTick at 0x1d2f431f9e0&gt;],<br>   [Text(0, 0, ‘0’),<br>Text(1, 0, ‘1’),<br>Text(2, 0, ‘2’),<br>Text(3, 0, ‘3’),<br>Text(4, 0, ‘4’),<br>Text(5, 0, ‘5’),<br>Text(6, 0, ‘6’),<br>Text(7, 0, ‘7’),<br>Text(8, 0, ‘8’),<br>Text(9, 0, ‘9’),<br>Text(10, 0, ‘10’),<br>Text(11, 0, ‘11’)])</p>
-</li>
+<li>调整坐标轴刻度</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_39_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">plt.plot(x, x**<span class="number">2</span>)</span><br><span class="line">plt.xticks(np.arange(<span class="number">0</span>, <span class="number">12</span>, step=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_39_1.png" alt="png"></p>
 <ul>
 <li>调整刻度样式</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_41_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">plt.plot(x, x**<span class="number">2</span>)</span><br><span class="line">plt.tick_params(axis=<span class="string">&#x27;both&#x27;</span>, labelsize=<span class="number">15</span>)  <span class="comment"># 改变了字体的大小</span></span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_41_0.png" alt="png"><br>​    </p>
 <ul>
-<li><p>设置图形标签</p>
-<p>  Text(0, 0.5, ‘sin(x)’)</p>
-</li>
+<li>设置图形标签</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_43_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, np.sin(x))</span><br><span class="line">plt.title(<span class="string">&#x27;A Sine Curve&#x27;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>, fontsize=<span class="number">15</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;sin(x)&#x27;</span>, fontsize=<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_43_1.png" alt="png"></p>
 <ul>
 <li>设图例</li>
 </ul>
 <p>默认</p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1d2f4842960&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_45_1.png" alt="png"><br>​    </p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1d2f4937e60&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_46_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)    </span><br><span class="line">plt.plot(x, np.sin(x), <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;Sin&#x27;</span>) </span><br><span class="line">plt.plot(x, np.cos(x), <span class="string">&#x27;r--&#x27;</span>, label=<span class="string">&#x27;Cos&#x27;</span>)   </span><br><span class="line">plt.legend()   <span class="comment"># 显示图例</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_45_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)    </span><br><span class="line">plt.plot(x, np.sin(x), <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;Sin&#x27;</span>) </span><br><span class="line">plt.plot(x, np.cos(x), <span class="string">&#x27;r--&#x27;</span>, label=<span class="string">&#x27;Cos&#x27;</span>)   </span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper center&#x27;</span>,  <span class="comment"># 位置 </span></span><br><span class="line">          frameon=<span class="literal">False</span>,    <span class="comment"># 边框</span></span><br><span class="line">           fontsize=<span class="number">15</span>)     <span class="comment"># 大小</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_46_1.png" alt="png"></p>
 <ul>
-<li><p>添加文字和箭头</p>
-<p>  Text(3.5, 0.5, ‘y&#x3D;sin(x)’)</p>
-</li>
+<li>添加文字和箭头</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_48_1.png" alt="png"><br>​    </p>
-<pre><code>Text(4.5, 0, &#39;This is an arrow&#39;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_49_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)    </span><br><span class="line">plt.plot(x, np.sin(x), <span class="string">&#x27;b-&#x27;</span>) </span><br><span class="line">plt.text(<span class="number">3.5</span>, <span class="number">0.5</span>,     <span class="comment"># 位置</span></span><br><span class="line">         <span class="string">&#x27;y=sin(x)&#x27;</span>,   <span class="comment"># 内容</span></span><br><span class="line">         fontsize=<span class="number">15</span>)  <span class="comment"># 大小</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_48_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)    </span><br><span class="line">plt.plot(x, np.sin(x), <span class="string">&#x27;b-&#x27;</span>) </span><br><span class="line">plt.annotate(<span class="string">&quot;This is an arrow&quot;</span>,</span><br><span class="line">             xy=(<span class="number">1.5</span>*np.pi, -<span class="number">1</span>),        <span class="comment"># 箭头指向的位置</span></span><br><span class="line">             xytext=(<span class="number">4.5</span>, <span class="number">0</span>),   <span class="comment"># 文本的位置</span></span><br><span class="line">             arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;black&#x27;</span>, shrink=<span class="number">0.05</span>, width=<span class="number">2</span>, headwidth=<span class="number">6</span>, headlength=<span class="number">8</span>))</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_49_1.png" alt="png"></p>
 <h2 id="1-2-散点图"><a href="#1-2-散点图" class="headerlink" title="1.2 散点图"></a>1.2 散点图</h2><ul>
-<li><p>简单散点图</p>
-<p>  &lt;matplotlib.collections.PathCollection at 0x1d2f3fbe990&gt;</p>
-</li>
+<li>简单散点图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_52_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">20</span>)</span><br><span class="line">plt.scatter(x, np.sin(x), marker=<span class="string">&#x27;o&#x27;</span>, s=<span class="number">30</span>, c=<span class="string">&#x27;r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_52_1.png" alt="png"></p>
 <ul>
-<li><p>颜色配置</p>
-<p>  &lt;matplotlib.colorbar.Colorbar at 0x1d2f2c2c9b0&gt;</p>
-</li>
+<li>颜色配置</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_54_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">y = x**<span class="number">2</span></span><br><span class="line">plt.scatter(x, y, c=y, cmap=<span class="string">&#x27;inferno&#x27;</span>)</span><br><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_54_1.png" alt="png"></p>
 <ul>
-<li><p>根据数据控制点的大小</p>
-<p>  &lt;matplotlib.collections.PathCollection at 0x1d2f2b37350&gt;</p>
-</li>
+<li>根据数据控制点的大小</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_56_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x, y, colors, size = (np.random.rand(<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>))</span><br><span class="line">plt.scatter(x, y, c=colors, s=<span class="number">1000</span>*size, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_56_1.png" alt="png"></p>
 <ul>
-<li><p>透明度</p>
-<p>  &lt;matplotlib.colorbar.Colorbar at 0x1d2f43ffe90&gt;</p>
-</li>
+<li>透明度</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_58_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x, y, colors, size = (np.random.rand(<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>))</span><br><span class="line">plt.scatter(x, y, c=colors, s=<span class="number">1000</span>*size, cmap=<span class="string">&#x27;viridis&#x27;</span>, alpha=<span class="number">0.4</span>)</span><br><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_58_1.png" alt="png"></p>
 <p>【例】随机漫步，两种实现方式（回到前面所说的面向过程和面向对象的差异）</p>
 <p>随机漫步的基本思想是从一个初始位置开始，每一步随机选择一个方向（通常是上下左右或任意角度），并移动一定的距离。以下代码实现了一个简单的二维随机漫步，并用散点图绘制结果。</p>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_60_0.png" alt="png"><br>​    </p>
-<pre><code>([], [])
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_61_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line">num_steps = <span class="number">1000</span>  <span class="comment"># 随机漫步的步数</span></span><br><span class="line">start_position = (<span class="number">0</span>, <span class="number">0</span>)  <span class="comment"># 初始位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成随机漫步路径</span></span><br><span class="line">x = np.zeros(num_steps)  <span class="comment"># 存储每一步的 x 坐标</span></span><br><span class="line">y = np.zeros(num_steps)  <span class="comment"># 存储每一步的 y 坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始位置</span></span><br><span class="line">x[<span class="number">0</span>], y[<span class="number">0</span>] = start_position</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机漫步过程</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, num_steps):</span><br><span class="line">    <span class="comment"># 随机选择方向（上下左右）</span></span><br><span class="line">    direction = np.random.choice([<span class="string">&#x27;up&#x27;</span>, <span class="string">&#x27;down&#x27;</span>, <span class="string">&#x27;left&#x27;</span>, <span class="string">&#x27;right&#x27;</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> direction == <span class="string">&#x27;up&#x27;</span>:</span><br><span class="line">        y[i] = y[i - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">        x[i] = x[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">&#x27;down&#x27;</span>:</span><br><span class="line">        y[i] = y[i - <span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">        x[i] = x[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">&#x27;left&#x27;</span>:</span><br><span class="line">        x[i] = x[i - <span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">        y[i] = y[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">&#x27;right&#x27;</span>:</span><br><span class="line">        x[i] = x[i - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">        y[i] = y[i - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制散点图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">8</span>))</span><br><span class="line">plt.scatter(x, y, s=<span class="number">10</span>, c=np.arange(num_steps), cmap=<span class="string">&#x27;viridis&#x27;</span>, alpha=<span class="number">0.7</span>)</span><br><span class="line">plt.colorbar(label=<span class="string">&#x27;Step Number&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Random Walk with Scatter Plot&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;X Position&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Y Position&quot;</span>)</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_60_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RandomWalk</span>():</span><br><span class="line"><span class="comment">#     &#x27;&#x27;&#x27;生成一个随机漫步的类&#x27;&#x27;&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,num_points=<span class="number">5000</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.num_points = num_points</span><br><span class="line">        <span class="variable language_">self</span>.x_values = [<span class="number">0</span>]</span><br><span class="line">        <span class="variable language_">self</span>.y_values = [<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fill_walk</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.x_values) &lt; <span class="variable language_">self</span>.num_points:</span><br><span class="line">            x_direction = choice([-<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">            x_distance = choice([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">            x_step = x_direction*x_distance</span><br><span class="line">            </span><br><span class="line">            y_direction = choice([-<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">            y_distance = choice([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">            y_step = y_direction*y_distance</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> x_step ==<span class="number">0</span> <span class="keyword">or</span> y_step == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            next_x = <span class="variable language_">self</span>.x_values[-<span class="number">1</span>] + x_step</span><br><span class="line">            next_y = <span class="variable language_">self</span>.y_values[-<span class="number">1</span>] + y_step</span><br><span class="line">            <span class="variable language_">self</span>.x_values.append(next_x)</span><br><span class="line">            <span class="variable language_">self</span>.y_values.append(next_y)</span><br><span class="line"> </span><br><span class="line">            </span><br><span class="line">rw = RandomWalk(<span class="number">10000</span>)</span><br><span class="line">rw.fill_walk()</span><br><span class="line">point_numbers = <span class="built_in">list</span>(<span class="built_in">range</span>(rw.num_points))</span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>,<span class="number">6</span>))   <span class="comment">#设置画布的大小</span></span><br><span class="line">plt.scatter(rw.x_values, rw.y_values, c=point_numbers,cmap=<span class="string">&quot;inferno&quot;</span>,s=<span class="number">1</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.scatter(<span class="number">0</span>,<span class="number">0</span>,c=<span class="string">&quot;green&quot;</span>,s=<span class="number">100</span>)</span><br><span class="line">plt.scatter(rw.x_values[-<span class="number">1</span>],rw.y_values[-<span class="number">1</span>],c=<span class="string">&quot;red&quot;</span>,s=<span class="number">100</span>)</span><br><span class="line"> </span><br><span class="line">plt.xticks([])</span><br><span class="line">plt.yticks([])</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_61_1.png" alt="png"></p>
 <p>这个demo一方面表示plt的散点图和其他一些基本函数的使用，另一方面也想回顾前面内容所介绍的两种编程方式的差异。我在这里起到抛砖引玉的作用，旨在具象化随机漫步。两个段demo并不完美，也请刚刚接触plt和python的朋友动手写一写，或在这两段代码的基础上加一改进。</p>
-<h2 id="1-3-柱形图"><a href="#1-3-柱形图" class="headerlink" title="1.3 柱形图"></a>1.3 柱形图</h2><pre><code>Text(0, 0.5, &#39;Values&#39;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_64_1.png" alt="png"><br>​    </p>
-<pre><code>Text(0, 0.5, &#39;Values&#39;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_65_1.png" alt="png"><br>​    </p>
-<p><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_66_0.png" alt="png"></p>
+<h2 id="1-3-柱形图"><a href="#1-3-柱形图" class="headerlink" title="1.3 柱形图"></a>1.3 柱形图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line">plt.bar(x, <span class="number">2</span>*x, color=<span class="string">&#x27;skyblue&#x27;</span>, edgecolor=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        align=<span class="string">&#x27;center&#x27;</span>, width=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Example Bar Chart&quot;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Categories&quot;</span>, fontsize=<span class="number">12</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Values&quot;</span>, fontsize=<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_64_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line">plt.bar(x, <span class="number">2</span>*x, color=<span class="string">&#x27;skyblue&#x27;</span>, edgecolor=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        align=<span class="string">&#x27;center&#x27;</span>, width=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Example Bar Chart&quot;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.xticks(x,(<span class="string">&#x27;G1&#x27;</span>, <span class="string">&#x27;G2&#x27;</span>, <span class="string">&#x27;G3&#x27;</span>, <span class="string">&#x27;G4&#x27;</span>, <span class="string">&#x27;G5&#x27;</span>))</span><br><span class="line">plt.tick_params(axis=<span class="string">&#x27;both&#x27;</span>, labelsize=<span class="number">13</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Categories&quot;</span>, fontsize=<span class="number">12</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Values&quot;</span>, fontsize=<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_65_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">&#x27;G&#x27;</span>+<span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line">y = <span class="number">1</span>/(<span class="number">1</span>+np.exp(-np.arange(<span class="number">5</span>)))</span><br><span class="line"></span><br><span class="line">colors = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;gray&#x27;</span>]</span><br><span class="line">plt.bar(x, y, color=colors, edgecolor=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        align=<span class="string">&#x27;center&#x27;</span>, width=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.tick_params(axis=<span class="string">&#x27;both&#x27;</span>, labelsize=<span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_66_0.png" alt="png"></p>
 <ul>
-<li><p>累加柱状图</p>
-<p>  &lt;matplotlib.legend.Legend at 0x1d2f645ef60&gt;</p>
-</li>
+<li>累加柱状图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_68_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="number">5</span>)</span><br><span class="line">y1 = np.random.randint(<span class="number">20</span>, <span class="number">30</span>, size=<span class="number">5</span>)</span><br><span class="line">y2 = np.random.randint(<span class="number">20</span>, <span class="number">30</span>, size=<span class="number">5</span>)</span><br><span class="line">plt.bar(x, y1, width=<span class="number">0.5</span>, label=<span class="string">&#x27;man&#x27;</span>)</span><br><span class="line">plt.bar(x, y2, width=<span class="number">0.5</span>, label=<span class="string">&#x27;woman&#x27;</span>, bottom=y1)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_68_1.png" alt="png"></p>
 <ul>
-<li><p>并列柱状图</p>
-<p>  &lt;matplotlib.legend.Legend at 0x1d2f7b049e0&gt;</p>
-</li>
+<li>并列柱状图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_70_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="number">15</span>)</span><br><span class="line">y1 = x+<span class="number">1</span></span><br><span class="line">y2 = y1+np.random.random(<span class="number">15</span>)</span><br><span class="line">plt.bar(x, y1, width=<span class="number">0.3</span>, label=<span class="string">&#x27;man&#x27;</span>)</span><br><span class="line">plt.bar(x+<span class="number">0.3</span>, y2, width=<span class="number">0.3</span>, label=<span class="string">&#x27;woman&#x27;</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_70_1.png" alt="png"></p>
 <ul>
 <li>横向柱状图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_72_0.png" alt="png"><br>​    </p>
-<h1 id="1-4-多子图"><a href="#1-4-多子图" class="headerlink" title="1.4 多子图"></a>1.4 多子图</h1><ul>
-<li><p>简单多子图</p>
-<p>  Text(0, 0.5, ‘Undamped’)</p>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = (<span class="string">&#x27;G1&#x27;</span>, <span class="string">&#x27;G2&#x27;</span>, <span class="string">&#x27;G3&#x27;</span>, <span class="string">&#x27;G4&#x27;</span>, <span class="string">&#x27;G5&#x27;</span>)</span><br><span class="line">y = <span class="number">2</span> * np.arange(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line">plt.barh(x, y, color=<span class="string">&#x27;b&#x27;</span>, edgecolor=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        align=<span class="string">&#x27;center&#x27;</span>, height=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.tick_params(axis=<span class="string">&#x27;both&#x27;</span>, labelsize=<span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_72_0.png" alt="png"><br>​    </p>
+<h2 id="1-4-多子图"><a href="#1-4-多子图" class="headerlink" title="1.4 多子图"></a>1.4 多子图</h2><ul>
+<li>简单多子图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_75_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">return</span> np.exp(-t) * np.cos(<span class="number">2</span>*np.pi*t)</span><br><span class="line"></span><br><span class="line">t1 = np.arange(<span class="number">0.0</span>, <span class="number">5.0</span>, <span class="number">0.1</span>)</span><br><span class="line">t2 = np.arange(<span class="number">0.0</span>, <span class="number">5.0</span>, <span class="number">0.02</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">211</span>)</span><br><span class="line">plt.plot(t1, f(t1), <span class="string">&quot;bo-&quot;</span>, markerfacecolor=<span class="string">&quot;r&quot;</span>, markersize=<span class="number">5</span>)</span><br><span class="line">plt.title(<span class="string">&quot;A tale of 2 subplots&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Damped oscillation&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">212</span>)</span><br><span class="line">plt.plot(t2, np.cos(<span class="number">2</span>*np.pi*t2), <span class="string">&quot;r--&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;time (s)&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Undamped&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_75_1.png" alt="png"></p>
 <ul>
-<li><p>多行多列子图</p>
-<p>  &lt;matplotlib.collections.PathCollection at 0x1d2f7a17c80&gt;</p>
-</li>
+<li>多行多列子图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_77_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.random(<span class="number">10</span>)</span><br><span class="line">y = np.random.random(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.subplots_adjust(hspace=<span class="number">0.5</span>, wspace=<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">321</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;b&quot;</span>, marker=<span class="string">&quot;&gt;&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">322</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;g&quot;</span>, marker=<span class="string">&quot;*&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">323</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;r&quot;</span>, marker=<span class="string">&quot;s&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">324</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;c&quot;</span>, marker=<span class="string">&quot;p&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">325</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;m&quot;</span>, marker=<span class="string">&quot;+&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">326</span>)</span><br><span class="line">plt.scatter(x, y, s=<span class="number">80</span>, c=<span class="string">&quot;y&quot;</span>, marker=<span class="string">&quot;H&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_77_1.png" alt="png"></p>
 <ul>
-<li><p>不规则子图</p>
-<p>  [&lt;matplotlib.lines.Line2D at 0x1d2f66190a0&gt;]</p>
-</li>
+<li>不规则子图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_79_1.png" alt="png"><br>​    </p>
-<h2 id="1-5-直方图"><a href="#1-5-直方图" class="headerlink" title="1.5 直方图"></a>1.5 直方图</h2><pre><code>(array([  1.,   0.,   1.,   3.,   1.,   3.,   3.,   7.,   9.,  13.,  25.,
-         30.,  44.,  65., 102., 111., 138., 194., 239., 313., 363., 439.,
-        480., 518., 575., 592., 576., 638., 569., 552., 542., 452., 431.,
-        401., 347., 270., 207., 179., 160., 102., 104.,  74.,  49.,  28.,
-         24.,  12.,   6.,   4.,   1.,   3.]),
- array([ 38.44715577,  40.70941301,  42.97167025,  45.23392749,
-         47.49618473,  49.75844197,  52.02069921,  54.28295645,
-         56.54521369,  58.80747093,  61.06972817,  63.33198541,
-         65.59424265,  67.85649989,  70.11875713,  72.38101437,
-         74.64327161,  76.90552885,  79.16778609,  81.43004333,
-         83.69230057,  85.95455781,  88.21681505,  90.47907229,
-         92.74132953,  95.00358677,  97.26584401,  99.52810125,
-        101.79035849, 104.05261573, 106.31487297, 108.57713021,
-        110.83938745, 113.1016447 , 115.36390194, 117.62615918,
-        119.88841642, 122.15067366, 124.4129309 , 126.67518814,
-        128.93744538, 131.19970262, 133.46195986, 135.7242171 ,
-        137.98647434, 140.24873158, 142.51098882, 144.77324606,
-        147.0355033 , 149.29776054, 151.56001778]),
- &lt;BarContainer object of 50 artists&gt;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_81_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> np.exp(-x) * np.cos(<span class="number">2</span>*np.pi*x)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0.0</span>, <span class="number">3.0</span>, <span class="number">0.01</span>)</span><br><span class="line">grid = plt.GridSpec(<span class="number">2</span>, <span class="number">3</span>, wspace=<span class="number">0.4</span>, hspace=<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(grid[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">plt.plot(x, f(x))</span><br><span class="line"></span><br><span class="line">plt.subplot(grid[<span class="number">0</span>, <span class="number">1</span>:])</span><br><span class="line">plt.plot(x, f(x), <span class="string">&quot;r--&quot;</span>, lw=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(grid[<span class="number">1</span>, :])</span><br><span class="line">plt.plot(x, f(x), <span class="string">&quot;g-.&quot;</span>, lw=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_79_1.png" alt="png"></p>
+<h2 id="1-5-直方图"><a href="#1-5-直方图" class="headerlink" title="1.5 直方图"></a>1.5 直方图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">100</span> + <span class="number">15</span> * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.hist(x, bins=<span class="number">50</span>, facecolor=<span class="string">&#x27;pink&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_81_1.png" alt="png"></p>
 <ul>
-<li><p>概率密度</p>
-<p>  (0.0, 0.03)</p>
-</li>
+<li>概率密度</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_83_1.png" alt="png"><br>​    </p>
-<pre><code>(0.0, 0.03)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_84_1.png" alt="png"><br>​    </p>
-<pre><code>(0.0, 0.03)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_85_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">100</span> + <span class="number">15</span> * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, color=<span class="string">&quot;pink&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Smarts&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Probability&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Histogram of IQ&#x27;</span>)</span><br><span class="line">plt.text(<span class="number">60</span>, <span class="number">.025</span>, <span class="string">r&#x27;$\mu=100, \sigma=15$&#x27;</span>)</span><br><span class="line">plt.xlim(<span class="number">40</span>, <span class="number">160</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_83_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.hist(x, bins=<span class="number">50</span>, density=<span class="literal">True</span>, color=<span class="string">&quot;pink&quot;</span>, histtype=<span class="string">&#x27;step&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Smarts&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Probability&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Histogram of IQ&#x27;</span>)</span><br><span class="line">plt.text(<span class="number">60</span>, <span class="number">.025</span>, <span class="string">r&#x27;$\mu=100, \sigma=15$&#x27;</span>)</span><br><span class="line">plt.xlim(<span class="number">40</span>, <span class="number">160</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_84_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line"></span><br><span class="line">_, bins, _ = plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>)</span><br><span class="line">y = norm.pdf(bins, mu, sigma)</span><br><span class="line">plt.plot(bins, y, <span class="string">&#x27;r--&#x27;</span>, lw=<span class="number">3</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Smarts&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Probability&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Histogram of IQ&#x27;</span>)</span><br><span class="line">plt.text(<span class="number">60</span>, <span class="number">.025</span>, <span class="string">r&#x27;$\mu=100, \sigma=15$&#x27;</span>)</span><br><span class="line">plt.xlim(<span class="number">40</span>, <span class="number">160</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_85_1.png" alt="png"></p>
 <ul>
-<li><p>累计概率分布</p>
-<p>  (0.0, 1.1)</p>
-</li>
+<li>累计概率分布</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_87_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mu ,si = <span class="number">100</span>,<span class="number">15</span></span><br><span class="line">x = mu+si*np.random.randn(<span class="number">10000</span>)</span><br><span class="line"> </span><br><span class="line">plt.hist(x,<span class="number">50</span>,density=<span class="literal">True</span>, cumulative=<span class="literal">True</span>, color=<span class="string">&quot;pink&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y&quot;</span>)</span><br><span class="line">plt.xlim(<span class="number">50</span>,<span class="number">165</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>,<span class="number">1.1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_87_1.png" alt="png"></p>
 <p>【例】模拟两个骰子</p>
-<pre><code>(0.0, 7.0)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_89_1.png" alt="png"><br>​    </p>
-<pre><code>([&lt;matplotlib.axis.XTick at 0x1d2fdd820c0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdd813a0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdd02660&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdd82240&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fddb77a0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddc1a0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddcb00&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddd400&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddddc0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fddb7dd0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fddde510&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddee10&gt;,
-  &lt;matplotlib.axis.XTick at 0x1d2fdddf710&gt;],
- [Text(1, 0, &#39;1&#39;),
-  Text(2, 0, &#39;2&#39;),
-  Text(3, 0, &#39;3&#39;),
-  Text(4, 0, &#39;4&#39;),
-  Text(5, 0, &#39;5&#39;),
-  Text(6, 0, &#39;6&#39;),
-  Text(7, 0, &#39;7&#39;),
-  Text(8, 0, &#39;8&#39;),
-  Text(9, 0, &#39;9&#39;),
-  Text(10, 0, &#39;10&#39;),
-  Text(11, 0, &#39;11&#39;),
-  Text(12, 0, &#39;12&#39;),
-  Text(13, 0, &#39;13&#39;)])
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_90_1.png" alt="png"><br>​    </p>
-<h2 id="1-6-误差图"><a href="#1-6-误差图" class="headerlink" title="1.6 误差图"></a>1.6 误差图</h2><pre><code>&lt;ErrorbarContainer object of 3 artists&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_92_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Die</span>():</span><br><span class="line"><span class="comment">#     &quot;&quot;&quot;模拟一个骰子的类&quot;&quot;&quot;</span></span><br><span class="line">    <span class="string">&quot;模拟一个骰子的类&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,num_sides=<span class="number">6</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.num_sides = num_sides</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">roll</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> np.random.randint(<span class="number">1</span>, <span class="variable language_">self</span>.num_sides+<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">die = Die()</span><br><span class="line">results = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">60000</span>):               <span class="comment"># 投60000次</span></span><br><span class="line">    result = die.roll()</span><br><span class="line">    results.append(result)</span><br><span class="line">    </span><br><span class="line">plt.hist(results,bins=<span class="number">6</span>,<span class="built_in">range</span>=(<span class="number">0.75</span>,<span class="number">6.75</span>),align=<span class="string">&quot;mid&quot;</span>,width=<span class="number">0.5</span>)</span><br><span class="line">plt.xlim(<span class="number">0</span>,<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_89_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#重复两次投</span></span><br><span class="line">die1 = Die()</span><br><span class="line">die2 = Die()</span><br><span class="line">results = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100000</span>):</span><br><span class="line">    result = die1.roll()+die2.roll()</span><br><span class="line">    results.append(result)</span><br><span class="line"> </span><br><span class="line">plt.hist(results, bins=<span class="number">11</span>, <span class="built_in">range</span>=(<span class="number">1.75</span>, <span class="number">12.75</span>), align=<span class="string">&quot;mid&quot;</span>, width=<span class="number">0.5</span>)</span><br><span class="line">plt.xlim(<span class="number">1</span>,<span class="number">13</span>)</span><br><span class="line">plt.xticks(np.arange(<span class="number">1</span>,<span class="number">14</span>))</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_90_1.png" alt="png"></p>
+<h2 id="1-6-误差图"><a href="#1-6-误差图" class="headerlink" title="1.6 误差图"></a>1.6 误差图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">50</span>)</span><br><span class="line">dy=<span class="number">0.5</span></span><br><span class="line">y=np.sin(x) + dy*np.random.random(<span class="number">50</span>)</span><br><span class="line"> </span><br><span class="line">plt.errorbar(x,y,yerr=dy,fmt=<span class="string">&quot;*g&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_92_1.png" alt="png"></p>
 <ul>
-<li><p>柱形误差图</p>
-<p>  &lt;matplotlib.legend.Legend at 0x1d2fdd513d0&gt;</p>
-</li>
+<li>柱形误差图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_94_1.png" alt="png"><br>​    </p>
-<h2 id="1-7-面向对象的风格介绍"><a href="#1-7-面向对象的风格介绍" class="headerlink" title="1.7 面向对象的风格介绍"></a>1.7 面向对象的风格介绍</h2><pre><code>Text(0.5, 1.0, &#39;y=x^2&#39;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_96_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">menMeans = np.random.randint(<span class="number">10</span>,<span class="number">30</span>,size=<span class="number">5</span>)</span><br><span class="line">womenMeans = np.random.randint(<span class="number">10</span>,<span class="number">30</span>,size=<span class="number">5</span>)</span><br><span class="line">menStd = np.random.randint(<span class="number">1</span>,<span class="number">6</span>,size=<span class="number">5</span>)</span><br><span class="line">womenStd = np.random.randint(<span class="number">1</span>,<span class="number">6</span>,size=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># print( menMeans)</span></span><br><span class="line"><span class="comment"># print( womenStd)</span></span><br><span class="line">ind = [<span class="string">&quot;Gi&quot;</span>,<span class="string">&quot;G2&quot;</span>,<span class="string">&quot;G3&quot;</span>,<span class="string">&quot;G4&quot;</span>,<span class="string">&quot;G5&quot;</span>]</span><br><span class="line">width = <span class="number">0.35</span></span><br><span class="line"> </span><br><span class="line">p1 = plt.bar(ind, menMeans, width=width, label=<span class="string">&quot;Men&quot;</span>,yerr=menStd)</span><br><span class="line">p2 = plt.bar(ind, womenMeans, width=width, bottom=menMeans, label=<span class="string">&quot;WoMen&quot;</span>, yerr=womenStd)</span><br><span class="line"> </span><br><span class="line">plt.ylabel(<span class="string">&quot;scores&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;score by group and gender&#x27;</span>)</span><br><span class="line">plt.yticks(np.arange(<span class="number">0</span>,<span class="number">81</span>,<span class="number">10</span>))</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_94_1.png" alt="png"></p>
+<h2 id="1-7-面向对象的风格介绍"><a href="#1-7-面向对象的风格介绍" class="headerlink" title="1.7 面向对象的风格介绍"></a>1.7 面向对象的风格介绍</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">5</span>,<span class="number">10</span>)</span><br><span class="line">y = x**<span class="number">2</span></span><br><span class="line"> </span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>,<span class="number">4</span>),dpi=<span class="number">80</span>)  <span class="comment">#画布大小8*4，像素dpi=80</span></span><br><span class="line">axes = fig.add_axes([<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0.8</span>,<span class="number">0.8</span>])  <span class="comment">#轴 left，bottom ,width,hight(range=0-1)</span></span><br><span class="line"> </span><br><span class="line">axes.plot(x,y,<span class="string">&quot;--g&quot;</span>)</span><br><span class="line">axes.set_xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">axes.set_ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">axes.set_title(<span class="string">&#x27;y=x^2&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_96_1.png" alt="png"></p>
 <ul>
-<li><p>画中画</p>
-<p>  Text(0.5, 1.0, ‘insert title’)</p>
-</li>
+<li>画中画</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_98_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">5</span>, <span class="number">10</span>)</span><br><span class="line">y = x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])</span><br><span class="line">ax2 = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>])</span><br><span class="line"></span><br><span class="line">ax1.plot(x, y, <span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax2.plot(y, x, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">ax2.set_xlabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ax2.set_title(<span class="string">&#x27;insert title&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_98_1.png" alt="png"><br>​    </p>
 <ul>
-<li><p>多子图</p>
-<p>  Text(0.5, 1.0, ‘Lower’)</p>
-</li>
+<li>多子图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_100_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">return</span> np.exp(-t) * np.cos(<span class="number">2</span>*np.pi*t)</span><br><span class="line"></span><br><span class="line">t1 = np.arange(<span class="number">0.0</span>, <span class="number">3.0</span>, <span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">fig.subplots_adjust(hspace=<span class="number">0.4</span>, wspace=<span class="number">0.4</span>)</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax1.plot(t1, f(t1))</span><br><span class="line">ax1.set_title(<span class="string">&quot;Upper left&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax2 = plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax2.plot(t1, f(t1))</span><br><span class="line">ax2.set_title(<span class="string">&quot;Upper right&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax3 = plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">ax3.plot(t1, f(t1))</span><br><span class="line">ax3.set_title(<span class="string">&quot;Lower&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_100_1.png" alt="png"></p>
 <h2 id="1-8-三维图像简介"><a href="#1-8-三维图像简介" class="headerlink" title="1.8 三维图像简介"></a>1.8 三维图像简介</h2><ul>
-<li><p>点与线</p>
-<p>  &lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x1d2ff018830&gt;</p>
-</li>
+<li>点与线</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_102_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mpl_toolkits <span class="keyword">import</span> mplot3d</span><br><span class="line"> </span><br><span class="line">ax = plt.axes(projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">zline = np.linspace(<span class="number">0</span>,<span class="number">15</span>,<span class="number">1000</span>)</span><br><span class="line">xline = np.sin(zline)</span><br><span class="line">yline = np.cos(zline)</span><br><span class="line">ax.plot3D(xline,yline,zline)</span><br><span class="line"> </span><br><span class="line">zdata = <span class="number">15</span>*np.random.random(<span class="number">100</span>)</span><br><span class="line">xdata = np.sin(zdata)</span><br><span class="line">ydata = np.cos(zdata)</span><br><span class="line"><span class="comment"># ax.plot3D(xdata,ydata,zdata)</span></span><br><span class="line">ax.scatter3D(xdata, ydata, zdata,c=zdata, cmap=<span class="string">&quot;spring&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_102_1.png" alt="png"><br>​    </p>
 <ul>
-<li><p>三维曲面</p>
-<p>  &lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x1d2fb1a6c90&gt;</p>
-</li>
+<li>三维曲面</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_104_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sin(np.sqrt(x**<span class="number">2</span>+y**<span class="number">2</span>))</span><br><span class="line"> </span><br><span class="line">x = np.linspace(-<span class="number">6</span>,<span class="number">6</span>,<span class="number">30</span>)</span><br><span class="line">y = np.linspace(-<span class="number">6</span>,<span class="number">6</span>,<span class="number">30</span>)</span><br><span class="line">X,Y = np.meshgrid(x,y)</span><br><span class="line">Z = f(X,Y)</span><br><span class="line"> </span><br><span class="line">ax = plt.axes(projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">ax.plot_surface(X,Y,Z,cmap=<span class="string">&quot;viridis&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_104_1.png" alt="png"><br>​    </p>
 <h1 id="seaborn库"><a href="#seaborn库" class="headerlink" title="seaborn库"></a>seaborn库</h1><h2 id="1-Seaborn与Matplotlib"><a href="#1-Seaborn与Matplotlib" class="headerlink" title="1. Seaborn与Matplotlib"></a>1. Seaborn与Matplotlib</h2><p>Seaborn是一个基于Matplotlib且数据结构与Pandas统一的统计图制作库</p>
 <ul>
 <li>折线图对比</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_106_0.png" alt="png"><br>​    </p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1d2812dd5e0&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_107_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">500</span>)</span><br><span class="line">y=np.cumsum(np.random.randn(<span class="number">500</span>,<span class="number">6</span>),axis=<span class="number">0</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">with</span> plt.style.context(<span class="string">&quot;classic&quot;</span>):</span><br><span class="line">    plt.plot(x,y)</span><br><span class="line">    plt.legend(<span class="string">&quot;ABCDEF&quot;</span>,ncol=<span class="number">2</span>,loc=<span class="string">&quot;upper left&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>​    <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_106_0.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"> </span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">500</span>)</span><br><span class="line">y=np.cumsum(np.random.randn(<span class="number">500</span>,<span class="number">6</span>),axis=<span class="number">0</span>)</span><br><span class="line"> </span><br><span class="line">sns.<span class="built_in">set</span>()</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.legend(<span class="string">&quot;ABCDEF&quot;</span>,ncol=<span class="number">2</span>,loc=<span class="string">&quot;upper left&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_107_1.png" alt="png"></p>
 <ul>
 <li>柱状图对比</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_109_0.png" alt="png"><br>​    </p>
-<pre><code>&lt;Axes: &gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_110_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">&#x27;G1&#x27;</span>, <span class="string">&#x27;G2&#x27;</span>, <span class="string">&#x27;G3&#x27;</span>, <span class="string">&#x27;G4&#x27;</span>, <span class="string">&#x27;G5&#x27;</span>]</span><br><span class="line">y = <span class="number">2</span> * np.arange(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">4</span>))</span><br><span class="line">plt.bar(x, y, color=<span class="string">&#x27;skyblue&#x27;</span>, edgecolor=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        align=<span class="string">&#x27;center&#x27;</span>, width=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.tick_params(axis=<span class="string">&quot;both&quot;</span>, labelsize=<span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_109_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">&#x27;G1&#x27;</span>, <span class="string">&#x27;G2&#x27;</span>, <span class="string">&#x27;G3&#x27;</span>, <span class="string">&#x27;G4&#x27;</span>, <span class="string">&#x27;G5&#x27;</span>]</span><br><span class="line">y = <span class="number">2</span> * np.arange(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">4</span>))</span><br><span class="line">sns.barplot(x=x, y=y, linewidth=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_110_1.png" alt="png"></p>
 <p>【例】鸢尾花数据集</p>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data_home = <span class="string">r&#x27;D:\jupyter_notebook\python\assets\dataset\seaborn-data-master&#x27;</span></span><br><span class="line"><span class="comment"># 修改数据集路径</span></span><br><span class="line">iris = sns.load_dataset(<span class="string">&#x27;iris&#x27;</span>, data_home=data_home, cache=<span class="literal">True</span>)</span><br><span class="line">iris.head()</span><br></pre></td></tr></table></figure>
 
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -532,36 +568,17 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(data=iris,hue=<span class="string">&quot;species&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1d28567ac90&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_113_1.png" alt="png"><br>​    </p>
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_113_1.png" alt="png"></p>
 <h1 id="Pandas中绘制函数概览"><a href="#Pandas中绘制函数概览" class="headerlink" title="Pandas中绘制函数概览"></a>Pandas中绘制函数概览</h1><ul>
 <li>线型图</li>
 </ul>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">1000</span>, <span class="number">4</span>).cumsum(axis=<span class="number">0</span>),</span><br><span class="line">                  columns=<span class="built_in">list</span>(<span class="string">&quot;ABCD&quot;</span>),</span><br><span class="line">                  index=np.arange(<span class="number">1000</span>))</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
 
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
 
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -610,36 +627,15 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.plot()</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-<pre><code>&lt;Axes: &gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_117_1.png" alt="png"><br>​    </p>
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_117_1.png" alt="png"></p>
 <ul>
 <li>柱状图</li>
 </ul>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.DataFrame(np.random.rand(<span class="number">10</span>, <span class="number">4</span>), columns=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>])</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
 
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -723,42 +719,23 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.plot.bar()</span><br></pre></td></tr></table></figure>
 
 
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_120_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.plot.bar(stacked=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
 
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_121_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.plot.barh(stacked=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;Axes: &gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_120_1.png" alt="png"><br>​    </p>
-<pre><code>&lt;Axes: &gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_121_1.png" alt="png"><br>​    </p>
-<pre><code>&lt;Axes: &gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_122_1.png" alt="png"><br>​    </p>
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_122_1.png" alt="png"></p>
 <ul>
 <li>直方图</li>
 </ul>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df3 = pd.DataFrame(&#123;<span class="string">&quot;A&quot;</span>: np.random.randn(<span class="number">1000</span>) + <span class="number">3</span>, <span class="string">&quot;B&quot;</span>: np.random.randn(<span class="number">1000</span>), </span><br><span class="line">                    <span class="string">&quot;C&quot;</span>: np.random.randn(<span class="number">1000</span>) - <span class="number">3</span>&#125;)</span><br><span class="line">df3.head()</span><br></pre></td></tr></table></figure>
 
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -801,49 +778,30 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df3.plot.hist(bins=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-<pre><code>&lt;Axes: ylabel=&#39;Frequency&#39;&gt;
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_125_1.png" alt="png"><br>​    </p>
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_125_1.png" alt="png"></p>
 <ul>
-<li><p>累加直方图</p>
-<p>  &lt;Axes: ylabel&#x3D;’Frequency’&gt;</p>
-</li>
+<li>累加直方图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_127_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df3[<span class="string">&#x27;A&#x27;</span>].plot.hist(cumulative=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_127_1.png" alt="png"></p>
 <ul>
-<li><p>概率密度图</p>
-<p>  &lt;Axes: ylabel&#x3D;’Density’&gt;</p>
-</li>
+<li>概率密度图</li>
 </ul>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_129_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df3[<span class="string">&#x27;A&#x27;</span>].plot(kind=<span class="string">&#x27;kde&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_129_1.png" alt="png"></p>
 <ul>
 <li>散点图</li>
 </ul>
 <p>需要加州房价数据集</p>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">housing = pd.read_csv(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\california_housing.csv&quot;</span>)</span><br><span class="line">housing.head()</span><br></pre></td></tr></table></figure>
 
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -922,39 +880,18 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;基于地理数据的人口、房价可视化&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 圆的半价大小代表每个区域人口数量(s),颜色代表价格(c),用预定义的jet表进行可视化</span></span><br><span class="line"><span class="keyword">with</span> sns.axes_style(<span class="string">&quot;white&quot;</span>):</span><br><span class="line">    housing.plot(kind=<span class="string">&quot;scatter&quot;</span>, x=<span class="string">&quot;longitude&quot;</span>, y=<span class="string">&quot;latitude&quot;</span>, alpha=<span class="number">0.6</span>,</span><br><span class="line">                s=housing[<span class="string">&quot;population&quot;</span>]/<span class="number">100</span>, label=<span class="string">&quot;population&quot;</span>,</span><br><span class="line">                c=<span class="string">&quot;median_house_value&quot;</span>, cmap=plt.get_cmap(<span class="string">&quot;jet&quot;</span>), colorbar=<span class="literal">True</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.axis([-<span class="number">125</span>, -<span class="number">113.5</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br></pre></td></tr></table></figure>
 
 
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_132_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 房价与工资之间的相关性</span></span><br><span class="line"><span class="comment"># 绘制散点图，其中 x 轴是中位收入，y 轴是中位房价</span></span><br><span class="line">housing.plot(kind=<span class="string">&#x27;scatter&#x27;</span>, x=<span class="string">&#x27;median_income&#x27;</span>, y=<span class="string">&#x27;median_house_value&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加标题和轴标签</span></span><br><span class="line">plt.title(<span class="string">&#x27;Median Income vs Median House Value&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Median Income&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Median House Value&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-
-
-<pre><code>(-125.0, -113.5, 32.0, 43.0)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_132_1.png" alt="png"><br>​    </p>
-<pre><code>Text(0, 0.5, &#39;Median House Value&#39;)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_133_1.png" alt="png"><br>​    </p>
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_133_1.png" alt="png"></p>
 <ul>
 <li>多子图</li>
 </ul>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">1000</span>, <span class="number">4</span>).cumsum(axis=<span class="number">0</span>),</span><br><span class="line">                  columns=<span class="built_in">list</span>(<span class="string">&quot;ABCD&quot;</span>),</span><br><span class="line">                  index=np.arange(<span class="number">1000</span>))</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
 
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1003,21 +940,16 @@
     </tr>
   </tbody>
 </table>
-
-</div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.plot(subplots=<span class="literal">True</span>, figsize=(<span class="number">6</span>, <span class="number">16</span>))</span><br></pre></td></tr></table></figure>
 
 
+<p><img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_136_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.plot(subplots=<span class="literal">True</span>, layout=(<span class="number">2</span>, <span class="number">2</span>), figsize=(<span class="number">16</span>, <span class="number">6</span>), sharex=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 
 
 
-<pre><code>array([&lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;], dtype=object)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_136_1.png" alt="png"><br>​    </p>
-<pre><code>array([[&lt;Axes: &gt;, &lt;Axes: &gt;],
-       [&lt;Axes: &gt;, &lt;Axes: &gt;]], dtype=object)
-</code></pre>
-<p>​<br><img src="D:\Hexo\blog\source_posts\12.Matplotlib库_files\12.Matplotlib库_137_1.png" alt="png"><br>​    </p>
+
+<p> <img src="/images/12.Matplotlib%E5%BA%93_files/12.Matplotlib%E5%BA%93_137_1.png" alt="png"></p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2025/03/11/12-Matplotlib%E5%BA%93/">https://ziyuan0315.github.io/2025/03/11/12-Matplotlib%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">‘太湖之光也有报错的情况'</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">出现bug可能不是你的问题，可能是底层或者硬件问题（doge）</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/09-Python%E6%A0%87%E5%87%86%E5%BA%93/" title="09.Python标准库">09.Python标准库</a><time datetime="2025-03-11T07:50:06.000Z" title="发表于 2025-03-11 15:50:06">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/08-%E6%9C%89%E8%B6%A3%E7%9A%84%E6%8E%A2%E7%B4%A2/" title="08.有趣的探索">08.有趣的探索</a><time datetime="2025-03-11T07:49:46.000Z" title="发表于 2025-03-11 15:49:46">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
@@ -1046,4 +978,4 @@
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T02:05:19.475Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T08:45:53.303Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

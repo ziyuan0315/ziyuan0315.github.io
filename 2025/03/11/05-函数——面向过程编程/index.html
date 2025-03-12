@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05.函数——面向过程编程 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数  将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想  利于代码的维护和管理  120   抽象成函数 120  白箱子：输入——处理——输出 三要素：参数、函数体、返回值 1.1.2 形参与实参 形参（形式参数）：函数定义时的参数，实际上就是变量名 实参（实际参数）：函数调用时的参数，实际">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05.函数——面向过程编程 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数 将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想 利于代码的维护和管理  123456# 5的阶乘n &#x3D; 5res &#x3D;1for i in range(1, n+1):    res *&#x3D; iprint(res)  1120  抽象成函数 123456# 5的阶乘n &#x3D; 5res &#x3D;1for">
 <meta property="og:type" content="website">
 <meta property="og:title" content="05.函数——面向过程编程">
 <meta property="og:url" content="https://ziyuan0315.github.io/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="‘太湖之光也有报错的情况&#39;">
-<meta property="og:description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数  将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想  利于代码的维护和管理  120   抽象成函数 120  白箱子：输入——处理——输出 三要素：参数、函数体、返回值 1.1.2 形参与实参 形参（形式参数）：函数定义时的参数，实际上就是变量名 实参（实际参数）：函数调用时的参数，实际">
+<meta property="og:description" content="函数1.1 函数的定义及调用1.1.1 为什么要用函数 提高代码复用性——抽象出来，封装为函数 将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想 利于代码的维护和管理  123456# 5的阶乘n &#x3D; 5res &#x3D;1for i in range(1, n+1):    res *&#x3D; iprint(res)  1120  抽象成函数 123456# 5的阶乘n &#x3D; 5res &#x3D;1for">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg">
 <meta property="article:published_time" content="2025-03-11T07:48:54.000Z">
-<meta property="article:modified_time" content="2025-03-11T12:18:28.475Z">
+<meta property="article:modified_time" content="2025-03-12T02:21:26.239Z">
 <meta property="article:author" content="ZI YUAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ziyuan0315.github.io/2025/03/11/05-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -144,15 +144,17 @@
   isToc: false,
   pageType: 'titile'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">05.函数——面向过程编程</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="1-1-函数的定义及调用"><a href="#1-1-函数的定义及调用" class="headerlink" title="1.1 函数的定义及调用"></a>1.1 函数的定义及调用</h3><h5 id="1-1-1-为什么要用函数"><a href="#1-1-1-为什么要用函数" class="headerlink" title="1.1.1 为什么要用函数"></a>1.1.1 为什么要用函数</h5><ol>
-<li><p>提高代码复用性——抽象出来，封装为函数</p>
-</li>
-<li><p>将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想</p>
-</li>
-<li><p>利于代码的维护和管理</p>
-<p> 120</p>
-</li>
+<li>提高代码复用性——抽象出来，封装为函数</li>
+<li>将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想</li>
+<li>利于代码的维护和管理</li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5的阶乘</span></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">res =<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">    res *= i</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">120</span><br></pre></td></tr></table></figure>
+
 <p>抽象成函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5的阶乘</span></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">res =<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">    res *= i</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
 <pre><code>120
 </code></pre>
 <p><strong>白箱子：输入——处理——输出</strong></p>
@@ -165,110 +167,153 @@
 <li>位置参数</li>
 </ol>
 <ul>
-<li><p>严格按照位置顺序，用实参对形参进行赋值（关联）</p>
-</li>
-<li><p>一般用在参数比较少的时候</p>
-<p>  1 2 3</p>
-</li>
-<li><p>实参与形参个数必须一一对应，一个不能多，一个不能少</p>
-</li>
+<li>严格按照位置顺序，用实参对形参进行赋值（关联）</li>
+<li>一般用在参数比较少的时候</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function</span>(<span class="params">n</span>):</span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        res *= i</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(function(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">120</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实参与形参个数必须一一对应，一个不能多，一个不能少</li>
 </ul>
 <ol start="2">
 <li>关键字参数</li>
 </ol>
 <ul>
-<li><p>打破位置限制，直呼其名的进行值得传递（形参&#x3D;实参）</p>
-</li>
-<li><p>必须遵守实参与形参数量上一一对应</p>
-</li>
-<li><p>多用在参数比较多得场合</p>
-</li>
-<li><p>位置参数可以与关键字参数混合使用</p>
-</li>
-<li><p>位置参数必须放在关键字参数前面</p>
-</li>
-<li><p>不能为同一个形参重复赋值</p>
-<p>  1 3 2</p>
-</li>
+<li>打破位置限制，直呼其名的进行值得传递（形参&#x3D;实参）</li>
+<li>必须遵守实参与形参数量上一一对应</li>
+<li>多用在参数比较多得场合</li>
+<li>位置参数可以与关键字参数混合使用</li>
+<li>位置参数必须放在关键字参数前面</li>
+<li>不能为同一个形参重复赋值</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function</span>(<span class="params">x, y, z</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>默认参数</li>
 </ol>
 <ul>
-<li><p>再定义阶段就给形参赋值——该形参得常用值</p>
-</li>
-<li><p>机器学习库中类得方法里非常常见</p>
-</li>
-<li><p>调用函数时，可以不对该形参传值</p>
-<p>  宋子源 18 male</p>
-</li>
-<li><p>也可以按正常得形参进行传值</p>
-<p>  邓丽君 18 female</p>
-</li>
-<li><p>位置形参必须再默认形参得前面</p>
-</li>
-<li><p>默认参数应该设置为不可变类型（数字、字符串、元组）</p>
-<p>  1917694319168<br>  1917694319168<br>  [1]</p>
-<p>  1917694319168<br>  1917694319168<br>  [1, 1]</p>
-</li>
+<li>再定义阶段就给形参赋值——该形参得常用值</li>
+<li>机器学习库中类得方法里非常常见</li>
+<li>调用函数时，可以不对该形参传值</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function</span>(<span class="params">x, y, z</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function(<span class="number">1</span>, z=<span class="number">2</span>, y=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>也可以按正常得形参进行传值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">name, age, sex=<span class="string">&#x27;male&#x27;</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(name, age, sex)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">register(<span class="string">&#x27;宋子源&#x27;</span>, <span class="string">&#x27;18&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">宋子源 18 male</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>位置形参必须再默认形参得前面</li>
+<li>默认参数应该设置为不可变类型（数字、字符串、元组）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">register(<span class="string">&#x27;邓丽君&#x27;</span>, <span class="string">&#x27;18&#x27;</span>, <span class="string">&#x27;female&#x27;</span>) </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">邓丽君 18 female</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function</span>(<span class="params">ls=[]</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(ls))</span><br><span class="line">    ls.append(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(ls))</span><br><span class="line">    <span class="built_in">print</span>(ls)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function() </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1917694319168</span><br><span class="line">1917694319168</span><br><span class="line">[1]</span><br></pre></td></tr></table></figure>
+
 <p>id()函数返回这个对象在内存中的地址，这个地址在对象的生命周期内是唯一的，但不同的对象可能在不同的时间点拥有相同的地址（因为 Python 的内存管理机制会在对象被销毁后重新分配内存地址）</p>
 <p>因此，对于上述的function函数，以列表等可变元素作为参数，会导致在后续的操作中，对同一列表进行反复操作。</p>
 <ul>
-<li><p>让参数变成可选的</p>
-<p>  November Annabella Terra<br>  November Terra</p>
-</li>
+<li>让参数变成可选的</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1917694319168</span><br><span class="line">1917694319168</span><br><span class="line">[1, 1]</span><br></pre></td></tr></table></figure>
+
 <ol start="4">
 <li>可变长参数 *args</li>
 </ol>
 <ul>
-<li><p>不知道会传多少参数*args</p>
-</li>
-<li><p>该形参必须放在参数列表的最后</p>
-<p>  1 2 3<br>  4 5 6</p>
-</li>
-<li><p>实参打散</p>
-<p>  1 2 3<br>  ([4, 5, 6],)<br>  1 2 3<br>  (4, 5, 6)</p>
-</li>
+<li>不知道会传多少参数*args</li>
+<li>该形参必须放在参数列表的最后</li>
 </ul>
-<ol start="5">
-<li><p>可变长参数 **kwargs</p>
-<p> 1 2 3<br> {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
-</li>
-</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">name</span>(<span class="params">first_name, last_name, middle_name=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> middle_name:</span><br><span class="line">        <span class="keyword">return</span> first_name + <span class="string">&#x27; &#x27;</span> + middle_name + <span class="string">&#x27; &#x27;</span>+last_name</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> first_name + <span class="string">&#x27; &#x27;</span> + last_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(name(<span class="string">&#x27;November&#x27;</span>, <span class="string">&#x27;Terra&#x27;</span>, <span class="string">&#x27;Annabella&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(name(<span class="string">&#x27;November&#x27;</span>, <span class="string">&#x27;Terra&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">November Annabella Terra</span><br><span class="line">November Terra</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p>字典打散实参</p>
-<p>  1 2 3<br>  {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
-</li>
-<li><p>可变长参数的组合使用</p>
-<p>  (1, 2, 3)<br>  {‘a’: 4, ‘b’: 5, ‘c’: 6}</p>
-</li>
+<li>实参打散</li>
 </ul>
-<h4 id="1-1-4-函数体与变量作用域"><a href="#1-1-4-函数体与变量作用域" class="headerlink" title="1.1.4 函数体与变量作用域"></a>1.1.4 函数体与变量作用域</h4><ul>
-<li><p>函数体就是一段只在函数被调用时，才会执行的代码，代码构成与其他代码并无不同</p>
-</li>
-<li><p>局部变量——仅在函数体内定义和发挥作用</p>
-</li>
-<li><p>全局变量——外部定义的全是全局变量</p>
-</li>
-<li><p>全局变量可以在函数体内直接被使用</p>
-<p>  18</p>
-<p>  90</p>
-</li>
-<li><p>全局变量可以使用global声明</p>
-<p>  18<br>  18</p>
-</li>
-</ul>
-<h4 id="1-1-5-返回值"><a href="#1-1-5-返回值" class="headerlink" title="1.1.5 返回值"></a>1.1.5 返回值</h4><ol>
-<li><p>单个返回值</p>
-<p> (4, 8)<br> 4<br> 8</p>
-</li>
-<li><p>可以有多个return语句，一旦执行一个，代表函数运行的结束</p>
-<p> 这是一个负数。<br> 这是零。<br> 这是一个介于1到10之间的正数。<br> 这是一个介于11到100之间的正数。<br> 这是一个大于100的正数。</p>
-<p> 嘿！没问题！宝贝儿！<br> None</p>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">number</span>(<span class="params">x, y, z, *args</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line">    <span class="built_in">print</span>(*args)      <span class="comment"># 多余的参数打包传递给args</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">number(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>可变长参数 **kwargs</li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">number</span>(<span class="params">x, y, z, *args</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line">    <span class="built_in">print</span>(args)      <span class="comment"># 能被打散只能时列表、字符串、元组和集合</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">number(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">number(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, *[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">([4, 5, 6],)</span><br><span class="line">1 2 3</span><br><span class="line">(4, 5, 6)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字典打散实参</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">number</span>(<span class="params">x, y, z, **kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line">    <span class="built_in">print</span>(kwargs)   <span class="comment"># 多余的参数，以字典的形式打包传递给kwargs</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">number(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, a=<span class="number">4</span>, b=<span class="number">5</span>, c=<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">&#123;&#x27;a&#x27;: 4, &#x27;b&#x27;: 5, &#x27;c&#x27;: 6&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可变长参数的组合使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">number</span>(<span class="params">x, y, z, **kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(x, y, z)</span><br><span class="line">    <span class="built_in">print</span>(kwargs)   <span class="comment"># 多余的参数，以字典的形式打包传递给kwargs</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">number(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, **&#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">6</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">&#123;&#x27;a&#x27;: 4, &#x27;b&#x27;: 5, &#x27;c&#x27;: 6&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-4-函数体与变量作用域"><a href="#1-1-4-函数体与变量作用域" class="headerlink" title="1.1.4 函数体与变量作用域"></a>1.1.4 函数体与变量作用域</h4><ul>
+<li>函数体就是一段只在函数被调用时，才会执行的代码，代码构成与其他代码并无不同</li>
+<li>局部变量——仅在函数体内定义和发挥作用</li>
+<li>全局变量——外部定义的全是全局变量</li>
+<li>全局变量可以在函数体内直接被使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multipy</span>(<span class="params">x, y</span>):</span><br><span class="line">    z = x*y</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(multipy(<span class="number">2</span>, <span class="number">9</span>))</span><br><span class="line"><span class="comment"># print(z)     # 函数执行完毕,局部变量z已经被释放掉了</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>18
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">5</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">demo_function</span>(<span class="params">x, y</span>):</span><br><span class="line">    z = n*x*y</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(demo_function(<span class="number">3</span>, <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>90
+</code></pre>
+<ul>
+<li>全局变量可以使用global声明</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multipy</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">global</span> z</span><br><span class="line">    z = x*y</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(multipy(<span class="number">2</span>, <span class="number">9</span>))</span><br><span class="line"><span class="built_in">print</span>(z)  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">18</span><br><span class="line">18</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-5-返回值"><a href="#1-1-5-返回值" class="headerlink" title="1.1.5 返回值"></a>1.1.5 返回值</h4><ol>
+<li>单个返回值</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multipy</span>(<span class="params">x, y</span>):</span><br><span class="line">    z = x*y</span><br><span class="line">    <span class="keyword">return</span> z</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function1</span>(<span class="params">x</span>):            </span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span>, x**<span class="number">3</span>       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(function1(<span class="number">2</span>))</span><br><span class="line">a, b = function1(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(4, 8)</span><br><span class="line">4</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>可以有多个return语句，一旦执行一个，代表函数运行的结束</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">describe_number</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">if</span> num &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;这是一个负数。&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;这是零。&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="number">0</span> &lt; num &lt;= <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;这是一个介于1到10之间的正数。&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="number">10</span> &lt; num &lt;= <span class="number">100</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;这是一个介于11到100之间的正数。&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;这是一个大于100的正数。&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(describe_number(-<span class="number">5</span>))  <span class="comment"># 输出：这是一个负数。</span></span><br><span class="line"><span class="built_in">print</span>(describe_number(<span class="number">0</span>))   <span class="comment"># 输出：这是零。</span></span><br><span class="line"><span class="built_in">print</span>(describe_number(<span class="number">5</span>))   <span class="comment"># 输出：这是一个介于1到10之间的正数。</span></span><br><span class="line"><span class="built_in">print</span>(describe_number(<span class="number">50</span>))  <span class="comment"># 输出：这是一个介于11到100之间的正数。</span></span><br><span class="line"><span class="built_in">print</span>(describe_number(<span class="number">150</span>)) <span class="comment"># 输出：这是一个大于100的正数。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这是一个负数。</span><br><span class="line">这是零。</span><br><span class="line">这是一个介于1到10之间的正数。</span><br><span class="line">这是一个介于11到100之间的正数。</span><br><span class="line">这是一个大于100的正数。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;嘿！没问题！宝贝儿！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">res = demo()</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">嘿！没问题！宝贝儿！</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-1-6-几点建议"><a href="#1-1-6-几点建议" class="headerlink" title="1.1.6 几点建议"></a>1.1.6 几点建议</h4><ol>
 <li>函数及其参数的命名参照变量的命名</li>
 </ol>
@@ -281,17 +326,35 @@
 <li>函数定义前后各空两行</li>
 <li>默认参数赋值等号两侧不需要加空格</li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f1</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f2</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f3</span>(<span class="params">x=<span class="number">3</span></span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="1-2-函数编程实例"><a href="#1-2-函数编程实例" class="headerlink" title="1.2 函数编程实例"></a>1.2 函数编程实例</h3><p><strong>【问题描述】</strong></p>
 <ul>
-<li><p>阿丹和阿伟都是羽毛球运动员，水平相近，但阿丹的水平略高一点，每打100个球，阿丹赢52个，阿伟赢48个。</p>
-</li>
-<li><p>但每次大型比赛（三局两胜，采取21分制），阿丹赢的概率远大于阿伟。</p>
-</li>
-<li><p>通过模拟实验，来解释其中原因。</p>
-<p>  请输入运动员阿丹的每球的胜率（0<del>1）： 0.52<br>  请输入运动员阿伟的每球的胜率（0</del>1）： 0.48<br>  请输入模拟的场次： 1000</p>
-<p>  模拟比赛总次数： 1000<br>  运动员阿丹的每球的胜率 0.52<br>  运动员阿伟的每球的胜率 0.48<br>  共模拟1000场比赛<br>  运动员阿丹获胜596场，占比59.6%<br>  运动员阿伟获胜404场，占比40.4%</p>
-</li>
+<li>阿丹和阿伟都是羽毛球运动员，水平相近，但阿丹的水平略高一点，每打100个球，阿丹赢52个，阿伟赢48个。</li>
+<li>但每次大型比赛（三局两胜，采取21分制），阿丹赢的概率远大于阿伟。</li>
+<li>通过模拟实验，来解释其中原因。</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random    <span class="comment"># 导包,用于生成一个随机数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">single_game</span>():      <span class="comment"># 模拟单场比赛的结果</span></span><br><span class="line">    score_D, score_W = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span>((score_D==<span class="number">21</span>)<span class="keyword">or</span>(score_W==<span class="number">21</span>)):</span><br><span class="line">        <span class="keyword">if</span> random.random() &lt; odds_D:       <span class="comment">#  random.random()生成一个0到1之间的小数</span></span><br><span class="line">            score_D += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            score_W += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> score_D, score_W</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">single_game_winner</span>(<span class="params">score_D, score_W</span>):    <span class="comment"># 模拟单场比赛的胜者</span></span><br><span class="line">    <span class="keyword">if</span> score_D == <span class="number">21</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">best_of_three</span>(<span class="params">flag</span>):    <span class="comment"># 三局两胜</span></span><br><span class="line">    win_D, win_W = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span>((win_D==<span class="number">2</span>)<span class="keyword">or</span>(win_W==<span class="number">2</span>)):</span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            win_D += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            win_W += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> win_D == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">n_races</span>(<span class="params">number_of_games</span>):     <span class="comment"># 进行n场比赛</span></span><br><span class="line">    winner_D, winner_W = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(number_of_games):</span><br><span class="line">        score_D, score_W = single_game()</span><br><span class="line">        flag = single_game_winner(score_D, score_W)</span><br><span class="line">        winner = best_of_three(flag)</span><br><span class="line">        <span class="keyword">if</span> winner:</span><br><span class="line">            winner_D += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            winner_W += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> winner_D, winner_W</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_input</span>():    <span class="comment"># 输入原始数据</span></span><br><span class="line">    <span class="keyword">global</span> odds_D, oods_W</span><br><span class="line">    odds_D = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入运动员阿丹的每球的胜率（0~1）：&#x27;</span>))</span><br><span class="line">    odds_W = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入运动员阿伟的每球的胜率（0~1）：&#x27;</span>))</span><br><span class="line">    number_of_games = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入模拟的场次：&#x27;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;模拟比赛总次数：&#x27;</span>,number_of_games)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;运动员阿丹的每球的胜率&#x27;</span>,odds_D)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;运动员阿伟的每球的胜率&#x27;</span>,odds_W)</span><br><span class="line">    <span class="keyword">return</span> odds_D, odds_W, number_of_games</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">summary</span>(<span class="params">winner_D, winner_W, number_of_games</span>): <span class="comment"># 结果输出汇总</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;共模拟&#123;&#125;场比赛&#x27;</span>.<span class="built_in">format</span>(number_of_games))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;运动员阿丹获胜&#123;0&#125;场，占比&#123;1:.1%&#125;&#x27;</span>.<span class="built_in">format</span>(winner_D, winner_D/number_of_games))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;运动员阿伟获胜&#123;0&#125;场，占比&#123;1:.1%&#125;&#x27;</span>.<span class="built_in">format</span>(winner_W, winner_W/number_of_games))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():     <span class="comment"># 主函数</span></span><br><span class="line">    odds_D, odds_W, number_of_games = get_input()</span><br><span class="line">    winner_D, winner_W = n_races(number_of_games)</span><br><span class="line">    summary(winner_D, winner_W, number_of_games)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<pre><code>请输入运动员阿丹的每球的胜率（0~1）： 0.52
+请输入运动员阿伟的每球的胜率（0~1）： 0.48
+请输入模拟的场次： 1000
+
+
+模拟比赛总次数： 1000
+运动员阿丹的每球的胜率 0.52
+运动员阿伟的每球的胜率 0.48
+共模拟1000场比赛
+运动员阿丹获胜596场，占比59.6%
+运动员阿伟获胜404场，占比40.4%
+</code></pre>
 <p>林丹与李宗伟的职业生涯中，共交手40次，林丹胜28场，李宗伟胜12场。</p>
 <h4 id="1-2-1-断言"><a href="#1-2-1-断言" class="headerlink" title="1.2.1 断言"></a>1.2.1 断言</h4><ul>
 <li>assert expression</li>
@@ -306,11 +369,18 @@
 </ol>
 <p>在参数列表中最适合使用匿名函数，尤其是与key &#x3D; 搭配</p>
 <ul>
-<li><p>排序sort()sorted()</p>
-<p>  [(20, 100), (40, 66), (93, 88), (99, 101)]</p>
-<p>  [(99, 101), (93, 88), (20, 100), (40, 66)]</p>
-</li>
+<li>排序sort()sorted()</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls = [(<span class="number">93</span>, <span class="number">88</span>), (<span class="number">20</span>, <span class="number">100</span>), (<span class="number">40</span>, <span class="number">66</span>), (<span class="number">99</span>,<span class="number">101</span>)]</span><br><span class="line">ls.sort()</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>[(20, 100), (40, 66), (93, 88), (99, 101)]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sorted</span>(ls,key = <span class="keyword">lambda</span> x: x[<span class="number">1</span>]+x[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>[(99, 101), (93, 88), (20, 100), (40, 66)]
+</code></pre>
 <h3 id="1-4-面向对象编程和面向过程编程"><a href="#1-4-面向对象编程和面向过程编程" class="headerlink" title="1.4 面向对象编程和面向过程编程"></a>1.4 面向对象编程和面向过程编程</h3><h4 id="1-4-1-面向对象编程（oop）"><a href="#1-4-1-面向对象编程（oop）" class="headerlink" title="1.4.1 面向对象编程（oop）"></a>1.4.1 面向对象编程（oop）</h4><p>面向对象编程是一种以“对象”为中心的编程范式，它将现实世界中的事物抽象为“对象”，并通过对象之间的交互来实现程序的功能。核心概念包括：</p>
 <ul>
 <li>对象（Object）：对象是类的实例，它封装了数据（属性）和行为（方法）。例如，一个“汽车”对象可以有颜色、速度等属性，以及加速、刹车等方法。</li>
@@ -360,4 +430,4 @@
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T02:05:19.475Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T08:45:53.303Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

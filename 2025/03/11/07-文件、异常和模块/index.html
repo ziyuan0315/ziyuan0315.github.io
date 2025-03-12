@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>07.文件、异常和模块 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  【例1】一个简单的文件读取  文件路径   完整路径，如上例所示，使用绝对路径 在字符串前加 r，表示这是一个原始字符串，不会解析转义字符 程序与文件在同一文件夹，可以简化成文件名   打开模式   “r”  只读模式，如文件不存在，报错 “w” 覆盖写模式，如文">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>07.文件、异常和模块 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 第一部分 文件1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  123# with open(&quot;文件路径&quot;, &quot;打开模式&quot;, encoding &#x3D; &quot;操作文件的字符编码&quot;) as f:#     &quot;对文件进行相应的读写操作&quot;# 使用w">
 <meta property="og:type" content="website">
 <meta property="og:title" content="07.文件、异常和模块">
 <meta property="og:url" content="https://ziyuan0315.github.io/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="‘太湖之光也有报错的情况&#39;">
-<meta property="og:description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  【例1】一个简单的文件读取  文件路径   完整路径，如上例所示，使用绝对路径 在字符串前加 r，表示这是一个原始字符串，不会解析转义字符 程序与文件在同一文件夹，可以简化成文件名   打开模式   “r”  只读模式，如文件不存在，报错 “w” 覆盖写模式，如文">
+<meta property="og:description" content="文件、异常和模块实际应用中，我们绝大多数的数据都是通过文件的交互完成的 第一部分 文件1.1 文件的读写1.1.1 文件的打开 文件的打开通用格式  123# with open(&quot;文件路径&quot;, &quot;打开模式&quot;, encoding &#x3D; &quot;操作文件的字符编码&quot;) as f:#     &quot;对文件进行相应的读写操作&quot;# 使用w">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg">
 <meta property="article:published_time" content="2025-03-11T07:49:45.000Z">
-<meta property="article:modified_time" content="2025-03-11T12:19:44.827Z">
+<meta property="article:modified_time" content="2025-03-12T03:18:57.608Z">
 <meta property="article:author" content="ZI YUAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ziyuan0315.github.io/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -144,10 +144,14 @@
   isToc: false,
   pageType: 'title'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">07.文件、异常和模块</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="文件、异常和模块"><a href="#文件、异常和模块" class="headerlink" title="文件、异常和模块"></a>文件、异常和模块</h1><p><strong>实际应用中，我们绝大多数的数据都是通过文件的交互完成的</strong></p>
-<h3 id="1-1-文件的读写"><a href="#1-1-文件的读写" class="headerlink" title="1.1 文件的读写"></a>1.1 文件的读写</h3><h4 id="1-1-1-文件的打开"><a href="#1-1-1-文件的打开" class="headerlink" title="1.1.1 文件的打开"></a>1.1.1 文件的打开</h4><ul>
+<h1 id="第一部分-文件"><a href="#第一部分-文件" class="headerlink" title="第一部分 文件"></a>第一部分 文件</h1><h3 id="1-1-文件的读写"><a href="#1-1-文件的读写" class="headerlink" title="1.1 文件的读写"></a>1.1 文件的读写</h3><h4 id="1-1-1-文件的打开"><a href="#1-1-1-文件的打开" class="headerlink" title="1.1.1 文件的打开"></a>1.1.1 文件的打开</h4><ul>
 <li>文件的打开通用格式</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># with open(&quot;文件路径&quot;, &quot;打开模式&quot;, encoding = &quot;操作文件的字符编码&quot;) as f:</span></span><br><span class="line"><span class="comment">#     &quot;对文件进行相应的读写操作&quot;</span></span><br><span class="line"><span class="comment"># 使用with 块的好处：执行完毕后，自动对文件进行close操作。</span></span><br></pre></td></tr></table></figure>
+
 <p>【例1】一个简单的文件读取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding = <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:   </span><br><span class="line">    <span class="comment"># 第一步，打开文件</span></span><br><span class="line">    text = f.read()  <span class="comment"># 第二步，读取文件</span></span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li>文件路径</li>
 </ol>
@@ -156,6 +160,8 @@
 <li>在字符串前加 r，表示这是一个原始字符串，不会解析转义字符</li>
 <li>程序与文件在同一文件夹，可以简化成文件名</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;这个文件不存在.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:   </span><br><span class="line">    <span class="comment"># 第一步，打开文件</span></span><br><span class="line">    text = f.read()  <span class="comment"># 第二步，读取文件</span></span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>打开模式</li>
 </ol>
@@ -173,31 +179,123 @@
 <li>字符编码</li>
 </ol>
 <ul>
-<li>万国码 utf-8<br>包含全世界所有国家需要用到的字符</li>
-<li>中文编码 gbk<br>专门解决中文编码问题</li>
+<li>万国码 utf-8<br>  包含全世界所有国家需要用到的字符</li>
+<li>中文编码 gbk<br>  专门解决中文编码问题</li>
 <li>windows系统下，如果缺省，则默认为gbk（所在区域的编码）</li>
 <li>为清楚起见，除了处理二进制文件，建议不要缺省encoding</li>
 </ul>
 <h4 id="1-1-2-文件的读取"><a href="#1-1-2-文件的读取" class="headerlink" title="1.1.2 文件的读取"></a>1.1.2 文件的读取</h4><ol>
-<li><p>读取整个内容</p>
-<p>《天外天上天无涯》<br>作词：晨曦<br>作曲：飞鸟凉<br>演唱：邓丽君<br>高挂在天边一颗星儿呀，<br>能不能听到我许愿的话？<br>隐藏在心底一种情感啊，<br>能不能如同星儿一般潇洒？<br>飞到天外天上天无涯，<br>再也不必费心挣扎，<br>再也没有这些伤感的眼泪，<br>不必回答那悲欢离合的真假。<br>这一切烦忧，让它远离我身旁，<br>不必回答那心中纠缠如麻，<br>为什么不明白，我的一切执着不更改。<br>高挂在天边一颗星儿呀，<br>能不能听到我许愿的话？<br>隐藏在心底一种情感啊，<br>能不能如同星儿一般潇洒？<br>飞到天外天上天无涯，<br>再也不必费心挣扎，<br>再也没有这些伤感的眼泪，<br>不必回答那悲欢离合的真假。<br>这一切烦忧，让它远离我身旁，<br>不必回答那心中纠缠如麻，<br>为什么不明白，我的一切执着不更改。</p>
-</li>
-<li><p>逐行进行读取——f.readline()</p>
-<p>《天外天上天无涯》</p>
-<p>作词：晨曦</p>
-<p>作曲：飞鸟凉</p>
-<p>演唱：邓丽君</p>
-<p>《天外天上天无涯》<br> 作词：晨曦<br> 作曲：飞鸟凉<br> 演唱：邓丽君<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。</p>
-</li>
-<li><p>读入所有行，以每行为元素形成一个列表——f.readlines()</p>
-<p>[‘《天外天上天无涯》\n’, ‘作词：晨曦\n’, ‘作曲：飞鸟凉\n’, ‘演唱：邓丽君\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’]</p>
-<p>《天外天上天无涯》<br> 作词：晨曦<br> 作曲：飞鸟凉<br> 演唱：邓丽君<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。<br> 高挂在天边一颗星儿呀，<br> 能不能听到我许愿的话？<br> 隐藏在心底一种情感啊，<br> 能不能如同星儿一般潇洒？<br> 飞到天外天上天无涯，<br> 再也不必费心挣扎，<br> 再也没有这些伤感的眼泪，<br> 不必回答那悲欢离合的真假。<br> 这一切烦忧，让它远离我身旁，<br> 不必回答那心中纠缠如麻，<br> 为什么不明白，我的一切执着不更改。</p>
-</li>
-<li><p>大文件读取</p>
-</li>
+<li>读取整个内容</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># &#x27;r&#x27; 和 encoding 都可省略，但由于这个文件是采用utf格式，省略会报错&#x27;r&#x27;最好也不好省略</span></span><br><span class="line">    text = f.read()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
+<pre><code>《天外天上天无涯》
+作词：晨曦
+作曲：飞鸟凉
+演唱：邓丽君
+高挂在天边一颗星儿呀，
+能不能听到我许愿的话？
+隐藏在心底一种情感啊，
+能不能如同星儿一般潇洒？
+飞到天外天上天无涯，
+再也不必费心挣扎，
+再也没有这些伤感的眼泪，
+不必回答那悲欢离合的真假。
+这一切烦忧，让它远离我身旁，
+不必回答那心中纠缠如麻，
+为什么不明白，我的一切执着不更改。
+高挂在天边一颗星儿呀，
+能不能听到我许愿的话？
+隐藏在心底一种情感啊，
+能不能如同星儿一般潇洒？
+飞到天外天上天无涯，
+再也不必费心挣扎，
+再也没有这些伤感的眼泪，
+不必回答那悲欢离合的真假。
+这一切烦忧，让它远离我身旁，
+不必回答那心中纠缠如麻，
+为什么不明白，我的一切执着不更改。
+</code></pre>
+<ol start="2">
+<li>逐行进行读取——f.readline()</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    text = f.readline()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br><span class="line">    text = f.readline()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br><span class="line">    text = f.readline()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br><span class="line">    text = f.readline()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
+<pre><code>《天外天上天无涯》
+作词：晨曦
+作曲：飞鸟凉
+演唱：邓丽君
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        text = f.readline()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> text:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(text,end=<span class="string">&#x27; &#x27;</span>)    <span class="comment"># end = &#x27; &#x27;表示保留原文的换行，使print()的换行不起作用</span></span><br></pre></td></tr></table></figure>
+<pre><code>《天外天上天无涯》
+ 作词：晨曦
+ 作曲：飞鸟凉
+ 演唱：邓丽君
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+</code></pre>
+<ol start="3">
+<li>读入所有行，以每行为元素形成一个列表——f.readlines()</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    text = f.readlines()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;《天外天上天无涯》\n&#39;, &#39;作词：晨曦\n&#39;, &#39;作曲：飞鸟凉\n&#39;, &#39;演唱：邓丽君\n&#39;, &#39;高挂在天边一颗星儿呀，\n&#39;, &#39;能不能听到我许愿的话？\n&#39;, &#39;隐藏在心底一种情感啊，\n&#39;, &#39;能不能如同星儿一般潇洒？\n&#39;, &#39;飞到天外天上天无涯，\n&#39;, &#39;再也不必费心挣扎，\n&#39;, &#39;再也没有这些伤感的眼泪，\n&#39;, &#39;不必回答那悲欢离合的真假。\n&#39;, &#39;这一切烦忧，让它远离我身旁，\n&#39;, &#39;不必回答那心中纠缠如麻，\n&#39;, &#39;为什么不明白，我的一切执着不更改。\n&#39;, &#39;高挂在天边一颗星儿呀，\n&#39;, &#39;能不能听到我许愿的话？\n&#39;, &#39;隐藏在心底一种情感啊，\n&#39;, &#39;能不能如同星儿一般潇洒？\n&#39;, &#39;飞到天外天上天无涯，\n&#39;, &#39;再也不必费心挣扎，\n&#39;, &#39;再也没有这些伤感的眼泪，\n&#39;, &#39;不必回答那悲欢离合的真假。\n&#39;, &#39;这一切烦忧，让它远离我身旁，\n&#39;, &#39;不必回答那心中纠缠如麻，\n&#39;, &#39;为什么不明白，我的一切执着不更改。\n&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> text <span class="keyword">in</span> f.readlines():</span><br><span class="line">        <span class="built_in">print</span>(text, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>《天外天上天无涯》
+ 作词：晨曦
+ 作曲：飞鸟凉
+ 演唱：邓丽君
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+ 高挂在天边一颗星儿呀，
+ 能不能听到我许愿的话？
+ 隐藏在心底一种情感啊，
+ 能不能如同星儿一般潇洒？
+ 飞到天外天上天无涯，
+ 再也不必费心挣扎，
+ 再也没有这些伤感的眼泪，
+ 不必回答那悲欢离合的真假。
+ 这一切烦忧，让它远离我身旁，
+ 不必回答那心中纠缠如麻，
+ 为什么不明白，我的一切执着不更改。
+</code></pre>
+<ol start="5">
+<li>大文件读取</li>
 </ol>
 <p>文件比较大时，read()和readlines()占用内存过大，不建议使用</p>
 <p>readline用起来又不太方便</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> text <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(text, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <pre><code>《天外天上天无涯》
  作词：晨曦
  作曲：飞鸟凉
@@ -229,6 +327,8 @@
 <li>二进制文件</li>
 </ol>
 <p>图片：二进制文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\images\dva.jpg&quot;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(f.readlines()))</span><br></pre></td></tr></table></figure>
+
 <pre><code>4028
 </code></pre>
 <h4 id="1-1-3-文件的写入"><a href="#1-1-3-文件的写入" class="headerlink" title="1.1.3 文件的写入"></a>1.1.3 文件的写入</h4><ol>
@@ -239,21 +339,34 @@
 <li>如果需要换行，需要在末尾加换行符\n</li>
 <li>如果文件存在，新写入内容会覆盖原内容</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯_评论.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">&#x27;这首歌是邓丽君1985年的作品，\n&#x27;</span>)</span><br><span class="line">    f.write(<span class="string">&#x27;歌曲的知名度不算很高，\n&#x27;</span>)</span><br><span class="line">    f.write(<span class="string">&#x27;旋律也算不上特别优美。\n&#x27;</span>)  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯_评论.txt&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">&#x27;但邓丽君的演唱声音高亢而富有穿透力，\n&#x27;</span>)</span><br><span class="line">    f.write(<span class="string">&#x27;特别的耐听，\n&#x27;</span>)</span><br><span class="line">    f.write(<span class="string">&#x27;仿佛就像外星人降临地球。\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
-<li><p>将一个元素为字符串的列表整体写入文件——f.writelines()</p>
-<p>[‘《天外天上天无涯》\n’, ‘作词：晨曦\n’, ‘作曲：飞鸟凉\n’, ‘演唱：邓丽君\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’, ‘高挂在天边一颗星儿呀，\n’, ‘能不能听到我许愿的话？\n’, ‘隐藏在心底一种情感啊，\n’, ‘能不能如同星儿一般潇洒？\n’, ‘飞到天外天上天无涯，\n’, ‘再也不必费心挣扎，\n’, ‘再也没有这些伤感的眼泪，\n’, ‘不必回答那悲欢离合的真假。\n’, ‘这一切烦忧，让它远离我身旁，\n’, ‘不必回答那心中纠缠如麻，\n’, ‘为什么不明白，我的一切执着不更改。\n’]</p>
-</li>
+<li>将一个元素为字符串的列表整体写入文件——f.writelines()</li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    text = f.readlines()</span><br><span class="line">    <span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;《天外天上天无涯》\n&#39;, &#39;作词：晨曦\n&#39;, &#39;作曲：飞鸟凉\n&#39;, &#39;演唱：邓丽君\n&#39;, &#39;高挂在天边一颗星儿呀，\n&#39;, &#39;能不能听到我许愿的话？\n&#39;, &#39;隐藏在心底一种情感啊，\n&#39;, &#39;能不能如同星儿一般潇洒？\n&#39;, &#39;飞到天外天上天无涯，\n&#39;, &#39;再也不必费心挣扎，\n&#39;, &#39;再也没有这些伤感的眼泪，\n&#39;, &#39;不必回答那悲欢离合的真假。\n&#39;, &#39;这一切烦忧，让它远离我身旁，\n&#39;, &#39;不必回答那心中纠缠如麻，\n&#39;, &#39;为什么不明白，我的一切执着不更改。\n&#39;, &#39;高挂在天边一颗星儿呀，\n&#39;, &#39;能不能听到我许愿的话？\n&#39;, &#39;隐藏在心底一种情感啊，\n&#39;, &#39;能不能如同星儿一般潇洒？\n&#39;, &#39;飞到天外天上天无涯，\n&#39;, &#39;再也不必费心挣扎，\n&#39;, &#39;再也没有这些伤感的眼泪，\n&#39;, &#39;不必回答那悲欢离合的真假。\n&#39;, &#39;这一切烦忧，让它远离我身旁，\n&#39;, &#39;不必回答那心中纠缠如麻，\n&#39;, &#39;为什么不明白，我的一切执着不更改。\n&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;D:\jupyter_notebook\python\assets\texts\天外天上天无涯_评论.txt&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, </span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(text)</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-1-4-读-写"><a href="#1-1-4-读-写" class="headerlink" title="1.1.4 读 + 写"></a>1.1.4 读 + 写</h4><ol>
 <li>‘w+’</li>
 </ol>
 <ul>
-<li><p>若文件不存在，则创建</p>
-</li>
-<li><p>若文件存在，会立刻清空原内容</p>
-<p>Celine dion的力量是爆发的，<br>但是邓的仔细听就会发现也是很有力的,<br>区别在于dion的是直接有力，<br>邓的是婉转的具有东方情怀的力量，<br>所以就会给人造成没有力量的错觉。</p>
-</li>
+<li>若文件不存在，则创建</li>
+<li>若文件存在，会立刻清空原内容</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text = [<span class="string">&#x27;Celine dion的力量是爆发的，\n&#x27;</span>, <span class="string">&#x27;但是邓的仔细听就会发现也是很有力的,\n&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;区别在于dion的是直接有力，\n&#x27;</span>, <span class="string">&#x27;邓的是婉转的具有东方情怀的力量，\n&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;所以就会给人造成没有力量的错觉。\n&#x27;</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\The power of love.txt&quot;</span>, <span class="string">&#x27;w+&#x27;</span>, </span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(text)     <span class="comment"># 写入新内容，指针在最后</span></span><br><span class="line">    f.seek(<span class="number">0</span>, <span class="number">0</span>)           <span class="comment"># 把指针移到开始</span></span><br><span class="line">    <span class="built_in">print</span>(f.read())        <span class="comment"># 读取内容</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Celine dion的力量是爆发的，
+但是邓的仔细听就会发现也是很有力的,
+区别在于dion的是直接有力，
+邓的是婉转的具有东方情怀的力量，
+所以就会给人造成没有力量的错觉。
+</code></pre>
 <ol start="2">
 <li>‘r+’</li>
 </ol>
@@ -262,6 +375,8 @@
 <li>指针在开始</li>
 <li>要把指针移到末尾才能开始写，否则会覆盖前面内容</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text = [<span class="string">&#x27;邓的歌曲虽然易唱但是要唱好很难，\n&#x27;</span>, <span class="string">&#x27;她的咬字、力量、气息各种都很优秀。\n&#x27;</span>, </span><br><span class="line">        <span class="string">&#x27;我觉得风格不同，\n&#x27;</span>, <span class="string">&#x27;不过更喜欢邓的,\n&#x27;</span>, <span class="string">&#x27;那种润物细无声的力量。\n&#x27;</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\The power of love.txt&quot;</span>, <span class="string">&#x27;r+&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment">#for line in f:</span></span><br><span class="line">        <span class="comment">#print(line)   # 全部读一遍指针到结尾</span></span><br><span class="line">    f.seek(<span class="number">0</span>, <span class="number">2</span>)       <span class="comment"># 或者可以将指针移到末尾fseek(偏移字节数，位置(0：开始；1：当前位置；2：末尾))</span></span><br><span class="line">    f.writelines(text)</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>‘a+’</li>
 </ol>
@@ -269,9 +384,25 @@
 <li><p>若指针不存在，则创建</p>
 </li>
 <li><p>指针在末尾，添加新内容，不会清楚原内容</p>
-<p>Celine dion的力量是爆发的，<br>但是邓的仔细听就会发现也是很有力的,<br>区别在于dion的是直接有力，<br>邓的是婉转的具有东方情怀的力量，<br>所以就会给人造成没有力量的错觉。<br>邓的歌曲虽然易唱但是要唱好很难，<br>她的咬字、力量、气息各种都很优秀。<br>我觉得风格不同，<br>不过更喜欢邓的,<br>那种润物细无声的力量。<br>1984年，Jennifer Rush写下了这首《The power of love》，并亲自演唱。<br>1985年，邓丽君在日本NHK大会堂演唱了这首歌曲。<br>1993年，Celine Dion灌录了这首歌曲，并在Billboard上蝉联四周冠军。</p>
 </li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    text = [<span class="string">&#x27;1984年，Jennifer Rush写下了这首《The power of love》，并亲自演唱。\n&#x27;</span>, </span><br><span class="line">        <span class="string">&#x27;1985年，邓丽君在日本NHK大会堂演唱了这首歌曲。\n&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;1993年，Celine Dion灌录了这首歌曲，并在Billboard上蝉联四周冠军。\n&#x27;</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\The power of love.txt&quot;</span>, <span class="string">&#x27;a+&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(text)     <span class="comment"># 指针在最后，追加新内容</span></span><br><span class="line">    f.seek(<span class="number">0</span>, <span class="number">0</span>)           <span class="comment"># 指针移到开始</span></span><br><span class="line">    <span class="built_in">print</span>(f.read())        <span class="comment"># 读取内容</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Celine dion的力量是爆发的，
+但是邓的仔细听就会发现也是很有力的,
+区别在于dion的是直接有力，
+邓的是婉转的具有东方情怀的力量，
+所以就会给人造成没有力量的错觉。
+邓的歌曲虽然易唱但是要唱好很难，
+她的咬字、力量、气息各种都很优秀。
+我觉得风格不同，
+不过更喜欢邓的,
+那种润物细无声的力量。
+1984年，Jennifer Rush写下了这首《The power of love》，并亲自演唱。
+1985年，邓丽君在日本NHK大会堂演唱了这首歌曲。
+1993年，Celine Dion灌录了这首歌曲，并在Billboard上蝉联四周冠军。
+</code></pre>
+<p>​    </p>
 <h4 id="1-1-5-数据的存储与读取"><a href="#1-1-5-数据的存储与读取" class="headerlink" title="1.1.5 数据的存储与读取"></a>1.1.5 数据的存储与读取</h4><ul>
 <li>通用的数据结构，可以在不同语言中加载和储存</li>
 <li>本节简单了解两种数据存储结构csv和json</li>
@@ -285,45 +416,68 @@
 <li>写入</li>
 </ul>
 <p>也可以借助cxv模块完成上述操作（Pandas库）</p>
-<p><img src="/07.%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97_files/2238488a-84d4-4630-894f-101dec9c8722.png" alt="utf-8乱码.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls = [[<span class="string">&#x27;编号&#x27;</span>, <span class="string">&#x27; 数学成绩&#x27;</span>, <span class="string">&#x27;语文成绩&#x27;</span>], [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;100&#x27;</span>, <span class="string">&#x27;98&#x27;</span>],</span><br><span class="line">      [<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;96&#x27;</span>, <span class="string">&#x27;99&#x27;</span>], [<span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;97&#x27;</span>, <span class="string">&#x27;95&#x27;</span>]]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\成绩.csv&quot;</span>, <span class="string">&#x27;w&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;gbk&#x27;</span>) <span class="keyword">as</span> f:         <span class="comment"># 使用utf-8中文出现乱码</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> ls:                      <span class="comment"># 逐行输入</span></span><br><span class="line">        f.write(<span class="string">&#x27;,&#x27;</span>.join(row)+<span class="string">&#x27;\n&#x27;</span>)     <span class="comment"># 用逗号组合成字符串形式，末尾加换行符</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/utf-8%E4%B9%B1%E7%A0%81.png" alt="encoding&#x3D;&#39;utf-8&#39;乱码"></p>
 <p>encoding&#x3D;’utf-8’乱码</p>
-<p><img src="/07.%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97_files/efac8482-ca2c-4e71-b5b4-391c241d9a97.png" alt="gbk编码.png"></p>
+<p><img src="/images/gbk%E7%BC%96%E7%A0%81.png" alt="encoding&#x3D;&#39; gbk&#39;编码"></p>
 <p>encoding&#x3D;’ gbk’编码</p>
-<p>由于windows系统在中国地区默认设置为gbk，因此对于csv文件默认显示编码为gbk。</p>
-<p>文件若使用utf-8写入，但用gbk显示，会出现乱码。</p>
-<p>而在前面的例子中，使用记事本打开utf-8文件，可以自动识别，并将显示编码改为utf-8。</p>
-<p>excel文件只会按照预设的显示编码显示。对于csv文件也可以使用记事本打开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">由于windows系统在中国地区默认设置为gbk，因此对于csv文件默认显示编码为gbk。</span><br><span class="line"></span><br><span class="line">文件若使用utf-8写入，但用gbk显示，会出现乱码。</span><br><span class="line"></span><br><span class="line">而在前面的例子中，使用记事本打开utf-8文件，可以自动识别，并将显示编码改为utf-8。</span><br><span class="line"></span><br><span class="line">excel文件只会按照预设的显示编码显示。对于csv文件也可以使用记事本打开。</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p>读取</p>
-<p>  [‘编号’, ‘ 数学成绩’, ‘语文成绩’]<br>  [‘1’, ‘100’, ‘98’]<br>  [‘2’, ‘96’, ‘99’]<br>  [‘3’, ‘97’, ‘95’]</p>
-</li>
+<li>读取</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\成绩.csv&quot;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">          encoding=<span class="string">&#x27;gbk&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    ls = []</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:                                 <span class="comment"># 逐行读取</span></span><br><span class="line">        ls.append(line.strip(<span class="string">&#x27;\n&#x27;</span>).split(<span class="string">&#x27;,&#x27;</span>))     <span class="comment"># 去掉每行的换行符，然后用“，”进行分割</span></span><br><span class="line"><span class="keyword">for</span> res <span class="keyword">in</span> ls:</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>[&#39;编号&#39;, &#39; 数学成绩&#39;, &#39;语文成绩&#39;]
+[&#39;1&#39;, &#39;100&#39;, &#39;98&#39;]
+[&#39;2&#39;, &#39;96&#39;, &#39;99&#39;]
+[&#39;3&#39;, &#39;97&#39;, &#39;95&#39;]
+</code></pre>
 <ol start="2">
 <li>json格式</li>
 </ol>
 <p>常被用来存储字典类型</p>
 <ul>
-<li><p>写入——dump（）</p>
-</li>
-<li><p>读取——load()</p>
-<p>Oliveira 80<br>Maru 96<br>李培楠 80</p>
-</li>
+<li>写入——dump（）</li>
 </ul>
-<h2 id="2-异常"><a href="#2-异常" class="headerlink" title="2.异常"></a>2.异常</h2><h3 id="2-1-常见异常的产生"><a href="#2-1-常见异常的产生" class="headerlink" title="2.1 常见异常的产生"></a>2.1 常见异常的产生</h3><ol>
-<li><p>除0运算——ZeroDivisionError</p>
-</li>
-<li><p>找不到可读文件——FileNotFoundError</p>
-</li>
-<li><p>值错误——ValueError</p>
-</li>
-<li><p>索引错误——IndexError</p>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">members = &#123;<span class="string">&#x27;Oliveira&#x27;</span>:<span class="number">80</span>,<span class="string">&#x27;Maru&#x27;</span>:<span class="number">96</span>,<span class="string">&#x27;李培楠&#x27;</span>:<span class="number">80</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span> (<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\score.json&quot;</span>, <span class="string">&#x27;w&#x27;</span>,</span><br><span class="line">           encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:   <span class="comment"># 写入整个对象</span></span><br><span class="line">    <span class="comment"># indent 表示字符串换行+缩进 ensure_ascii=False 显示中文</span></span><br><span class="line">    json.dump(members, f, indent=<span class="number">4</span>, ensure_ascii=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>读取——load()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span> (<span class="string">r&quot;D:\jupyter_notebook\python\assets\texts\score.json&quot;</span>, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">           encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    scores = json.load(f)          <span class="comment"># 加载整个对象</span></span><br><span class="line">    <span class="keyword">for</span> k,v <span class="keyword">in</span> scores.items():</span><br><span class="line">        <span class="built_in">print</span>(k,v)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Oliveira 80</span><br><span class="line">Maru 96</span><br><span class="line">李培楠 80</span><br></pre></td></tr></table></figure>
+
+<h1 id="第二部分-异常"><a href="#第二部分-异常" class="headerlink" title="第二部分 异常"></a>第二部分 异常</h1><h3 id="2-1-常见异常的产生"><a href="#2-1-常见异常的产生" class="headerlink" title="2.1 常见异常的产生"></a>2.1 常见异常的产生</h3><ol>
+<li>除0运算——ZeroDivisionError</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1/0</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>找不到可读文件——FileNotFoundError</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># with open(&#x27;noone.csv&#x27;) as f:</span></span><br><span class="line"><span class="comment">#    pass</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>值错误——ValueError</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;1.2&#x27;</span></span><br><span class="line"><span class="comment"># n = int(s)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>索引错误——IndexError</li>
 </ol>
 <p>下标超出序列边界</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment"># ls[5]</span></span><br></pre></td></tr></table></figure>
+
 <ol start="5">
 <li>类型错误——TypeError</li>
 </ol>
 <p>传入对象类型与要求不符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 + &#x27;3&#x27;</span></span><br></pre></td></tr></table></figure>
+
 <ol start="6">
 <li>其他常见的异常类型</li>
 </ol>
@@ -336,40 +490,64 @@
 <li>try_except</li>
 </ol>
 <ul>
-<li><p>如果try内代码块顺利执行，except不被触发</p>
-</li>
-<li><p>如果try内代码块发生错误，触发except，执行except内代码块</p>
-</li>
-<li><p>单分支</p>
-<p>0不可以被除</p>
-</li>
-<li><p>多分支</p>
-<p>索引超出界限</p>
-</li>
-<li><p>万能异常 Exception</p>
-<p>变量名不存在</p>
-</li>
-<li><p>捕获异常的值 as</p>
-<p>list index out of range</p>
-</li>
+<li>如果try内代码块顺利执行，except不被触发</li>
+<li>如果try内代码块发生错误，触发except，执行except内代码块</li>
+<li>单分支</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">y = <span class="number">0</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    z = x/y</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;0不可以被除&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0不可以被除</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多分支</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ls = []</span><br><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ls[<span class="number">9</span>]</span><br><span class="line">    d[age]</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量名不存在&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> IndexError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;索引超出界限&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;键不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">索引超出界限</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>万能异常 Exception</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls = []</span><br><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ls[<span class="number">9</span>]</span><br><span class="line">    d[age]</span><br><span class="line"><span class="keyword">except</span> Exception:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量名不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名不存在</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>捕获异常的值 as</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls = []</span><br><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ls[<span class="number">9</span>]</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)    </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list index out of range</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>try_except_else</li>
 </ol>
 <ul>
-<li><p>如果try模块执行，则else也执行</p>
-<p>开始执行除法运算…<br>结果是：5.0<br>错误：除数不能为零！<br>错误：请输入有效的数字！</p>
-</li>
+<li>如果try模块执行，则else也执行</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">divide_numbers</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 尝试执行的代码：除法运算</span></span><br><span class="line">        result = a / b</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">        <span class="comment"># 捕获除以零的异常</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;错误：除数不能为零！&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> TypeError:</span><br><span class="line">        <span class="comment"># 捕获类型错误（例如输入非数字）</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;错误：请输入有效的数字！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果没有异常发生，则执行的代码</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;结果是：<span class="subst">&#123;result&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开始执行除法运算...&quot;</span>)</span><br><span class="line">divide_numbers(<span class="number">10</span>, <span class="number">2</span>)   <span class="comment"># 正常情况</span></span><br><span class="line">divide_numbers(<span class="number">10</span>, <span class="number">0</span>)   <span class="comment"># 触发 ZeroDivisionError</span></span><br><span class="line">divide_numbers(<span class="string">&quot;10&quot;</span>, <span class="number">2</span>) <span class="comment"># 触发 TypeError</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">开始执行除法运算...</span><br><span class="line">结果是：5.0</span><br><span class="line">错误：除数不能为零！</span><br><span class="line">错误：请输入有效的数字！</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>try_except_finally</li>
 </ol>
 <ul>
-<li><p>无论try是否执行，finally都会执行</p>
-<p>开始执行文件读取操作…<br>尝试打开文件：example.txt<br>错误：文件 example.txt 未找到！<br>执行清理操作：关闭文件或释放资源。</p>
-<h2 id="无论成功或失败，finally块总是会执行！"><a href="#无论成功或失败，finally块总是会执行！" class="headerlink" title="无论成功或失败，finally块总是会执行！"></a>无论成功或失败，finally块总是会执行！</h2><p>尝试打开文件：nonexistent_file.txt<br>错误：文件 nonexistent_file.txt 未找到！<br>执行清理操作：关闭文件或释放资源。<br>无论成功或失败，finally块总是会执行！</p>
-</li>
+<li>无论try是否执行，finally都会执行</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">read_file</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 尝试打开并读取文件</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;尝试打开文件：<span class="subst">&#123;filename&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            content = file.read()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;文件读取成功！&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> content</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="comment"># 捕获文件未找到的异常</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;错误：文件 <span class="subst">&#123;filename&#125;</span> 未找到！&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="comment"># 捕获其他类型的异常</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;发生错误：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="comment"># 无论是否发生异常，都会执行的代码</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行清理操作：关闭文件或释放资源。&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;无论成功或失败，finally块总是会执行！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开始执行文件读取操作...&quot;</span>)</span><br><span class="line">read_file(<span class="string">&quot;example.txt&quot;</span>)  <span class="comment"># 假设文件存在</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">30</span>)</span><br><span class="line">read_file(<span class="string">&quot;nonexistent_file.txt&quot;</span>)  <span class="comment"># 假设文件不存在</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>开始执行文件读取操作...
+尝试打开文件：example.txt
+错误：文件 example.txt 未找到！
+执行清理操作：关闭文件或释放资源。
+无论成功或失败，finally块总是会执行！
+------------------------------
+尝试打开文件：nonexistent_file.txt
+错误：文件 nonexistent_file.txt 未找到！
+执行清理操作：关闭文件或释放资源。
+无论成功或失败，finally块总是会执行！
+</code></pre>
 <h1 id="第三部分-模块"><a href="#第三部分-模块" class="headerlink" title="第三部分 模块"></a>第三部分 模块</h1><p>已经被封装好</p>
 <p>声明导入后，拿来即用</p>
 <h3 id="3-1-广义模块分类"><a href="#3-1-广义模块分类" class="headerlink" title="3.1 广义模块分类"></a>3.1 广义模块分类</h3><ol>
@@ -386,8 +564,6 @@
 <li>包——多个py文件</li>
 </ul>
 <p>文件夹内多个py文件，再加一个__init__.py文件（内容可为空）</p>
-<pre><code>Seaborn 安装路径: D:\Program Files\anaconda\Lib\site-packages\seaborn\__init__.py
-</code></pre>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/">https://ziyuan0315.github.io/2025/03/11/07-%E6%96%87%E4%BB%B6%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E6%A8%A1%E5%9D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">‘太湖之光也有报错的情况'</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">出现bug可能不是你的问题，可能是底层或者硬件问题（doge）</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/09-Python%E6%A0%87%E5%87%86%E5%BA%93/" title="09.Python标准库">09.Python标准库</a><time datetime="2025-03-11T07:50:06.000Z" title="发表于 2025-03-11 15:50:06">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/08-%E6%9C%89%E8%B6%A3%E7%9A%84%E6%8E%A2%E7%B4%A2/" title="08.有趣的探索">08.有趣的探索</a><time datetime="2025-03-11T07:49:46.000Z" title="发表于 2025-03-11 15:49:46">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
@@ -416,4 +592,4 @@
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T02:05:19.475Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T08:45:53.303Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
