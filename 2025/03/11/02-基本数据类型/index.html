@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>02.基本数据类型 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制  二进制0b、八进制0o、十六进制0x   True  十进制的转换   0b10000 0o20 0x10   str  其他进制转十进制   16 16 16   int   1.1.2 浮点数——不确定性 不确定小数问题   False   0.30000000000000004   计算机采用二进制小数">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>02.基本数据类型 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制 二进制0b、八进制0o、十六进制0x  116 &#x3D;&#x3D; 0b10000 &#x3D;&#x3D; 0o20 &#x3D;&#x3D; 0x10  1True   十进制的转换  123456a &#x3D; bin(16) #二进制 b &#x3D; oct(16) #八进制c &#x3D; hex(16) #十六进制print(a, b, c)# 转换结果为字符串类型  10b1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="02.基本数据类型">
 <meta property="og:url" content="https://ziyuan0315.github.io/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="‘太湖之光也有报错的情况&#39;">
-<meta property="og:description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制  二进制0b、八进制0o、十六进制0x   True  十进制的转换   0b10000 0o20 0x10   str  其他进制转十进制   16 16 16   int   1.1.2 浮点数——不确定性 不确定小数问题   False   0.30000000000000004   计算机采用二进制小数">
+<meta property="og:description" content="第一部分 数字类型1.1 数字类型的组成1.1.1 整数不同进制的转换 默认输入十进制 二进制0b、八进制0o、十六进制0x  116 &#x3D;&#x3D; 0b10000 &#x3D;&#x3D; 0o20 &#x3D;&#x3D; 0x10  1True   十进制的转换  123456a &#x3D; bin(16) #二进制 b &#x3D; oct(16) #八进制c &#x3D; hex(16) #十六进制print(a, b, c)# 转换结果为字符串类型  10b1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg">
 <meta property="article:published_time" content="2025-03-11T07:47:26.000Z">
-<meta property="article:modified_time" content="2025-03-11T12:17:04.234Z">
+<meta property="article:modified_time" content="2025-03-12T01:14:41.677Z">
 <meta property="article:author" content="ZI YUAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ziyuan0315.github.io/img/ziyuan.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ziyuan0315.github.io/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -144,117 +144,217 @@
   isToc: false,
   pageType: 'titile'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/miku.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">02.基本数据类型</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第一部分-数字类型"><a href="#第一部分-数字类型" class="headerlink" title="第一部分 数字类型"></a>第一部分 数字类型</h1><h2 id="1-1-数字类型的组成"><a href="#1-1-数字类型的组成" class="headerlink" title="1.1 数字类型的组成"></a>1.1 数字类型的组成</h2><h3 id="1-1-1-整数不同进制的转换"><a href="#1-1-1-整数不同进制的转换" class="headerlink" title="1.1.1 整数不同进制的转换"></a>1.1.1 整数不同进制的转换</h3><ul>
-<li><p>默认输入十进制</p>
-</li>
-<li><p>二进制0b、八进制0o、十六进制0x</p>
-<p>  True</p>
-</li>
-<li><p>十进制的转换</p>
-<p>  0b10000 0o20 0x10</p>
-<p>  str</p>
-</li>
-<li><p>其他进制转十进制</p>
-<p>  16 16 16</p>
-<p>  int</p>
-</li>
+<li>默认输入十进制</li>
+<li>二进制0b、八进制0o、十六进制0x</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">16</span> == <span class="number">0b10000</span> == <span class="number">0o20</span> == <span class="number">0x10</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>十进制的转换</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">bin</span>(<span class="number">16</span>) <span class="comment">#二进制 </span></span><br><span class="line">b = <span class="built_in">oct</span>(<span class="number">16</span>) <span class="comment">#八进制</span></span><br><span class="line">c = <span class="built_in">hex</span>(<span class="number">16</span>) <span class="comment">#十六进制</span></span><br><span class="line"><span class="built_in">print</span>(a, b, c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换结果为字符串类型</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0b10000</span> <span class="number">0o20</span> <span class="number">0x10</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(a)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他进制转十进制</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d = <span class="built_in">int</span>(a, <span class="number">2</span>)</span><br><span class="line">e = <span class="built_in">int</span>(b, <span class="number">8</span>)</span><br><span class="line">f = <span class="built_in">int</span>(c, <span class="number">16</span>)</span><br><span class="line"><span class="built_in">print</span>(d, e, f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换结果为整数类型</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>16 16 16
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(d)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="1-1-2-浮点数——不确定性"><a href="#1-1-2-浮点数——不确定性" class="headerlink" title="1.1.2 浮点数——不确定性"></a>1.1.2 浮点数——不确定性</h3><ul>
-<li><p>不确定小数问题</p>
-<p>  False</p>
-<p>  0.30000000000000004</p>
-</li>
+<li>不确定小数问题</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">0.1</span>+<span class="number">0.2</span>) == <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span>+<span class="number">0.2</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0.30000000000000004
+</code></pre>
 <p>计算机采用二进制小数来表示浮点数的小数部分</p>
 <ul>
-<li><p>部分小数不能使用二进制完全表示</p>
-</li>
-<li><p>通常情况下不会影响计算精度</p>
-</li>
-<li><p>如果涉及严格的数值上的比较可以四舍五入</p>
-<p>  0.3</p>
-<p>  True</p>
-</li>
+<li>部分小数不能使用二进制完全表示</li>
+<li>通常情况下不会影响计算精度</li>
+<li>如果涉及严格的数值上的比较可以四舍五入</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0.1</span>+<span class="number">0.2</span></span><br><span class="line">b = <span class="built_in">round</span>(a, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line">b == <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.3</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="1-1-3-复数——a-bj"><a href="#1-1-3-复数——a-bj" class="headerlink" title="1.1.3 复数——a+bj"></a>1.1.3 复数——a+bj</h3><ul>
-<li><p>大写J和小写j都可以</p>
-</li>
-<li><p>虚部系数为1时，要显式写出</p>
-<p>  (2+1j)</p>
-</li>
+<li>大写J和小写j都可以</li>
+<li>虚部系数为1时，要显式写出</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>+<span class="number">1j</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>+<span class="number">1j</span>)</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="1-2-数字运算操作符"><a href="#1-2-数字运算操作符" class="headerlink" title="1.2 数字运算操作符"></a>1.2 数字运算操作符</h2><ul>
-<li><p>加减乘除 + - &#x2F; *</p>
-</li>
-<li><p>取反 -</p>
-<p>  -1</p>
-</li>
-<li><p>乘方**</p>
-<p>  8</p>
-</li>
-<li><p>整数商&#x2F;&#x2F; 和 模运算%</p>
-<p>  2</p>
-<p>  3</p>
-</li>
+<li>加减乘除 + - &#x2F; *</li>
+<li>取反 -</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span></span><br><span class="line">-x</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>-1
+</code></pre>
+<ul>
+<li>乘方**</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>**<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>8
+</code></pre>
+<ul>
+<li>整数商&#x2F;&#x2F; 和 模运算%</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span> // <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span> % <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>3
+</code></pre>
 <p><strong>几点说明</strong></p>
 <ul>
-<li><p>整数与浮点数运算结果为浮点数</p>
-</li>
-<li><p>除法运算的结果是浮点数</p>
-<p>  2.0</p>
-<p>  2.0</p>
-</li>
+<li>整数与浮点数运算结果为浮点数</li>
+<li>除法运算的结果是浮点数</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2.0
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>/<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2.0
+</code></pre>
 <h2 id="1-3-数字运算操作函数"><a href="#1-3-数字运算操作函数" class="headerlink" title="1.3 数字运算操作函数"></a>1.3 数字运算操作函数</h2><ul>
-<li><p>绝对值abs()</p>
-<p>  5</p>
-<p>  5.0</p>
-</li>
-<li><p>幂次方pow()</p>
-<p>  32</p>
-<p>  2</p>
-</li>
-<li><p>四舍五入round(x, n)</p>
-<p>  3</p>
-<p>  3.14</p>
-<p>  3.14159</p>
-</li>
+<li>绝对值abs()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">abs</span>(-<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">abs</span>(<span class="number">3</span>+<span class="number">4j</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>5.0
+</code></pre>
+<ul>
+<li>幂次方pow()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">5</span>)  <span class="comment">#2^5</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>32
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>) <span class="comment">#2^5%3</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2
+</code></pre>
+<ul>
+<li>四舍五入round(x, n)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3.14159</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">round</span>(a)) <span class="comment"># 默认四舍五入为整数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">round</span>(a, <span class="number">2</span>)) <span class="comment">#设置参数保留小数位数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">round</span>(a, <span class="number">9</span>)) <span class="comment">#位数不足，不补齐</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span></span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p>整数商和模运算divmod(x, y)</p>
 </li>
 <li><p>等价于返回二元数组(x&#x2F;&#x2F;y,x%y)</p>
-<p>  (2, 3)</p>
-</li>
-<li><p>序列最大&#x2F;最小值max()&#x2F;min()</p>
-<p>  5<br>  1</p>
-</li>
-<li><p>求和sum()</p>
-<p>  15</p>
-</li>
-<li><p>借助科学计算库math和numpy数学运算库</p>
-<p>  2.718281828459045<br>  1.0<br>  2.0</p>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/math.html">点击了解更多math库函数</a></p>
-<pre><code>4.428571428571429
-4.0
-2.770102775666474
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">divmod</span>(<span class="number">13</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>(2, 3)
 </code></pre>
+<ul>
+<li>序列最大&#x2F;最小值max()&#x2F;min()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(a))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">min</span>(a))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>求和sum()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">sum</span>(a)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>15
+</code></pre>
+<ul>
+<li>借助科学计算库math和numpy数学运算库</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math  <span class="comment"># 导入math库</span></span><br><span class="line"><span class="built_in">print</span>(math.exp(<span class="number">1</span>))  <span class="comment"># 相当于e^x，指数运算</span></span><br><span class="line"><span class="built_in">print</span>(math.log2(<span class="number">2</span>)) <span class="comment"># 以2为底的对数运算</span></span><br><span class="line"><span class="built_in">print</span>(math.sqrt(<span class="number">4</span>)) <span class="comment"># 开平方运算</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.718281828459045</span></span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"><span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/math.html">点击了解更多math库函数</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>]</span><br><span class="line"><span class="built_in">print</span>(np.mean(a))      <span class="comment"># 求平均值</span></span><br><span class="line"><span class="built_in">print</span>(np.median(a))    <span class="comment"># 求中位数</span></span><br><span class="line"><span class="built_in">print</span>(np.std(a))       <span class="comment"># 求标准差</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.428571428571429</span></span><br><span class="line"><span class="number">4.0</span></span><br><span class="line"><span class="number">2.770102775666474</span></span><br></pre></td></tr></table></figure>
+
 <p><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/">点击了解更多numpy</a></p>
 <p>在后续的介绍中也会涉及Numpy的应用</p>
 <h1 id="第二部分-字符串类型"><a href="#第二部分-字符串类型" class="headerlink" title="第二部分 字符串类型"></a>第二部分 字符串类型</h1><h2 id="2-1-字符串的表达"><a href="#2-1-字符串的表达" class="headerlink" title="2.1 字符串的表达"></a>2.1 字符串的表达</h2><ul>
-<li><p>用””或’’括起来的任意字符</p>
-</li>
-<li><p>字符串中有单双引号的情况</p>
-<p>  I say “My favorite singer is Teresa Teng.”</p>
-</li>
+<li>用””或’’括起来的任意字符</li>
+<li>字符串中有单双引号的情况</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;I say &quot;My favorite singer is Teresa Teng.&quot;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I say <span class="string">&quot;My favorite singer is Teresa Teng.&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>也可以使用转义符\</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;I say \&quot;My favorite singer is Teresa Teng.\&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
 <pre><code>I say &quot;My favorite singer is Teresa Teng.&quot;
 </code></pre>
 <p>转义符也可以用来换行后继续输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Teresa Teng.&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
 <pre><code>My favorite singer is Teresa Teng.
 </code></pre>
 <h3 id="2-2-字符串的性质"><a href="#2-2-字符串的性质" class="headerlink" title="2.2 字符串的性质"></a>2.2 字符串的性质</h3><h4 id="2-2-1-字符串的索引"><a href="#2-2-1-字符串的索引" class="headerlink" title="2.2.1 字符串的索引"></a>2.2.1 字符串的索引</h4><p>索引只能获得一个字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(word[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(word[<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(word[<span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(word[-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(word[-<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>M
 f
 i
@@ -263,40 +363,44 @@ r
 </code></pre>
 <h4 id="2-2-2-字符串的切片"><a href="#2-2-2-字符串的切片" class="headerlink" title="2.2.2 字符串的切片"></a>2.2.2 字符串的切片</h4><p>变量名[开始位置:结束位置:步长]</p>
 <ul>
-<li><p>步长不设置默认为1，可以忽略。</p>
-</li>
-<li><p>切片范围不包含结束位置。</p>
-</li>
-<li><p>起始位置默认为0，可以忽略。</p>
-</li>
-<li><p>结束位置可以忽略，默认取到最后一个。</p>
-</li>
-<li><p>可以使用反向切片。</p>
-</li>
-<li><p>如果反向切片步长为负数，起始位置可忽略，默认取到第一个字符。</p>
-<p>  Pyt<br>  Pt<br>  Pyt<br>  Python<br>  Python<br>  noht<br>  nhy</p>
-</li>
+<li>步长不设置默认为1，可以忽略。</li>
+<li>切片范围不包含结束位置。</li>
+<li>起始位置默认为0，可以忽略。</li>
+<li>结束位置可以忽略，默认取到最后一个。</li>
+<li>可以使用反向切片。</li>
+<li>如果反向切片步长为负数，起始位置可忽略，默认取到第一个字符。</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">language = <span class="string">&quot;Python&quot;</span></span><br><span class="line"><span class="built_in">print</span>(language[<span class="number">0</span>:<span class="number">3</span>:<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(language[<span class="number">0</span>:<span class="number">3</span>:<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(language[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(language[:])</span><br><span class="line"><span class="built_in">print</span>(language[-<span class="number">6</span>:])</span><br><span class="line"><span class="built_in">print</span>(language[:-<span class="number">5</span>:-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(language[::-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Pyt</span><br><span class="line">Pt</span><br><span class="line">Pyt</span><br><span class="line">Python</span><br><span class="line">Python</span><br><span class="line">noht</span><br><span class="line">nhy</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-3-1-字符串的拼接"><a href="#2-3-1-字符串的拼接" class="headerlink" title="2.3.1 字符串的拼接"></a>2.3.1 字符串的拼接</h4><ul>
-<li><p>字符串1+字符串2</p>
-<p>  ‘My favorite singer isTeresa Teng.’</p>
-</li>
+<li>字符串1+字符串2</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">word1 = <span class="string">&#x27;My favorite singer is&#x27;</span></span><br><span class="line">word2 = <span class="string">&#x27;Teresa Teng.&#x27;</span></span><br><span class="line">word1 + word2</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>&#39;My favorite singer isTeresa Teng.&#39;
+</code></pre>
 <h4 id="2-3-2-字符串的成倍复制"><a href="#2-3-2-字符串的成倍复制" class="headerlink" title="2.3.2 字符串的成倍复制"></a>2.3.2 字符串的成倍复制</h4><ul>
-<li><p>字符串<em>n或n</em>字符串</p>
-<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.</p>
-<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.</p>
-</li>
+<li>字符串<em>n或n</em>字符串</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Teresa Teng.\n&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(word*<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">3</span>*word)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line"></span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-3-3成员运算"><a href="#2-3-3成员运算" class="headerlink" title="2.3.3成员运算"></a>2.3.3成员运算</h4><ul>
 <li>子集in全集</li>
 </ul>
 <p>任何一个连续的切片都是原字符串的子集</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Teresa Teng.\n&#x27;</span></span><br><span class="line"><span class="string">&#x27;Teresa Teng&#x27;</span> <span class="keyword">in</span> word</span><br></pre></td></tr></table></figure>
+
+
 <pre><code>True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">singer = <span class="string">&#x27;Teresa Teng&#x27;</span></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> singer:</span><br><span class="line">    <span class="built_in">print</span>(word)</span><br></pre></td></tr></table></figure>
 
-
-
-T
+<pre><code>T
 e
 r
 e
@@ -309,16 +413,21 @@ n
 g
 </code></pre>
 <h3 id="2-4-字符串处理函数"><a href="#2-4-字符串处理函数" class="headerlink" title="2.4 字符串处理函数"></a>2.4 字符串处理函数</h3><h4 id="2-4-1-字符串的长度——len-字符串"><a href="#2-4-1-字符串的长度——len-字符串" class="headerlink" title="2.4.1 字符串的长度——len(字符串)"></a>2.4.1 字符串的长度——len(字符串)</h4><ul>
-<li><p>所含字符的个数</p>
-<p>  11</p>
-</li>
+<li>所含字符的个数</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">singer = <span class="string">&#x27;Teresa Teng&#x27;</span></span><br><span class="line"><span class="built_in">len</span>(singer)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>11
+</code></pre>
 <h4 id="2-4-2-字符编码"><a href="#2-4-2-字符编码" class="headerlink" title="2.4.2 字符编码"></a>2.4.2 字符编码</h4><p><strong>讲中文字库、英文字母、数字、特殊字符等转换成计算机可识别的二进制数</strong></p>
 <ul>
 <li>每个大一字符串对应一个唯一的互不重复的二进制编码</li>
 <li>Python中使用的是Unicode编码</li>
 </ul>
 <p>将字符转化为Unicode码——ord（字符）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&quot;I&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&quot;❤&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&quot;邓&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&quot;丽&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&quot;君&quot;</span>))</span><br></pre></td></tr></table></figure>
+
 <pre><code>73
 10084
 37011
@@ -326,93 +435,120 @@ g
 21531
 </code></pre>
 <p>将Unicode码转化成字符——chr(Unicode码)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">50</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">500</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">5000</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">50000</span>))</span><br></pre></td></tr></table></figure>
+
 <pre><code>2
 Ǵ
 ᎈ
 썐
 </code></pre>
 <h3 id="2-5-字符串的处理方法"><a href="#2-5-字符串的处理方法" class="headerlink" title="2.5 字符串的处理方法"></a>2.5 字符串的处理方法</h3><h4 id="2-5-1-字符串的分割——字符串-spllit-字符串"><a href="#2-5-1-字符串的分割——字符串-spllit-字符串" class="headerlink" title="2.5.1 字符串的分割——字符串.spllit(字符串)"></a>2.5.1 字符串的分割——字符串.spllit(字符串)</h4><ul>
-<li><p>返回一个列表</p>
-</li>
-<li><p>原字符串不变</p>
-<p>  [‘Python’, ‘C’, ‘Cpp’, ‘C#’, ‘Java’, ‘JS’, ‘Ruby’]<br>  Python C Cpp C# Java JS Ruby</p>
-</li>
+<li>返回一个列表</li>
+<li>原字符串不变</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">language = <span class="string">&quot;Python C Cpp C# Java JS Ruby&quot;</span></span><br><span class="line">language_list = language.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(language_list)</span><br><span class="line"><span class="built_in">print</span>(language)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;Cpp&#x27;</span>, <span class="string">&#x27;C#&#x27;</span>, <span class="string">&#x27;Java&#x27;</span>, <span class="string">&#x27;JS&#x27;</span>, <span class="string">&#x27;Ruby&#x27;</span>]</span><br><span class="line">Python C Cpp C<span class="comment"># Java JS Ruby</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="2-5-2-字符串的聚合——‘聚合字符’-join-可迭代数据类型"><a href="#2-5-2-字符串的聚合——‘聚合字符’-join-可迭代数据类型" class="headerlink" title="2.5.2 字符串的聚合——‘聚合字符’.join(可迭代数据类型)"></a>2.5.2 字符串的聚合——‘聚合字符’.join(可迭代数据类型)</h4><ul>
-<li><p>可迭代类型 如：字符串、列表</p>
-<p>  ‘1,2,3,4,5’</p>
-</li>
-<li><p>列表类型的元素必须是字符串类型</p>
-<p>  ‘1<em>2</em>3<em>4</em>5’</p>
-</li>
+<li>可迭代类型 如：字符串、列表</li>
 </ul>
-<h4 id="2-5-3-删除两端特定字符——字符串-strip-删除字符串"><a href="#2-5-3-删除两端特定字符——字符串-strip-删除字符串" class="headerlink" title="2.5.3 删除两端特定字符——字符串.strip(删除字符串)"></a>2.5.3 删除两端特定字符——字符串.strip(删除字符串)</h4><ul>
-<li><p>strip从两侧开始搜索，遇到指定字符执行删除，遇到非指定字符，搜索停止。</p>
-</li>
-<li><p>类似的还有左删除lstrip和右删除rstrip。</p>
-<p>  My favorite singer is Teresa Teng.<br>  My favorite singer is Teresa Teng.<br>        My favorite singer is Teresa Teng.</p>
-</li>
-</ul>
-<h4 id="2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”"><a href="#2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”" class="headerlink" title="2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)"></a>2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)</h4><pre><code>My favorite singer is Teresa Teng.
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">demo = <span class="string">&#x27;12345&#x27;</span></span><br><span class="line">demo_join = <span class="string">&#x27;,&#x27;</span>.join(demo)</span><br><span class="line">demo_join</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>&#39;1,2,3,4,5&#39;
 </code></pre>
-<h4 id="3-5-5-字符串统计——字符串-count-“待统计字符串”"><a href="#3-5-5-字符串统计——字符串-count-“待统计字符串”" class="headerlink" title="3.5.5 字符串统计——字符串.count(“待统计字符串”)"></a>3.5.5 字符串统计——字符串.count(“待统计字符串”)</h4><pre><code>s: 3
+<ul>
+<li>列表类型的元素必须是字符串类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># demo = [1,2,3,4,5]   # 列表内的元素是整数类型运行会报错</span></span><br><span class="line">demo = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>]</span><br><span class="line"><span class="string">&#x27;*&#x27;</span>.join(demo)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;1*2*3*4*5&#39;
+</code></pre>
+<h4 id="2-5-3-删除两端特定字符——字符串-strip-删除字符串"><a href="#2-5-3-删除两端特定字符——字符串-strip-删除字符串" class="headerlink" title="2.5.3 删除两端特定字符——字符串.strip(删除字符串)"></a>2.5.3 删除两端特定字符——字符串.strip(删除字符串)</h4><ul>
+<li>strip从两侧开始搜索，遇到指定字符执行删除，遇到非指定字符，搜索停止。</li>
+<li>类似的还有左删除lstrip和右删除rstrip。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;          My favorite singer is Teresa Teng.             &#x27;</span></span><br><span class="line"><span class="built_in">print</span>(word.strip(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(word.lstrip(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(word.rstrip(<span class="string">&#x27; &#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br><span class="line">My favorite singer <span class="keyword">is</span> Teresa Teng.             </span><br><span class="line">          My favorite singer <span class="keyword">is</span> Teresa Teng.</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”"><a href="#2-5-4-字符串的替换——字符串-replace-“被替换”-”替换成”" class="headerlink" title="2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)"></a>2.5.4 字符串的替换——字符串.replace(“被替换”,”替换成”)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Wang Fei.&#x27;</span></span><br><span class="line">word1 = word.replace(<span class="string">&#x27;Wang Fei&#x27;</span>,<span class="string">&#x27;Teresa Teng&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(word1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>My favorite singer is Teresa Teng.
+</code></pre>
+<h4 id="3-5-5-字符串统计——字符串-count-“待统计字符串”"><a href="#3-5-5-字符串统计——字符串-count-“待统计字符串”" class="headerlink" title="3.5.5 字符串统计——字符串.count(“待统计字符串”)"></a>3.5.5 字符串统计——字符串.count(“待统计字符串”)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Teresa Teng.&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;s:&#x27;</span>,word.count(<span class="string">&#x27;s&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>s: 3
 </code></pre>
 <h4 id="3-3-5-字符串字母大小写"><a href="#3-3-5-字符串字母大小写" class="headerlink" title="3.3.5 字符串字母大小写"></a>3.3.5 字符串字母大小写</h4><ul>
-<li><p>字符串.upper()字母全部大写</p>
-</li>
-<li><p>字符串.lower()字母全部小写</p>
-</li>
-<li><p>字符串.title()首字母大写</p>
-<p>  MY FAVORITE SINGER IS TERESA TENG.<br>  my favorite singer is teresa teng.<br>  My Favorite Singer Is Teresa Teng.</p>
-</li>
+<li>字符串.upper()字母全部大写</li>
+<li>字符串.lower()字母全部小写</li>
+<li>字符串.title()首字母大写</li>
 </ul>
-<h1 id="第三部分-布尔类型-TRUE-OR-FALSE"><a href="#第三部分-布尔类型-TRUE-OR-FALSE" class="headerlink" title="第三部分 布尔类型 TRUE OR FALSE"></a>第三部分 布尔类型 TRUE OR FALSE</h1><h3 id="3-1-逻辑运算结果"><a href="#3-1-逻辑运算结果" class="headerlink" title="3.1 逻辑运算结果"></a>3.1 逻辑运算结果</h3><pre><code>True
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;My favorite singer is Teresa Teng.&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(word.upper())</span><br><span class="line"><span class="built_in">print</span>(word.lower())</span><br><span class="line"><span class="built_in">print</span>(word.title())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MY FAVORITE SINGER IS TERESA TENG.</span><br><span class="line">my favorite singer is teresa teng.</span><br><span class="line">My Favorite Singer Is Teresa Teng.</span><br></pre></td></tr></table></figure>
+
+<h1 id="第三部分-布尔类型-TRUE-OR-FALSE"><a href="#第三部分-布尔类型-TRUE-OR-FALSE" class="headerlink" title="第三部分 布尔类型 TRUE OR FALSE"></a>第三部分 布尔类型 TRUE OR FALSE</h1><h3 id="3-1-逻辑运算结果"><a href="#3-1-逻辑运算结果" class="headerlink" title="3.1 逻辑运算结果"></a>3.1 逻辑运算结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(test &gt; <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span>(test == <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span>(test &gt;= <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span>(test != <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
 False
 True
 True
 </code></pre>
 <ul>
-<li><p>any()——或</p>
-</li>
-<li><p>all()——与</p>
-<p>  True<br>  False</p>
-</li>
+<li>any()——或</li>
+<li>all()——与</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">any</span>([<span class="literal">False</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="literal">True</span>, <span class="literal">None</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="literal">False</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="literal">True</span>, <span class="literal">None</span>]))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="3-2-指示条件"><a href="#3-2-指示条件" class="headerlink" title="3.2 指示条件"></a>3.2 指示条件</h3><p><strong>eg：猜数字</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">key = <span class="number">28</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    answer = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入一个0~100的整数&#x27;</span>))</span><br><span class="line">    <span class="keyword">if</span> answer == <span class="number">28</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;猜对了&#x27;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">elif</span> answer &gt; key:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;太大了&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;太小了&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
 <pre><code>请输入一个0~100的整数 28
-
-
 猜对了
 </code></pre>
-<h3 id="3-3作为掩码"><a href="#3-3作为掩码" class="headerlink" title="3.3作为掩码"></a>3.3作为掩码</h3><pre><code>[False False  True  True  True]
+<h3 id="3-3作为掩码"><a href="#3-3作为掩码" class="headerlink" title="3.3作为掩码"></a>3.3作为掩码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">demo = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(demo &gt;= <span class="number">3</span>)</span><br><span class="line">demo[demo &gt;= <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">False</span> <span class="literal">False</span>  <span class="literal">True</span>  <span class="literal">True</span>  <span class="literal">True</span>]</span><br><span class="line">array([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
 
-
-
-
-array([3, 4, 5])
-</code></pre>
 <h1 id="第四部分-类别判别及类型转换"><a href="#第四部分-类别判别及类型转换" class="headerlink" title="第四部分 类别判别及类型转换"></a>第四部分 类别判别及类型转换</h1><h3 id="4-1-类型判别"><a href="#4-1-类型判别" class="headerlink" title="4.1 类型判别"></a>4.1 类型判别</h3><ul>
-<li><p>tpye(变量)</p>
-<p>  &lt;class ‘int’&gt;<br>  &lt;class ‘str’&gt;</p>
-</li>
-<li><p>isinstance(变量,预判类型)承认继承（在后续的关于类的介绍中谈及继承这一概念）</p>
-</li>
-<li><p>变量类型是预判类型的子类型，则为真，否则为假</p>
-<p>  True<br>  False<br>  True<br>  True</p>
-</li>
-<li><p>字符串检查方法<br>字符串.isdigit()是否只有数字组成<br>字符串.isalpha()是否只有字母组成<br>字符串.isalnum()是否只有数字和字母组成</p>
-<p>  False<br>  True<br>  True</p>
-</li>
+<li>tpye(变量)</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">16</span></span><br><span class="line">name = <span class="string">&#x27;Miku&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(age))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(name))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>isinstance(变量,预判类型)承认继承（在后续的关于类的介绍中谈及继承这一概念）</li>
+<li>变量类型是预判类型的子类型，则为真，否则为假</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">16</span></span><br><span class="line">name = <span class="string">&#x27;Miku&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">isinstance</span>(age,<span class="built_in">int</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">isinstance</span>(name,<span class="built_in">int</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">isinstance</span>(age,<span class="built_in">object</span>))   <span class="comment"># object 是所有数据类型的父类</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">isinstance</span>(name,<span class="built_in">object</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串检查方法<br>字符串.isdigit()是否只有数字组成<br>字符串.isalpha()是否只有字母组成<br>字符串.isalnum()是否只有数字和字母组成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(name.isdigit())</span><br><span class="line"><span class="built_in">print</span>(name.isalpha())</span><br><span class="line"><span class="built_in">print</span>(name.isalnum())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="4-2-类型转换"><a href="#4-2-类型转换" class="headerlink" title="4.2 类型转换"></a>4.2 类型转换</h3><ul>
-<li><p>数字类型转字符串 str()</p>
-</li>
-<li><p>仅有数字组成的字符串转数字 int() float() eval()</p>
-<p>  &lt;class ‘str’&gt;</p>
-<p>  &lt;class ‘int’&gt;<br>  18<br>  &lt;class ‘float’&gt;<br>  18.0<br>  &lt;class ‘float’&gt;<br>  18.1<br>  &lt;class ‘int’&gt;<br>  18<br>  &lt;class ‘float’&gt;<br>  18.1</p>
-</li>
+<li>数字类型转字符串 str()</li>
+<li>仅有数字组成的字符串转数字 int() float() eval()</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">16</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">str</span>(age)))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">age0 = <span class="string">&#x27;17.9&#x27;</span> </span><br><span class="line">age1 = <span class="string">&#x27;18&#x27;</span></span><br><span class="line">age2 = <span class="string">&#x27;18.1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">int</span>(age1)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(age1))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">float</span>(age1)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(age1))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">float</span>(age2)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(age2))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">eval</span>(age1)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(age1))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">eval</span>(age2)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(age2))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line"><span class="number">18</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt;</span><br><span class="line"><span class="number">18.0</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt;</span><br><span class="line"><span class="number">18.1</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line"><span class="number">18</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt;</span><br><span class="line"><span class="number">18.1</span></span><br></pre></td></tr></table></figure>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">https://ziyuan0315.github.io/2025/03/11/02-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">‘太湖之光也有报错的情况'</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/ziyuan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">出现bug可能不是你的问题，可能是底层或者硬件问题（doge）</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/09-Python%E6%A0%87%E5%87%86%E5%BA%93/" title="09.Python标准库">09.Python标准库</a><time datetime="2025-03-11T07:50:06.000Z" title="发表于 2025-03-11 15:50:06">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/08-%E6%9C%89%E8%B6%A3%E7%9A%84%E6%8E%A2%E7%B4%A2/" title="08.有趣的探索">08.有趣的探索</a><time datetime="2025-03-11T07:49:46.000Z" title="发表于 2025-03-11 15:49:46">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
@@ -441,4 +577,4 @@ array([3, 4, 5])
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-11T13:56:54.429Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-12T02:05:19.475Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
