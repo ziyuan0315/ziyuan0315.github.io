@@ -1,0 +1,1109 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>13.Sklearn库 | ‘太湖之光也有报错的情况'</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍机器学习的大致过程，简答介绍八个函数的调用方法，但不涉及深入的算法讲解和公式推导。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="13.Sklearn库">
+<meta property="og:url" content="https://ziyuan0315.github.io/2025/03/13/13.Sklearn%E5%BA%93/index.html">
+<meta property="og:site_name" content="‘太湖之光也有报错的情况&#39;">
+<meta property="og:description" content="介绍机器学习的大致过程，简答介绍八个函数的调用方法，但不涉及深入的算法讲解和公式推导。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ziyuan0315.github.io/img/Jura%20Mountains.jpg">
+<meta property="article:published_time" content="2025-03-13T07:52:21.000Z">
+<meta property="article:modified_time" content="2025-03-13T14:28:05.811Z">
+<meta property="article:author" content="ZI YUAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ziyuan0315.github.io/img/Jura%20Mountains.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ziyuan0315.github.io/2025/03/13/13.Sklearn%E5%BA%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '13.Sklearn库',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'title'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://i.loli.net/2019/09/09/5oDRkWVKctx2b6A.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/winter1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Sophon.jpg" alt="Logo"><span class="site-name">‘太湖之光也有报错的情况'</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">13.Sklearn库</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Sklearn库"><a href="#Sklearn库" class="headerlink" title="Sklearn库"></a>Sklearn库</h1><p>scikit-learn库是机器学习的算法库之一</p>
+<p>可用来解决分类与回归问题</p>
+<p>以鸢尾花数据集为例，简单了解八个传统机器学习算法的sk-learn实现</p>
+<p>欲深入了解算法的原理和推导，请继续关注后面文章或是阅读李航老师的《统计学习方法》、《机器学习方法》或周志华老师的《机器学习》，后续再深入了解可以阅读《深度学习》花书。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data_home = <span class="string">r&#x27;D:\jupyter_notebook\python\assets\dataset\seaborn-data-master&#x27;</span></span><br><span class="line"><span class="comment"># 修改数据集路径</span></span><br><span class="line">iris = sns.load_dataset(<span class="string">&#x27;iris&#x27;</span>, data_home=data_home, cache=<span class="literal">True</span>)</span><br><span class="line">iris.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<ul>
+<li>数据集的查看</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(iris)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>pandas.core.frame.DataFrame
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(150, 5)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   sepal_length  150 non-null    float64
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 6.0+ KB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris.describe()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.057333</td>
+      <td>3.758000</td>
+      <td>1.199333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.435866</td>
+      <td>1.765298</td>
+      <td>0.762238</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris.species.value_counts()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>species
+setosa        50
+versicolor    50
+virginica     50
+Name: count, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(data=iris,hue=<span class="string">&quot;species&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x23cfc3bd430&gt;
+</code></pre>
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_10_1.png" alt="png"></p>
+<p>通过分析可以知道，花萼的长度和花萼的宽度之间相关性不大，并且不容易分辨，所以我们希望简化问题，筛除这两个作用不大的数据，保留其他的数据</p>
+<ul>
+<li>标签清洗</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris_simple = iris.drop([<span class="string">&quot;sepal_length&quot;</span>,<span class="string">&quot;sepal_width&quot;</span>],axis=<span class="number">1</span>)</span><br><span class="line">iris_simple.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder</span><br><span class="line"> </span><br><span class="line">encoder = LabelEncoder()</span><br><span class="line">iris_simple[<span class="string">&quot;species&quot;</span>] = encoder.fit_transform(iris_simple[<span class="string">&quot;species&quot;</span>])</span><br><span class="line"><span class="comment">#进行一个学习fit，转换transform的过程，将转换的结果重新赋值给那一列</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris_simple.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<ul>
+<li>数据的标准化（本数据特征比较接近，实际处理过程中未标准化）<br>           x&#x3D;(x-x̅)&#x2F;x</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"> </span><br><span class="line">trans = StandardScaler()</span><br><span class="line">_iris_simple = trans.fit_transform(iris_simple[[<span class="string">&quot;petal_length&quot;</span>,<span class="string">&quot;petal_width&quot;</span>]])</span><br><span class="line">_iris_simple = pd.DataFrame(_iris_simple, columns = [<span class="string">&quot;petal_length&quot;</span>,<span class="string">&quot;petal_width&quot;</span>])</span><br><span class="line">_iris_simple.describe()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1.500000e+02</td>
+      <td>1.500000e+02</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-4.263256e-16</td>
+      <td>-4.736952e-16</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.003350e+00</td>
+      <td>1.003350e+00</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-1.567576e+00</td>
+      <td>-1.447076e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-1.226552e+00</td>
+      <td>-1.183812e+00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.364776e-01</td>
+      <td>1.325097e-01</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.627583e-01</td>
+      <td>7.906707e-01</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.785832e+00</td>
+      <td>1.712096e+00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<ul>
+<li>构建训练集和测试集，暂时不考虑验证集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"> </span><br><span class="line">train_set, test_set = train_test_split(iris_simple,test_size= <span class="number">0.2</span>) </span><br><span class="line"><span class="comment">#前者为待分割的数据集，后面0.2的含义是将其中20%的数据作为测试test使用</span></span><br><span class="line"><span class="comment">#也就是有80%的数据用来进行“学习”</span></span><br><span class="line">test_set.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>137</th>
+      <td>5.5</td>
+      <td>1.8</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>5.5</td>
+      <td>1.8</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>3.9</td>
+      <td>1.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>4.8</td>
+      <td>1.8</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>也可以是用随机库random，通过设置随机种子（seed）的方式，划分训练集与测试集，便于复现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris_x_train = train_set[[<span class="string">&quot;petal_length&quot;</span>,<span class="string">&quot;petal_width&quot;</span>]]</span><br><span class="line">iris_x_train.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>1.3</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>5.3</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>5.0</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>4.9</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>1.9</td>
+      <td>0.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris_y_train = train_set[<span class="string">&quot;species&quot;</span>].copy()</span><br><span class="line">iris_y_train.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>16     0
+111    2
+146    2
+52     1
+44     0
+Name: species, dtype: int32
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris_x_test = test_set[[<span class="string">&quot;petal_length&quot;</span>,<span class="string">&quot;petal_width&quot;</span>]]</span><br><span class="line">iris_x_test.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>137</th>
+      <td>5.5</td>
+      <td>1.8</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>5.5</td>
+      <td>1.8</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>3.9</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>4.8</td>
+      <td>1.8</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1.2</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris_y_test = test_set[<span class="string">&quot;species&quot;</span>].copy()</span><br><span class="line">iris_y_test.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>137    2
+116    2
+82     1
+138    2
+35     0
+Name: species, dtype: int32
+</code></pre>
+<ol>
+<li>k邻近算法</li>
+</ol>
+<p>KNeighborsClassifier：这是 scikit-learn 库中用于实现 k-近邻分类算法的类。KNN 是一种简单而强大的监督学习算法，主要用于分类和回归任务。在分类任务中，它通过查找训练集中与目标点最近的 k 个点（即“邻居”），并根据这些邻居的标签来预测目标点的类别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = KNeighborsClassifier()</span><br><span class="line">clf</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 翻转</span></span><br><span class="line">encoder.inverse_transform(res)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([&#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;,
+       &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
+       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;setosa&#39;,
+       &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;],
+      dtype=object)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test,iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 存储数据</span></span><br><span class="line">out = iris_x_test.copy()</span><br><span class="line">out[<span class="string">&quot;y&quot;</span>] = iris_y_test</span><br><span class="line">out[<span class="string">&quot;pre&quot;</span>]= res</span><br><span class="line">out.head()</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+</style>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>y</th>
+      <th>pre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>137</th>
+      <td>5.5</td>
+      <td>1.8</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>5.5</td>
+      <td>1.8</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>3.9</td>
+      <td>1.2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>4.8</td>
+      <td>1.8</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out.to_csv(<span class="string">&quot;irie_pridict.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 定义绘制函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw</span>(<span class="params">clf</span>):</span><br><span class="line">    <span class="comment"># 网格化</span></span><br><span class="line">    M, N = <span class="number">500</span>, <span class="number">500</span></span><br><span class="line">    x1_min, x2_min = iris_simple[[<span class="string">&quot;petal_length&quot;</span>, <span class="string">&quot;petal_width&quot;</span>]].<span class="built_in">min</span>(axis=<span class="number">0</span>)</span><br><span class="line">    x1_max, x2_max = iris_simple[[<span class="string">&quot;petal_length&quot;</span>, <span class="string">&quot;petal_width&quot;</span>]].<span class="built_in">max</span>(axis=<span class="number">0</span>)</span><br><span class="line">    t1 = np.linspace(x1_min, x1_max, M)</span><br><span class="line">    t2 = np.linspace(x2_min, x2_max, N)</span><br><span class="line">    x1, x2 = np.meshgrid(t1, t2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    x_show = np.stack((x1.flat, x2.flat), axis=<span class="number">1</span>)</span><br><span class="line">    y_predict = clf.predict(x_show)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 颜色</span></span><br><span class="line">    cm_light = mpl.colors.ListedColormap([<span class="string">&#x27;#A0FFA0&#x27;</span>, <span class="string">&#x27;#FFA0A0&#x27;</span>, <span class="string">&#x27;#A0A0FF&#x27;</span>])</span><br><span class="line">    cm_dark = mpl.colors.ListedColormap([<span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;b&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制预测图</span></span><br><span class="line">    plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">    plt.pcolormesh(x1, x2, y_predict.reshape(x1.shape), cmap=cm_light)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制原始数据点</span></span><br><span class="line">    plt.scatter(iris_simple[<span class="string">&quot;petal_length&quot;</span>], iris_simple[<span class="string">&quot;petal_width&quot;</span>], label=<span class="literal">None</span>,</span><br><span class="line">                c=iris_simple[<span class="string">&quot;species&quot;</span>], cmap=cm_dark, marker=<span class="string">&quot;o&quot;</span>, edgecolor=<span class="string">&quot;k&quot;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&quot;petal_length&quot;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&quot;petal_width&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制图例</span></span><br><span class="line">    color = [<span class="string">&quot;g&quot;</span>, <span class="string">&quot;r&quot;</span>, <span class="string">&quot;b&quot;</span>]</span><br><span class="line">    species = [<span class="string">&quot;setosa&quot;</span>, <span class="string">&quot;virginica&quot;</span>, <span class="string">&quot;versicolor&quot;</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        plt.scatter([], [], c=color[i], s=<span class="number">40</span>, label=species[i])  <span class="comment"># 空点绘制图例</span></span><br><span class="line">    plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">    plt.title(<span class="string">&quot;Iris Classifier&quot;</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_36_1.png" alt="png"></p>
+<p>2.朴素贝叶斯算法</p>
+<p>贝叶斯定理是朴素贝叶斯算法的基础，其公式为：</p>
+<p>$P(C|X) &#x3D; \frac{P(X|C) \times P(C)}{P(X)}$</p>
+<p>其中：</p>
+<ul>
+<li>( P(C|X) ) 是后验概率，即在给定特征 ( X ) 的条件下，样本属于类别 ( C ) 的概率。</li>
+<li>( P(X|C) ) 是条件概率，即在类别 ( C ) 下，特征 ( X ) 出现的概率。</li>
+<li>( P(C) ) 是先验概率，即类别 ( C ) 出现的概率。</li>
+<li>( P(X) ) 是特征 ( X ) 出现的总概率。</li>
+</ul>
+<p>在实际应用中，( P(X) ) 是一个常数，因此分类决策主要依赖于 ( P(X|C) ) 和 ( P(C) )。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = GaussianNB()</span><br><span class="line">clf</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_43_1.png" alt="png"></p>
+<ol start="3">
+<li>决策树算法</li>
+</ol>
+<p>决策树通过递归地选择最优特征并将其分割，逐步构建树的结构。每次分裂的目标是使分裂后的子节点更加“纯净”（即属于同一类别的样本更多）。决策树算法容易过拟合。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = DecisionTreeClassifier()</span><br><span class="line">clf</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_50_1.png" alt="png"></p>
+<ol start="4">
+<li>逻辑回归算法</li>
+</ol>
+<p>说是回归其实这是一种分类算法，广泛应用于二分类问题的统计学习方法。</p>
+<p>逻辑回归的核心思想是通过逻辑函数（Sigmoid函数）将线性回归的输出映射到(0, 1)区间，从而实现对样本类别的概率预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = LogisticRegression(solver=<span class="string">&#x27;saga&#x27;</span>, max_iter=<span class="number">1000</span>)</span><br><span class="line">clf</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_57_1.png" alt="png"></p>
+<ol start="5">
+<li>支持向量机</li>
+</ol>
+<p>以二分类为例，假设数据可用完全分开</p>
+<p>用一个超平面将两类数据完全分开，且最近点到平面的距离最大</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = SVC()</span><br><span class="line">clf</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 1 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_65_1.png" alt="png"></p>
+<ol start="6">
+<li>集成方法——随机森林</li>
+</ol>
+<p>过构建多个决策树并进行集成预测，显著提高了模型的准确性和稳定性。随机森林的主要优点包括高准确性、抗过拟合能力强以及能够评估特征重要性。然而，它的缺点是模型复杂度较高，可解释性较差。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = RandomForestClassifier()</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_69_1.png" alt="png"></p>
+<ol start="7">
+<li>继承方法——adaboost</li>
+</ol>
+<p>通过自适应调整样本权重和组合弱学习器，显著提高了模型的预测性能。它在图像分类、文本分类和医疗诊断等领域表现出色，但在处理异常值时需要特别注意。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> AdaBoostClassifier</span><br><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = AdaBoostClassifier()</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_73_1.png" alt="png"></p>
+<ol start="8">
+<li>集成方法——梯度提升树GBDT</li>
+</ol>
+<p>梯度提升决策树是一种基于Boosting思想的集成学习算法，通过迭代训练多个决策树来逐步优化模型的预测性能。其核心思想是将多个弱学习器（通常是决策树）组合成一个强学习器，每棵树都拟合前一轮模型的残差，从而逐步减少误差。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingClassifier</span><br><span class="line"><span class="comment"># 构建分类器对象</span></span><br><span class="line">clf = GradientBoostingClassifier()</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">clf.fit(iris_x_train, iris_y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">res = clf.predict(iris_x_test)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(iris_y_test.values)</span><br><span class="line"><span class="comment"># 评估</span></span><br><span class="line">accuracy = clf.score(iris_x_test, iris_y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预估概率为&#123;:.0%&#125;&quot;</span>.<span class="built_in">format</span>(accuracy))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 2 0 1 2 1 1 2 0 1 2 1 1]
+[2 2 1 2 0 1 1 2 0 0 2 1 1 2 2 1 0 2 1 0 1 2 1 1 2 0 1 2 1 1]
+预估概率为97%
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">draw(clf)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/%5Cimages%5C13.Sklearn%E5%BA%93_files%5C13.Sklearn%E5%BA%93_77_1.png" alt="png"></p>
+<ol start="9">
+<li>其他</li>
+</ol>
+<ul>
+<li>xgboost</li>
+</ul>
+<p>GBDT的损失函数支队误差部分做负梯度（一阶泰勒展开）</p>
+<p>XGBoost的损失函数对误差部分做二阶泰勒展开，更加准确，更快收敛。</p>
+<ul>
+<li>linghtgbm</li>
+</ul>
+<p>微软：快速的，分布式的，高性能的基于决策树算法的梯度提升框架，速度更快。</p>
+<ul>
+<li>stacking</li>
+</ul>
+<p>堆叠或者叫模型融合<br>先建立几个简单的模型进行训练，第二级学习器会基于前级模型的预测结果进行再训练。</p>
+<ul>
+<li>神经网络</li>
+</ul>
+<p>神经网络的训练目标是最小化预测值与真实值之间的误差。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2025/03/13/13.Sklearn%E5%BA%93/">https://ziyuan0315.github.io/2025/03/13/13.Sklearn%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">‘太湖之光也有报错的情况'</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/Jura%20Mountains.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">出现bug可能不是你的问题，可能是底层或者硬件问题（doge）</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/songziyuan666@126.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/03/13/13.Sklearn%E5%BA%93/" title="13.Sklearn库"><img src="/img/Jura%20Mountains.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="13.Sklearn库"/></a><div class="content"><a class="title" href="/2025/03/13/13.Sklearn%E5%BA%93/" title="13.Sklearn库">13.Sklearn库</a><time datetime="2025-03-13T07:52:21.000Z" title="发表于 2025-03-13 15:52:21">2025-03-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库"><img src="/img/guilin.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="12.Matplotlib库"/></a><div class="content"><a class="title" href="/2025/03/11/12-Matplotlib%E5%BA%93/" title="12.Matplotlib库">12.Matplotlib库</a><time datetime="2025-03-11T07:52:21.000Z" title="发表于 2025-03-11 15:52:21">2025-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库"><img src="/img/the_Alps.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="11.Pandas库"/></a><div class="content"><a class="title" href="/2025/03/11/11-Pandas%E5%BA%93/" title="11.Pandas库">11.Pandas库</a><time datetime="2025-03-11T07:50:51.000Z" title="发表于 2025-03-11 15:50:51">2025-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库"><img src="/img/Fujiyama.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="10.Numpy库"/></a><div class="content"><a class="title" href="/2025/03/11/10-Numpy%E5%BA%93/" title="10.Numpy库">10.Numpy库</a><time datetime="2025-03-11T07:50:31.000Z" title="发表于 2025-03-11 15:50:31">2025-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/11/09-Python%E6%A0%87%E5%87%86%E5%BA%93/" title="09.Python标准库"><img src="/img/Swan%20Castle.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09.Python标准库"/></a><div class="content"><a class="title" href="/2025/03/11/09-Python%E6%A0%87%E5%87%86%E5%BA%93/" title="09.Python标准库">09.Python标准库</a><time datetime="2025-03-11T07:50:06.000Z" title="发表于 2025-03-11 15:50:06">2025-03-11</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">16</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">16</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-13T14:32:25.801Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/winter1.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
