@@ -1,0 +1,890 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记 | ZI YUAN · 机器人 &amp; AI</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 严格而言首先是操作系统内核（Linux Kernel）。内核位于硬件与用户空间程序之间，承担 CPU 调度、…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记">
+<meta property="og:url" content="https://ziyuan0315.github.io/2026/11/16/Linux%E5%9F%BA%E7%A1%80%E4%B8%8EShell%E8%84%9A%E6%9C%AC-%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="ZI YUAN · 机器人 &amp; AI">
+<meta property="og:description" content="Linux 严格而言首先是操作系统内核（Linux Kernel）。内核位于硬件与用户空间程序之间，承担 CPU 调度、…">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ziyuan0315.github.io/img/Jura%20Mountains.jpg">
+<meta property="article:published_time" content="2026-11-16T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-22T10:16:41.608Z">
+<meta property="article:author" content="ZI YUAN">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
+<meta property="article:tag" content="AI工程">
+<meta property="article:tag" content="数据工程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ziyuan0315.github.io/img/Jura%20Mountains.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记",
+  "url": "https://ziyuan0315.github.io/2026/11/16/Linux%E5%9F%BA%E7%A1%80%E4%B8%8EShell%E8%84%9A%E6%9C%AC-%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
+  "image": "https://ziyuan0315.github.io/img/Jura%20Mountains.jpg",
+  "datePublished": "2026-11-16T02:00:00.000Z",
+  "dateModified": "2026-11-22T10:16:41.608Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZI YUAN",
+      "url": "https://ziyuan0315.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ziyuan0315.github.io/2026/11/16/Linux%E5%9F%BA%E7%A1%80%E4%B8%8EShell%E8%84%9A%E6%9C%AC-%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/katex/katex.min.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-color: #f6f8fa;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-book-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Python%E5%9F%BA%E7%A1%80/"><i class="fa-fw fab fa-python"></i><span> Python基础</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/"><i class="fa-fw fas fa-robot"></i><span> 机器人运动学</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%BF%E7%9C%9F/"><i class="fa-fw fas fa-cube"></i><span> 机器人仿真</span></a></li><li><a class="site-page child" href="/categories/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-brain"></i><span> 人工智能</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-duotone fa-solid fa-pen"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/Jura Mountains.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Sophon.jpg" alt="Logo"><span class="site-name">ZI YUAN · 机器人 &amp; AI</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-book-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Python%E5%9F%BA%E7%A1%80/"><i class="fa-fw fab fa-python"></i><span> Python基础</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/"><i class="fa-fw fas fa-robot"></i><span> 机器人运动学</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%BF%E7%9C%9F/"><i class="fa-fw fas fa-cube"></i><span> 机器人仿真</span></a></li><li><a class="site-page child" href="/categories/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-brain"></i><span> 人工智能</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-duotone fa-solid fa-pen"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Linux 基础与 Shell 脚本：面向 AI 与机器人数据工程的系统学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-16T02:00:00.000Z" title="发表于 2026-11-16 10:00:00">2026-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-22T10:16:41.608Z" title="更新于 2026-11-22 18:16:41">2026-11-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p><strong>整理日期</strong>：2026-11-19<br>
+<strong>整理范围</strong>：《Linux 在 AI 时代的价值和定位》《文件系统与基础命令》《用户权限与进程管理》《文本处理与 Shell 脚本》四份课程材料，以及学习过程中围绕机器人数据质检、VLA 训练、日志排查和实验管理展开的讨论。<br>
+<strong>适用环境</strong>：以 Ubuntu、Bash 和常见 GNU 工具为主要示例；部分命令依赖具体发行版、文件系统或 GPU 环境。<br>
+<strong>整理原则</strong>：按“概念—工作机制—命令语法—工程应用—边界与验证”重组知识，不照搬课堂问答；命令输出均为示例，不代表已经在实际项目中执行。<br>
+<strong>说明</strong>：标记为“工程补充”的段落，是对课堂内容的技术澄清或实际开发注意事项，并非课程幻灯片逐字内容。</p>
+</blockquote>
+<hr>
+<h2 id="一、Linux-在-AI-与具身智能系统中的定位">一、Linux 在 AI 与具身智能系统中的定位</h2>
+<h3 id="1-1-Linux-内核、用户空间与发行版">1.1 Linux 内核、用户空间与发行版</h3>
+<p>Linux 严格而言首先是<strong>操作系统内核（Linux Kernel）</strong>。内核位于硬件与用户空间程序之间，承担 CPU 调度、内存管理、文件系统、设备驱动和网络通信等核心职责。一个可供开发者日常使用的 Linux 系统还包含命令解释器、GNU 工具链、系统服务、软件包管理器以及必要的应用程序。</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>组成示例</th>
+<th>主要职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+<td>Python、PyTorch、ROS 2 节点、训练脚本</td>
+<td>实现模型训练、数据处理与机器人应用逻辑</td>
+</tr>
+<tr>
+<td>用户空间工具与运行时</td>
+<td>Bash、GNU Coreutils、GCC、Python 解释器、systemd</td>
+<td>命令交互、构建、程序执行、服务管理</td>
+</tr>
+<tr>
+<td>Linux Kernel</td>
+<td>调度器、虚拟内存、文件系统、网络栈、驱动接口</td>
+<td>管理系统资源并提供系统调用</td>
+</tr>
+<tr>
+<td>硬件</td>
+<td>CPU、RAM、SSD、GPU、网卡、传感器</td>
+<td>执行计算和物理输入输出</td>
+</tr>
+</tbody>
+</table>
+<p>**发行版（Distribution）**将 Linux 内核与工具、服务、软件包及配置组织成可以安装和维护的操作系统。Ubuntu、Debian、Fedora、Rocky Linux、AlmaLinux 和 Arch Linux 都是 Linux 发行版，而非不同的“Linux 内核种类”。Ubuntu 在 AI 开发中常见，主要与服务器生态、软件仓库、硬件支持及社区文档等因素有关。</p>
+<h4 id="从-python-train-py-理解执行链">从 <code>python train.py</code> 理解执行链</h4>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">终端输入 python train.py</span><br><span class="line">    ↓</span><br><span class="line">Bash 解析命令、查找并启动 python 可执行程序</span><br><span class="line">    ↓</span><br><span class="line">Python 解释器载入并执行 train.py</span><br><span class="line">    ↓</span><br><span class="line">PyTorch 等库调用 CPU 计算、GPU 计算或系统服务</span><br><span class="line">    ↓</span><br><span class="line">Linux 内核负责进程调度、内存、文件、网络和驱动接口</span><br><span class="line">    ↓</span><br><span class="line">CPU / GPU 等硬件完成实际计算</span><br></pre></td></tr></table></figure>
+<p>不能简单理解为“Bash 运行 Python 代码”，也不能说“内核直接解释 <code>train.py</code>”。Bash 负责解析与启动；Python 解释器负责执行 Python 语言语义；内核管理执行环境与资源。GPU 计算还涉及用户态计算库、驱动和设备执行机制。</p>
+<h3 id="1-2-Linux-在-AI-工程中的四类场景">1.2 Linux 在 AI 工程中的四类场景</h3>
+<ol>
+<li><strong>云端与 GPU 服务器</strong>：数据集下载和清洗、模型训练、评测、SSH、Docker、多进程和多机通信。</li>
+<li><strong>边缘计算</strong>：在 Jetson 等设备上执行视觉识别、TensorRT 推理、传感器接入等任务。</li>
+<li><strong>机器人软件</strong>：通过 ROS 2 构建节点通信、消息传输、设备驱动、路径规划、可视化和调试链路。</li>
+<li><strong>部署与运维</strong>：环境配置、服务管理、日志保存、远程诊断、版本更新与故障恢复。</li>
+</ol>
+<p>一个典型链路可表示为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">相机/传感器采集 → 数据预处理 → 目标检测或 VLA 推理</span><br><span class="line">                               ↓</span><br><span class="line">                         ROS 2 通信接口</span><br><span class="line">                               ↓</span><br><span class="line">                         机器人控制与执行</span><br><span class="line">                               ↓</span><br><span class="line">                         运行日志与数据回收</span><br></pre></td></tr></table></figure>
+<p>Linux 的价值不只在“可以运行代码”，更在于为从数据采集到模型部署的各个环节提供可编排、可检查、可维护的软件基础。</p>
+<h3 id="1-3-环境兼容性、APT、Python-环境与-Docker">1.3 环境兼容性、APT、Python 环境与 Docker</h3>
+<p>AI 环境是否兼容取决于<strong>多个版本和接口之间的关系</strong>，包括 Python、PyTorch、CUDA、NVIDIA 驱动、系统库、编译工具链及项目配置。不能仅凭“Ubuntu 版本相同”判断环境一致。</p>
+<ul>
+<li><strong>APT</strong>：管理 Ubuntu 发行版提供的系统软件包及其依赖。</li>
+<li><strong>pip</strong>：安装 Python 包；结合 <code>venv</code> 可降低不同项目之间的依赖冲突。</li>
+<li><strong>Docker</strong>：将基础用户空间、应用依赖、代码及配置组织为镜像和容器，提升环境交付的一致性。</li>
+</ul>
+<p><strong>工程补充</strong>：容器不等于完整虚拟机，通常与宿主机共享内核。GPU 容器还依赖宿主机的 NVIDIA 驱动及相应容器运行时配置；镜像内有 CUDA 相关库，并不自动意味着任何宿主机都可以运行它。</p>
+<h3 id="1-4-WSL2-与-Linux-路径的关系">1.4 WSL2 与 Linux 路径的关系</h3>
+<p>在 WSL2 Ubuntu 中，Windows 磁盘通常通过 <code>/mnt/&lt;盘符&gt;</code> 访问。例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows: E:\PROJECT\AI\RobotQC</span><br><span class="line">WSL2:    /mnt/e/PROJECT/AI/RobotQC</span><br></pre></td></tr></table></figure>
+<p><strong>工程补充</strong>：WSL2 Linux 根文件系统与 Windows 挂载磁盘之间可能存在性能、权限语义及文件系统行为差异。对频繁访问大量小文件的训练或数据预处理任务，应根据数据位置实测性能，不宜默认两种存储位置等价。</p>
+<hr>
+<h2 id="二、Linux-文件系统与基础命令">二、Linux 文件系统与基础命令</h2>
+<h3 id="2-1-统一目录树与关键路径">2.1 统一目录树与关键路径</h3>
+<p>Linux 以 <code>/</code> 作为文件系统目录树的起点，磁盘分区、U 盘和网络存储通过挂载进入统一的路径空间。需要区分三个容易混淆的概念：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>根目录，整个目录树的入口</td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td>超级用户的账户名称</td>
+</tr>
+<tr>
+<td><code>/root</code></td>
+<td>超级用户通常使用的家目录</td>
+</tr>
+</tbody>
+</table>
+<p>常见目录：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>用途与注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/home</code></td>
+<td>普通用户家目录，适合保存个人项目</td>
+</tr>
+<tr>
+<td><code>/etc</code></td>
+<td>系统和服务配置</td>
+</tr>
+<tr>
+<td><code>/var/log</code></td>
+<td>常见的系统和服务日志</td>
+</tr>
+<tr>
+<td><code>/tmp</code></td>
+<td>临时文件，不能视为长期可靠存储</td>
+</tr>
+<tr>
+<td><code>/dev</code></td>
+<td>设备接口文件</td>
+</tr>
+<tr>
+<td><code>/proc</code></td>
+<td>进程及内核状态的虚拟文件系统接口</td>
+</tr>
+<tr>
+<td><code>/sys</code></td>
+<td>设备、驱动及内核对象属性接口</td>
+</tr>
+<tr>
+<td><code>/mnt</code></td>
+<td>常用于挂载其他文件系统；WSL2 经常在此访问 Windows 盘符</td>
+</tr>
+<tr>
+<td><code>/opt</code></td>
+<td>常用于可选的附加软件</td>
+</tr>
+<tr>
+<td><code>/usr</code></td>
+<td>常见的用户空间程序、库和共享资源目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-绝对路径、相对路径与隐藏文件">2.2 绝对路径、相对路径与隐藏文件</h3>
+<p><strong>绝对路径</strong>以 <code>/</code> 开头，不依赖当前工作目录；<strong>相对路径</strong>以当前工作目录为基准。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>                 <span class="comment"># 显示当前工作目录</span></span><br><span class="line"><span class="built_in">cd</span> /home/ziyuan      <span class="comment"># 进入绝对路径</span></span><br><span class="line"><span class="built_in">cd</span> ../data           <span class="comment"># 从当前目录进入上一级目录下的 data</span></span><br><span class="line"><span class="built_in">cd</span> ~                 <span class="comment"># 进入当前用户家目录</span></span><br><span class="line"><span class="built_in">cd</span> -                 <span class="comment"># 返回此前的工作目录（通常）</span></span><br><span class="line"><span class="built_in">ls</span>                   <span class="comment"># 查看目录内容</span></span><br><span class="line"><span class="built_in">ls</span> -la               <span class="comment"># 长格式显示，包括隐藏文件</span></span><br><span class="line"><span class="built_in">ls</span> -lh               <span class="comment"># 长格式，使用易读的大小单位</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>当前目录</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>上一级目录</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>当前用户的家目录（由 Shell 展开）</td>
+</tr>
+<tr>
+<td><code>.bashrc</code>、<code>.git</code></td>
+<td>以点开头的文件或目录；<code>ls</code> 默认不列出</td>
+</tr>
+</tbody>
+</table>
+<p>例如，当前目录是 <code>/home/ziyuan/project/scripts</code>，目标文件是 <code>/home/ziyuan/project/data/train.csv</code>，相对路径应写作 <code>../data/train.csv</code>。</p>
+<h3 id="2-3-创建、复制、移动和删除">2.3 创建、复制、移动和删除</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p RobotQC/&#123;data/&#123;raw,processed&#125;,configs,scripts,logs,results&#125;</span><br><span class="line"><span class="built_in">touch</span> RobotQC/configs/qc.yaml</span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> RobotQC/configs/qc.yaml RobotQC/configs/qc.backup.yaml</span><br><span class="line"><span class="built_in">cp</span> -r RobotQC/configs RobotQC/configs_copy</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> RobotQC/configs/qc.backup.yaml RobotQC/configs/qc.v1.yaml</span><br><span class="line"><span class="built_in">rm</span> -i RobotQC/configs/qc.v1.yaml</span><br><span class="line"><span class="built_in">rmdir</span> empty_directory</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>mkdir -p</code>：创建目录，父目录不存在时一并创建。</li>
+<li><code>touch</code>：文件不存在时可创建空文件；已存在时通常更新时间戳。</li>
+<li><code>cp</code>：复制文件；复制目录常用 <code>cp -r</code>。</li>
+<li><code>mv</code>：移动或重命名文件；移动到现有目录与指定新文件名的行为取决于目标路径。</li>
+<li><code>rm</code>：删除文件；<code>rm -r</code> 递归删除目录，<code>-f</code> 强制操作，应特别谨慎。</li>
+<li><code>rmdir</code>：仅删除空目录。</li>
+</ul>
+<p><strong>工程补充</strong>：</p>
+<ol>
+<li><code>cp</code> 默认可能覆盖同名目标文件；需要交互确认时可考虑 <code>cp -i</code>。</li>
+<li>对原始数据、模型权重和质检审计结果，删除前应核实路径、备份策略和可重建性，避免直接使用 <code>rm -rf</code>。</li>
+<li>Bash 的花括号展开 <code>&#123;a,b&#125;</code> 与文件名通配符 <code>*</code> 是不同机制；分隔列表项目应使用逗号，不是句点。</li>
+</ol>
+<h3 id="2-4-查看文件属性、权限和硬链接">2.4 查看文件属性、权限和硬链接</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l train.py</span><br><span class="line"><span class="built_in">ls</span> -ld RobotQC/</span><br><span class="line"><span class="built_in">stat</span> train.py</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-- 1 ziyuan robotics 4096 Nov 18 10:30 run_train.sh</span><br></pre></td></tr></table></figure>
+<p>其中依次显示文件类型与权限、硬链接数量、所有者、所属组、文件大小、修改时间及名称。权限位按以下方式分组：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- rwx r-x r--</span><br><span class="line">│ │   │   └── 其他用户：只读</span><br><span class="line">│ │   └────── 所属组：读、执行</span><br><span class="line">│ └────────── 所有者：读、写、执行</span><br><span class="line">└──────────── 普通文件（目录为 d）</span><br></pre></td></tr></table></figure>
+<p><code>stat</code> 提供更丰富的元数据，如 inode、大小、访问时间（Access）、内容修改时间（Modify）和 inode 状态变更时间（Change）。Linux 中的 <strong>Change 通常不等于创建时间</strong>。</p>
+<p><strong>硬链接计数</strong>：普通文件新创建时通常为 <code>1</code>；运行 <code>ln file.txt another.txt</code> 后，两个名称指向同一个 inode，链接数通常变为 <code>2</code>。<code>ln</code> 不是独立数据备份；修改任一名称对应的数据内容，会从另一名称看到同样的内容。</p>
+<p>对 ext4 等遵循传统 Unix 目录链接计数规则的文件系统，一个目录的链接数通常近似为：</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>N</mi><mtext>link</mtext></msub><mo>=</mo><mn>2</mn><mo>+</mo><msub><mi>N</mi><mtext>direct subdirectories</mtext></msub></mrow><annotation encoding="application/x-tex">N_{\text{link}} = 2 + N_{\text{direct subdirectories}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">link</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">direct subdirectories</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>只计算<strong>直接子目录</strong>，不递归累加更深层的目录；普通文件不计入。但其他文件系统未必符合该公式。</p>
+<h3 id="2-5-文本内容查看与统计">2.5 文本内容查看与统计</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> configs/qc.yaml       <span class="comment"># 输出短文本</span></span><br><span class="line"><span class="built_in">nl</span> -ba configs/qc.yaml    <span class="comment"># 包括空行在内，对所有行编号</span></span><br><span class="line">less logs/train.log       <span class="comment"># 分页查看、搜索、上下翻页</span></span><br><span class="line"><span class="built_in">head</span> -n 10 logs/train.log <span class="comment"># 前 10 行</span></span><br><span class="line"><span class="built_in">tail</span> -n 10 logs/train.log <span class="comment"># 后 10 行</span></span><br><span class="line"><span class="built_in">tail</span> -f logs/train.log    <span class="comment"># 持续显示新增日志</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">wc</span> -l logs/train.log      <span class="comment"># 换行符数量</span></span><br><span class="line"><span class="built_in">wc</span> -w logs/train.log      <span class="comment"># 单词数量</span></span><br><span class="line"><span class="built_in">wc</span> -c logs/train.log      <span class="comment"># 字节数量</span></span><br><span class="line"><span class="built_in">wc</span> -m logs/train.log      <span class="comment"># 字符数量</span></span><br></pre></td></tr></table></figure>
+<p><code>less</code> 可通过 <code>/ERROR</code> 搜索、按 <code>n</code> 查找下一个匹配、按 <code>q</code> 退出。<code>tail -f</code> 一般使用 <code>Ctrl+C</code> 结束跟踪。</p>
+<p><strong>计数边界</strong>：<code>wc -l</code> 严格统计换行符，而不是理解 CSV 后计算“数据行数”。CSV 可能带表头或多行字段，直接将 <code>wc -l</code> 视为样本数可能出错；<code>grep -c</code> 统计的是匹配的行数，即使一行匹配多次通常仍计为一行。</p>
+<h3 id="2-6-查找文件、匹配内容与文件名通配符">2.6 查找文件、匹配内容与文件名通配符</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find RobotQC -<span class="built_in">type</span> f -name <span class="string">&#x27;*.log&#x27;</span></span><br><span class="line">find RobotQC -<span class="built_in">type</span> d</span><br><span class="line">find RobotQC -<span class="built_in">type</span> f -mtime -1</span><br><span class="line"></span><br><span class="line">grep <span class="string">&#x27;ERROR&#x27;</span> RobotQC/logs/train.log</span><br><span class="line">grep -n <span class="string">&#x27;ERROR&#x27;</span> RobotQC/logs/train.log</span><br><span class="line">grep -rnH <span class="string">&#x27;ERROR&#x27;</span> RobotQC/logs/</span><br><span class="line">grep -v <span class="string">&#x27;ERROR&#x27;</span> RobotQC/logs/train.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>find</code> 面向<strong>目录树、路径及文件属性</strong>。</li>
+<li><code>grep</code> 面向<strong>文件内部的文本行</strong>。</li>
+<li><code>-type f</code> 表示普通文件，<code>-type d</code> 表示目录。</li>
+<li><code>-name '*.log'</code> 使用文件名匹配模式（glob），并非正则表达式。</li>
+<li><code>grep -n</code> 显示行号；<code>-i</code> 忽略大小写；<code>-r</code> 递归；<code>-H</code> 显示文件名；<code>-v</code> 反向筛选。</li>
+</ul>
+<p><strong>引号与转义</strong>：<code>find ... -name '*.pt'</code> 中单引号阻止 Bash 提前展开 <code>*</code>，让 <code>find</code> 自行匹配；不应写成 <code>-name '\*.pt'</code>，因为后者会把反斜杠传给 <code>find</code> 并可能改变匹配含义。反引号 <code>`command`</code> 是旧式命令替换，不是包裹文件路径的普通引号；现代写法更推荐 <code>$(command)</code>。</p>
+<h3 id="2-7-tar-归档、压缩与交付检查">2.7 tar 归档、压缩与交付检查</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -czf RobotQC.tar.gz RobotQC/   <span class="comment"># 创建 gzip 压缩归档</span></span><br><span class="line">tar -tzf RobotQC.tar.gz           <span class="comment"># 列出归档内容</span></span><br><span class="line"><span class="built_in">mkdir</span> -p restored</span><br><span class="line">tar -xzf RobotQC.tar.gz -C restored/ <span class="comment"># 解压到指定位置</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td>创建归档</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>查看归档清单</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>提取归档</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>使用 gzip</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>指定归档文件名</td>
+</tr>
+<tr>
+<td><code>-C</code></td>
+<td>指定提取位置</td>
+</tr>
+</tbody>
+</table>
+<p>创建归档不会自动删除原始目录。归档与压缩并不相同：<code>tar</code> 负责收集文件及结构，<code>gzip</code> 负责压缩。<code>zip</code>、<code>unzip</code> 也常用于跨平台交付。</p>
+<p><strong>工程补充</strong>：对项目交付包，应明确记录代码、配置、依赖、运行说明、必要的结果或日志，以及大数据集的来源、版本与校验方式；不得打包真实密钥或 Token。可利用 <code>sha256sum</code> 进行内容完整性校验。对来源不明的归档，先查看文件清单，再在独立目录中提取，避免意外覆盖文件或不安全路径。</p>
+<h3 id="2-8-APT-软件包管理">2.8 APT 软件包管理</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update       <span class="comment"># 刷新可用软件包信息</span></span><br><span class="line">apt search tree       <span class="comment"># 查询软件包</span></span><br><span class="line">apt policy tree       <span class="comment"># 查看安装状态、候选版本与来源</span></span><br><span class="line"><span class="built_in">sudo</span> apt install tree <span class="comment"># 安装系统软件包</span></span><br><span class="line">tree                   <span class="comment"># 验证命令可用性</span></span><br><span class="line"><span class="built_in">sudo</span> apt upgrade      <span class="comment"># 尝试升级已安装的软件包</span></span><br></pre></td></tr></table></figure>
+<p><code>apt update</code> 更新本地软件包索引，<strong>不直接安装或升级软件</strong>；<code>apt upgrade</code> 才尝试升级已安装的软件包，但可能因依赖约束保留部分软件。安装前执行 <code>apt update</code> 是常见良好实践，但并非每次 <code>apt install</code> 都必须先执行它。</p>
+<p>APT 与项目内 <code>pip</code>/虚拟环境分工不同：前者负责发行版层的软件包，后者负责 Python 依赖。共享 GPU 服务器上执行升级、删除或变更软件源前，需评估对其他用户和任务的影响。</p>
+<hr>
+<h2 id="三、用户、权限与进程管理">三、用户、权限与进程管理</h2>
+<h3 id="3-1-用户、组与-root">3.1 用户、组与 root</h3>
+<p>Linux 使用 UID 标识用户、GID 标识用户组；用户可以拥有主组和多个附加组。文件访问取决于访问者身份、文件归属、权限位，以及目录权限和其他访问控制机制。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">whoami</span>         <span class="comment"># 查看当前有效用户名</span></span><br><span class="line"><span class="built_in">id</span>             <span class="comment"># 查看 UID、GID、附加组</span></span><br><span class="line"><span class="built_in">groups</span>         <span class="comment"># 查看群组信息</span></span><br><span class="line"><span class="built_in">sudo</span> -l        <span class="comment"># 查看当前用户的 sudo 授权</span></span><br></pre></td></tr></table></figure>
+<p><code>root</code> 是具有广泛系统管理权限的超级用户。日常编辑代码、运行训练和管理个人目录通常不应使用 root。<code>sudo command</code> 在授权条件下以指定身份（默认通常为 root）执行一个命令；<code>su - username</code> 则用于进入指定用户的登录式 Shell。</p>
+<h3 id="3-2-rwx-的身份分组与数字权限">3.2 <code>rwx</code> 的身份分组与数字权限</h3>
+<p>一条典型的 <code>ls -l</code> 权限字段：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-r-----</span><br><span class="line"> │  │  └── 其他用户：--- = 0</span><br><span class="line"> │  └───── 所属组：r-- = 4</span><br><span class="line"> └──────── 所有者：rw- = 6</span><br></pre></td></tr></table></figure>
+<p>权限值是三个独立八进制数字，分别代表所有者、所属组和其他用户：</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>r</mi><mo>=</mo><mn>4</mn><mo separator="true">,</mo><mspace width="2em"/><mi>w</mi><mo>=</mo><mn>2</mn><mo separator="true">,</mo><mspace width="2em"/><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r=4,\qquad w=2,\qquad x=1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0269em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>三位表示</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td><code>---</code></td>
+<td>无权限</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>r--</code></td>
+<td>读取</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td><code>r-x</code></td>
+<td>读取、执行</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td><code>rw-</code></td>
+<td>读取、写入</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td><code>rwx</code></td>
+<td>读取、写入、执行</td>
+</tr>
+</tbody>
+</table>
+<p>如 <code>640</code> 对应 <code>rw-r-----</code>，<code>660</code> 对应 <code>rw-rw----</code>，<code>755</code> 对应 <code>rwxr-xr-x</code>。<code>777</code> 意味着所有类别都拥有读写执行权限，通常不应作为“解决权限问题”的默认方案。</p>
+<p><strong>普通文件与目录的权限语义不同</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>普通文件</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>读取文件内容</td>
+<td>列出目录项名称</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>修改文件内容</td>
+<td>创建、删除、重命名目录项（通常还需要 <code>x</code>）</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>允许执行文件（仍需满足其他执行条件）</td>
+<td>按名称进入/穿越目录并访问其中对象</td>
+</tr>
+</tbody>
+</table>
+<p>例如 <code>drwxr-x---</code> 表示目录权限 <code>750</code>：所有者可管理，组成员有目录的读/搜索权限，其他用户没有访问权限。文件自身有读取权限也不等于一定可被访问；其父目录还须允许路径穿越。</p>
+<h3 id="3-3-chmod、chown、chgrp">3.3 chmod、chown、chgrp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 640 dataset.csv          <span class="comment"># 设置为所有者读写、所属组只读</span></span><br><span class="line"><span class="built_in">chmod</span> g+w dataset.csv          <span class="comment"># 仅给所属组增加写权限 → 常见结果 660</span></span><br><span class="line"><span class="built_in">chmod</span> o-r dataset.csv          <span class="comment"># 移除其他用户读取权限</span></span><br><span class="line"><span class="built_in">chmod</span> u+x run_train.sh         <span class="comment"># 为所有者增加执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> g=rx run_train.sh        <span class="comment"># 明确设定组权限为 r-x</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> ziyuan model.pt             <span class="comment"># 修改所有者</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> ziyuan:robotics model.pt    <span class="comment"># 同时修改所有者与所属组</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chgrp</span> robotics dataset.csv        <span class="comment"># 修改所属组</span></span><br></pre></td></tr></table></figure>
+<p>符号法中 <code>u/g/o/a</code> 分别表示所有者、所属组、其他用户和全部用户类别；<code>+/-/=</code> 分别代表增加、移除和明确设置。<code>chmod</code> 修改权限，<code>chown</code>/<code>chgrp</code> 修改归属关系：<strong>变更归属不等于自动赋予所属组读写权限</strong>。一般用户能否变更组归属取决于文件所有权、目标组成员身份和系统权限策略。</p>
+<h3 id="3-4-程序、进程、线程与-PID-PPID">3.4 程序、进程、线程与 PID/PPID</h3>
+<ul>
+<li><strong>程序（Program）</strong>：存储在磁盘上的可执行代码或脚本。</li>
+<li><strong>进程（Process）</strong>：程序被运行后形成的执行实例，拥有 PID、地址空间和资源状态。</li>
+<li><strong>线程（Thread）</strong>：进程内部的执行单元，同一进程内线程通常共享进程的部分资源。</li>
+<li><strong>PID</strong>：进程标识符；<strong>PPID</strong>：父进程标识符。</li>
+</ul>
+<p>同一个 <code>train.py</code> 在两个终端中执行，可以产生两个独立的 Python 进程。若两者分别由不同 Bash 进程启动，PPID 通常不同；但**“不同终端”不构成 PPID 必然不同的普遍规则**。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python train.py       <span class="comment"># 当前 Shell 的前台作业</span></span><br><span class="line">python train.py &amp;     <span class="comment"># 作为后台作业启动</span></span><br><span class="line"><span class="built_in">jobs</span> -l               <span class="comment"># 查看当前 Shell 维护的作业及其 PID</span></span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code> 仅改变作业的前后台安排，不保证关闭终端或 SSH 会话后任务继续存活。长时间训练可根据实际环境考虑 <code>tmux</code>、作业调度器或服务管理方式。</p>
+<h3 id="3-5-查看进程、终止进程">3.5 查看进程、终止进程</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ps -f                 <span class="comment"># 当前终端关联进程的详细快照</span></span><br><span class="line">ps -p 2200 -f         <span class="comment"># 查看指定 PID</span></span><br><span class="line">ps -u <span class="string">&quot;<span class="variable">$USER</span>&quot;</span>         <span class="comment"># 查看某用户的进程</span></span><br><span class="line">top                   <span class="comment"># 持续刷新进程及资源使用情况</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">kill</span> -TERM 2200       <span class="comment"># 请求进程正常结束</span></span><br><span class="line">ps -p 2200 -f         <span class="comment"># 验证进程状态</span></span><br><span class="line"><span class="built_in">kill</span> -9 2200         <span class="comment"># 必要时发送 SIGKILL，强制终止</span></span><br></pre></td></tr></table></figure>
+<p><code>ps</code> 是进程<strong>快照</strong>，<code>top</code> 是持续更新的资源视图。<code>kill</code> 的本质是发送信号，默认通常发送 <code>SIGTERM</code>（15）；<code>SIGKILL</code>（9）不可被目标程序捕获或忽略，可能使检查点写入与资源清理中断。</p>
+<p><strong>操作原则</strong>：先确认 PID、用户和启动命令，再尝试正常终止，检查结果后才考虑强制终止。<code>Ctrl+C</code> 通常向终端前台进程组发送 <code>SIGINT</code>，不是等价于 <code>kill -9</code>。</p>
+<h3 id="3-6-systemd-服务与资源检查">3.6 systemd 服务与资源检查</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">systemctl status ssh       <span class="comment"># 查看服务状态</span></span><br><span class="line">journalctl -u ssh          <span class="comment"># 查看相关服务日志</span></span><br><span class="line"><span class="comment"># sudo systemctl restart ssh  # 可能影响远程连接，不应随意操作</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">uptime</span>                     <span class="comment"># 系统运行时间与负载</span></span><br><span class="line"><span class="built_in">nproc</span>                      <span class="comment"># 当前进程可使用的逻辑 CPU 数量</span></span><br><span class="line">free -h                    <span class="comment"># 物理内存和 Swap</span></span><br><span class="line"><span class="built_in">df</span> -h checkpoints/         <span class="comment"># checkpoints 所在文件系统的空间</span></span><br><span class="line"><span class="built_in">du</span> -sh checkpoints/        <span class="comment"># checkpoints 目录本身占用的空间</span></span><br><span class="line">ss -ltn                    <span class="comment"># 查看监听的 TCP 端口</span></span><br><span class="line">nvidia-smi                 <span class="comment"># NVIDIA GPU、显存及部分进程信息</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>故障或目标</th>
+<th>优先检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUDA out of memory</td>
+<td><code>nvidia-smi</code>、框架自身显存统计</td>
+</tr>
+<tr>
+<td>系统内存不足</td>
+<td><code>free -h</code>、<code>top</code></td>
+</tr>
+<tr>
+<td>No space left on device</td>
+<td><code>df -h 目标路径</code></td>
+</tr>
+<tr>
+<td>哪个目录占空间</td>
+<td><code>du -sh 目录</code></td>
+</tr>
+<tr>
+<td>可疑 Python 进程</td>
+<td><code>ps -p PID -f</code>，必要时结合 <code>top</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>free</code> 中的 <code>available</code> 通常比 <code>free</code> 更适合粗略判断可供新进程使用的内存。<code>df</code> 反映文件系统容量与剩余空间，<code>du</code> 反映路径占用的存储空间。<code>nvidia-smi</code> 显示的 GPU 利用率与显存占用并不直接等同于任务吞吐量或算法效率。</p>
+<hr>
+<h2 id="四、文本处理与-Shell-脚本">四、文本处理与 Shell 脚本</h2>
+<h3 id="4-1-三种标准数据流">4.1 三种标准数据流</h3>
+<p>Linux 命令通常使用三个标准文件描述符：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>文件描述符</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stdin</td>
+<td><code>0</code></td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td><code>1</code></td>
+<td>正常结果输出</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td><code>2</code></td>
+<td>错误或诊断输出</td>
+</tr>
+</tbody>
+</table>
+<p>终端同时显示正常文本和异常文本，不表示它们来自同一通道。<strong>程序选择输出通道，Shell 不会根据字符串里是否出现 <code>ERROR</code> 自动区分。</strong></p>
+<p>Python 示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开始质检&quot;</span>)                     <span class="comment"># stdout</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&quot;检测到异常时间戳&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> exc:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;WARNING: <span class="subst">&#123;exc&#125;</span>&quot;</span>)         <span class="comment"># stdout</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;ERROR: <span class="subst">&#123;exc&#125;</span>&quot;</span>, file=sys.stderr)  <span class="comment"># stderr</span></span><br><span class="line">    traceback.print_exc()            <span class="comment"># 默认 stderr</span></span><br></pre></td></tr></table></figure>
+<p>未捕获异常的 traceback 通常写入 stderr；被 <code>try/except</code> 捕获后，是否输出错误信息取决于异常处理代码。默认的 <code>logging.StreamHandler</code> 通常写入 stderr，但自定义日志配置可能将信息写入其他目标。</p>
+<h3 id="4-2-重定向、管道与-tee">4.2 重定向、管道与 tee</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;epoch=1 loss=0.85&#x27;</span> &gt; train.log    <span class="comment"># 覆盖写入 stdout</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;epoch=2 loss=0.63&#x27;</span> &gt;&gt; train.log   <span class="comment"># 追加 stdout</span></span><br><span class="line"><span class="built_in">wc</span> -l &lt; train.log                      <span class="comment"># 从文件提供 stdin</span></span><br><span class="line"></span><br><span class="line">python qc.py &gt; qc.log 2&gt; error.log      <span class="comment"># 正常、错误分开保存</span></span><br><span class="line">python qc.py &gt; qc.log 2&gt;&amp;1              <span class="comment"># stdout、stderr 合并保存</span></span><br><span class="line">python qc.py 2&gt;&amp;1 | <span class="built_in">tee</span> -a qc.log       <span class="comment"># 同时显示并追加合并日志</span></span><br><span class="line"></span><br><span class="line">grep <span class="string">&#x27;ERROR&#x27;</span> qc.log | <span class="built_in">tail</span> -n 5        <span class="comment"># 只看最后五条匹配行</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code></td>
+<td>stdout 重定向，覆盖写入</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>stdout 重定向，追加写入</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>stdin 从文件读取</td>
+</tr>
+<tr>
+<td><code>2&gt;</code></td>
+<td>stderr 重定向</td>
+</tr>
+<tr>
+<td><code>2&gt;&amp;1</code></td>
+<td>让 stderr 指向此时 stdout 的目标</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>左侧命令的 stdout 作为右侧命令的 stdin</td>
+</tr>
+<tr>
+<td><code>tee</code></td>
+<td>在终端输出的同时写入文件；<code>-a</code> 追加</td>
+</tr>
+</tbody>
+</table>
+<p><strong>顺序很重要</strong>：<code>command &gt; file 2&gt;&amp;1</code> 先把 stdout 指向文件，再让 stderr 指向相同目标；如果顺序颠倒，结果可能不同。</p>
+<p><strong>工程补充</strong>：普通管道传递 stdout，不自动传递 stderr。对 <code>python ... | tee ...</code>，Bash 默认将最后一个管道命令的状态作为整条管道的退出状态，因此 Python 失败不一定导致管道返回非零值。需可靠判断训练失败时，可使用 <code>set -o pipefail</code> 或在执行后检查 <code>$&#123;PIPESTATUS[@]&#125;</code>。需要即时刷新 Python 输出时可使用 <code>python -u</code>。</p>
+<h3 id="4-3-grep、正则表达式、sed-与-awk">4.3 grep、正则表达式、sed 与 awk</h3>
+<h4 id="grep：筛选行">grep：筛选行</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">&#x27;ERROR&#x27;</span> train.log            <span class="comment"># 匹配并显示行号</span></span><br><span class="line">grep -i <span class="string">&#x27;error&#x27;</span> train.log            <span class="comment"># 忽略大小写</span></span><br><span class="line">grep -v <span class="string">&#x27;ERROR&#x27;</span> train.log            <span class="comment"># 反向匹配</span></span><br><span class="line">grep -c <span class="string">&#x27;ERROR&#x27;</span> train.log            <span class="comment"># 匹配行数</span></span><br><span class="line">grep -E <span class="string">&#x27;ERROR|WARNING&#x27;</span> train.log    <span class="comment"># 扩展正则的逻辑“或”</span></span><br><span class="line">grep -F <span class="string">&#x27;epoch=[0-9]&#x27;</span> train.log      <span class="comment"># 固定字符串匹配</span></span><br></pre></td></tr></table></figure>
+<p><code>grep -E</code> 的常用正则语法：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>^</code></td>
+<td>行首</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>行尾</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>任意单字符（通常不含换行）</td>
+</tr>
+<tr>
+<td><code>[0-9]</code></td>
+<td>一位数字</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>前一元素重复零次或多次</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>前一元素重复一次或多次</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>逻辑或（扩展正则）</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E <span class="string">&#x27;^epoch=[0-9]+&#x27;</span> train.log</span><br></pre></td></tr></table></figure>
+<p>这里 <code>^epoch=</code> 约束行首，<code>[0-9]+</code> 表示至少一位数字。<code>grep -E 'ERROR|WARNING'</code> 中的 <code>|</code> <strong>不应写成 <code>\|</code></strong>，否则在 ERE 中通常会变成对字面竖线的匹配。它也不同于位于 Shell 引号外部的管道符 <code>|</code>。</p>
+<h4 id="sed：逐行流式变换">sed：逐行流式变换</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">&#x27;1,10p&#x27;</span> qc.log          <span class="comment"># 只打印第 1～10 行</span></span><br><span class="line">sed -n <span class="string">&#x27;/ERROR/p&#x27;</span> qc.log      <span class="comment"># 仅打印匹配 ERROR 的行</span></span><br><span class="line">sed <span class="string">&#x27;s/ERROR/FAIL/&#x27;</span> qc.log    <span class="comment"># 每行替换首次匹配</span></span><br><span class="line">sed <span class="string">&#x27;s/ERROR/FAIL/g&#x27;</span> qc.log   <span class="comment"># 每行替换全部匹配</span></span><br></pre></td></tr></table></figure>
+<p>没有 <code>-i</code> 时，上述 <code>sed</code> 命令通常只向 stdout 输出处理结果，不直接修改源文件。变更原始数据前宜先输出到新文件、检查差异，再决定是否覆盖。</p>
+<h4 id="awk：按字段处理数据">awk：按字段处理数据</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F<span class="string">&#x27;,&#x27;</span> <span class="string">&#x27;NR&gt;1 &amp;&amp; $3&gt;0.95 &#123;print $1,$3&#125;&#x27;</span> results.csv</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-F','</code>：逗号分隔输入字段。</li>
+<li><code>NR&gt;1</code>：跳过第一条记录（简单逐行 CSV 通常即表头）。</li>
+<li><code>$3&gt;0.95</code>：筛选第三字段大于 <code>0.95</code> 的行。</li>
+<li><code>print $1,$3</code>：输出第一列和第三列。</li>
+<li><code>$0</code>：整行；<code>NF</code>：当前记录字段数；<code>OFS</code>：输出字段分隔符。</li>
+</ul>
+<p><strong>工程补充</strong>：常规 <code>awk -F','</code> 不具有完整 CSV 引号转义语义。如果数据字段可能包含引号、字段内部逗号或跨行内容，建议使用 Python 标准库 <code>csv</code>、pandas 或其他合规 CSV 解析器。</p>
+<h3 id="4-4-sort、uniq-与频次统计">4.4 sort、uniq 与频次统计</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> task.txt                       <span class="comment"># 排序，让相同内容相邻</span></span><br><span class="line"><span class="built_in">sort</span> task.txt | <span class="built_in">uniq</span>                <span class="comment"># 去除相邻重复行</span></span><br><span class="line"><span class="built_in">sort</span> task.txt | <span class="built_in">uniq</span> -c             <span class="comment"># 统计每个不同标签出现次数</span></span><br><span class="line"><span class="built_in">sort</span> task.txt | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -nr  <span class="comment"># 按出现次数降序排列</span></span><br></pre></td></tr></table></figure>
+<p><code>uniq</code> 只处理<strong>相邻</strong>重复行，不能直接视为全局去重。<code>sort -n</code> 是数值升序，<code>sort -nr</code> 是数值降序。此类管道可用来快速检查机器人任务标签或异常类型的频数，但前提是每行代表一个独立待计数单位。</p>
+<h3 id="4-5-find-exec-与-xargs：批量处理文件">4.5 find -exec 与 xargs：批量处理文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find RobotQC -<span class="built_in">type</span> f -name <span class="string">&#x27;*.log&#x27;</span> -<span class="built_in">exec</span> grep -H <span class="string">&#x27;ERROR&#x27;</span> &#123;&#125; +</span><br><span class="line"></span><br><span class="line">find RobotQC -<span class="built_in">type</span> f -name <span class="string">&#x27;*.log&#x27;</span> -print0 \</span><br><span class="line">  | xargs -0 -r grep -H <span class="string">&#x27;ERROR&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>&#123;&#125;</code> 代表由 <code>find</code> 找到的文件路径；<code>-exec ... \;</code> 通常对每个文件各执行一次命令；<code>-exec ... +</code> 尽可能批量传入多个路径以减少启动开销。<code>-print0</code> 配合 <code>xargs -0</code> 使用 NUL 分隔路径，能正确处理含空格和换行等特殊字符的文件名。该示例中的 <code>xargs -r</code> 是 GNU xargs 的常用选项。</p>
+<h3 id="4-6-Shell-引号、变量与环境继承">4.6 Shell 引号、变量与环境继承</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project_dir=<span class="string">&quot;<span class="variable">$HOME</span>/RobotQC&quot;</span>    <span class="comment"># 双引号允许变量展开</span></span><br><span class="line">literal=<span class="string">&#x27;$HOME/RobotQC&#x27;</span>        <span class="comment"># 单引号保留字面量</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$project_dir</span>&quot;</span>            <span class="comment"># /home/ziyuan/RobotQC（假设 HOME 如此）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$literal</span>&quot;</span>                <span class="comment"># $HOME/RobotQC</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> CUDA_VISIBLE_DEVICES=0</span><br><span class="line">CUDA_VISIBLE_DEVICES=1 python train.py  <span class="comment"># 只为本次命令设置</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Bash 变量赋值时，<code>=</code> 两侧不能有空格。普通 Shell 变量默认不自动传递给子进程；<code>export</code> 标记环境变量，供随后启动的子进程继承。<code>VAR=value command</code> 仅影响该次命令的环境，不直接修改当前 Shell 中 <code>VAR</code> 的持久赋值。</p>
+<p><strong>需要特别区分</strong>：双引号允许变量展开，单引号不允许；变量展开得到的文本通常不会再自动进行第二次变量展开。引用可能含空格的路径时，应优先使用双引号。</p>
+<h4 id="命令别名与历史记录">命令别名与历史记录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -lah&#x27;</span>      <span class="comment"># 为交互式命令定义快捷别名</span></span><br><span class="line"><span class="built_in">history</span>                 <span class="comment"># 查看当前 Shell 可访问的历史命令</span></span><br></pre></td></tr></table></figure>
+<p><code>alias</code> 主要改善交互式使用体验，不应默认假设在所有非交互式脚本中自动生效。命令历史可能留存敏感输入，密码、密钥和 Token 不应直接作为明文命令行参数记录。</p>
+<h3 id="4-7-Shell-脚本的执行方式">4.7 Shell 脚本的执行方式</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br></pre></td></tr></table></figure>
+<p>这行 Shebang 指明脚本以 Bash 解释器运行。常见执行方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bash run_qc.sh               <span class="comment"># 启动新的 Bash 执行脚本</span></span><br><span class="line"><span class="built_in">chmod</span> +x run_qc.sh</span><br><span class="line">./run_qc.sh                  <span class="comment"># 通过可执行权限和 Shebang 执行</span></span><br><span class="line"><span class="built_in">source</span> setup.sh             <span class="comment"># 在当前 Shell 中执行脚本</span></span><br></pre></td></tr></table></figure>
+<p><code>bash setup.sh</code> 的 <code>cd</code> 和普通变量赋值通常不会改变调用它的父 Shell；<code>source setup.sh</code> 会在当前 Shell 直接执行，从而可能改变当前工作目录及环境。这也是 Python 虚拟环境通常使用 <code>source .venv/bin/activate</code> 的原因。</p>
+<h3 id="4-8-条件判断、位置参数、退出状态">4.8 条件判断、位置参数、退出状态</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ -f <span class="string">&#x27;configs/qc.yaml&#x27;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;配置文件存在&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> [[ -d <span class="string">&#x27;configs&#x27;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;配置目录存在，但文件缺失&#x27;</span> &gt;&amp;2</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;配置目录缺失&#x27;</span> &gt;&amp;2</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>常见测试：<code>-f</code> 判断普通文件，<code>-d</code> 判断目录，<code>!</code> 逻辑取反；整数比较使用 <code>-eq</code>、<code>-ne</code>、<code>-lt</code>、<code>-le</code>、<code>-gt</code>、<code>-ge</code>。这里的整数比较不用于直接比较浮点数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model=<span class="string">&quot;<span class="variable">$&#123;1:-pi05&#125;</span>&quot;</span>   <span class="comment"># 第一个参数为空或未传入时使用 pi05</span></span><br><span class="line">task=<span class="string">&quot;<span class="variable">$&#123;2:-pick&#125;</span>&quot;</span>    <span class="comment"># 第二个参数缺省值</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;model=%s, task=%s\n&#x27;</span> <span class="string">&quot;<span class="variable">$model</span>&quot;</span> <span class="string">&quot;<span class="variable">$task</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$0</code></td>
+<td>脚本的调用名称或路径</td>
+</tr>
+<tr>
+<td><code>$1</code>、<code>$2</code></td>
+<td>第一、第二个位置参数</td>
+</tr>
+<tr>
+<td><code>$#</code></td>
+<td>实际传入的位置参数数量，不包括 <code>$0</code></td>
+</tr>
+<tr>
+<td><code>&quot;$@&quot;</code></td>
+<td>保持原始参数边界的全部位置参数</td>
+</tr>
+<tr>
+<td><code>$&#123;1:-default&#125;</code></td>
+<td>第一个参数为空或未提供时使用默认值</td>
+</tr>
+<tr>
+<td><code>$?</code></td>
+<td>最近一个命令或管道的退出状态</td>
+</tr>
+<tr>
+<td><code>return N</code></td>
+<td>结束函数并返回状态 <code>N</code></td>
+</tr>
+<tr>
+<td><code>exit N</code></td>
+<td>结束脚本或当前 Shell 并返回状态 <code>N</code></td>
+</tr>
+</tbody>
+</table>
+<p>约定 <code>0</code> 通常表示成功，非零表示失败或特定状态。<code>exit 2</code> 本身<strong>不打印数字 2</strong>；只有执行 <code>echo $?</code> 等输出命令才会显示该退出码。</p>
+<h3 id="4-9-循环与函数">4.9 循环与函数</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">run_qc</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> dataset=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;正在检查：<span class="variable">$dataset</span>&quot;</span></span><br><span class="line">    python qc.py --dataset <span class="string">&quot;<span class="variable">$dataset</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> dataset <span class="keyword">in</span> train val <span class="built_in">test</span>; <span class="keyword">do</span></span><br><span class="line">    run_qc <span class="string">&quot;<span class="variable">$dataset</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><code>for ... in</code> 后的简单列表通常使用空白字符分隔，不能使用 CSV 风格的逗号。函数中的 <code>local</code> 用于限制变量作用域，避免覆盖函数外部的同名变量。上述循环默认顺序执行，不代表三个任务并行运行。</p>
+<hr>
+<h2 id="五、综合工程案例：可复核的机器人数据质检批处理">五、综合工程案例：可复核的机器人数据质检批处理</h2>
+<p>以下示例把课程中的目录管理、条件检查、函数、循环、日志和退出状态整合到一个工作流。<strong>它仅用于说明 Bash 机制，不代表 RobotQC 实际项目接口已按此实现。</strong> 使用前需确认 <code>qc.py</code> 是否支持 <code>--dataset</code>，以及它是否通过退出码准确报告任务成功或失败。</p>
+<h3 id="5-1-约定的目录结构">5.1 约定的目录结构</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RobotQC/</span><br><span class="line">├── configs/</span><br><span class="line">│   └── qc.yaml</span><br><span class="line">├── data/</span><br><span class="line">│   ├── train/</span><br><span class="line">│   ├── val/</span><br><span class="line">│   └── test/</span><br><span class="line">├── logs/</span><br><span class="line">├── qc.py</span><br><span class="line">└── run_qc.sh</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-脚本源码">5.2 脚本源码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从脚本所在位置确定项目根目录，避免依赖调用者的当前目录。</span></span><br><span class="line">script_dir=<span class="string">&quot;<span class="subst">$(cd -- <span class="string">&quot;<span class="subst">$(dirname -- <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span> || <span class="built_in">exit</span> 1</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$script_dir</span>&quot;</span> || <span class="built_in">exit</span> 1</span><br><span class="line"></span><br><span class="line">config_path=<span class="string">&quot;configs/qc.yaml&quot;</span></span><br><span class="line"><span class="keyword">if</span> [[ ! -f <span class="string">&quot;<span class="variable">$config_path</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;ERROR: 缺少配置文件：<span class="variable">$config_path</span>&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! -d <span class="string">&quot;data&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;ERROR: 缺少数据目录：data&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p logs || <span class="built_in">exit</span> 2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">run_qc</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> dataset=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="built_in">local</span> data_path=<span class="string">&quot;data/<span class="variable">$dataset</span>&quot;</span></span><br><span class="line">    <span class="built_in">local</span> log_path=<span class="string">&quot;logs/<span class="variable">$&#123;dataset&#125;</span>.log&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [[ ! -d <span class="string">&quot;<span class="variable">$data_path</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;ERROR: 缺少数据集目录：<span class="variable">$data_path</span>&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 2</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;开始质检：<span class="variable">$dataset</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> python -u qc.py --dataset <span class="string">&quot;<span class="variable">$dataset</span>&quot;</span> 2&gt;&amp;1 | <span class="built_in">tee</span> <span class="string">&quot;<span class="variable">$log_path</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;质检完成：<span class="variable">$dataset</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;ERROR: 质检失败：<span class="variable">$dataset</span>；详情见 <span class="variable">$log_path</span>&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> dataset <span class="keyword">in</span> train val <span class="built_in">test</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> ! run_qc <span class="string">&quot;<span class="variable">$dataset</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;全部数据集质检完成&quot;</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-行为与验证">5.3 行为与验证</h3>
+<ul>
+<li><code>set -o pipefail</code>：使含 <code>tee</code> 的管道在上游命令失败时也能反映失败，不只是检查 <code>tee</code> 是否成功。</li>
+<li><code>script_dir</code>：根据脚本位置定位项目根目录，降低从不同工作目录执行时找不到相对路径的风险。</li>
+<li><code>if [[ ! -f ... ]]</code> 与 <code>if [[ ! -d ... ]]</code>：在开始可能耗时的处理前检查前置条件。</li>
+<li><code>python -u ... 2&gt;&amp;1 | tee &quot;$log_path&quot;</code>：将正常信息与错误信息显示到终端并写入对应日志，使用 <code>-u</code> 降低 Python 标准流缓冲引起的可见延迟。</li>
+<li><code>return</code> 与 <code>exit</code>：内部任务失败后通知外层，外层决定是否停止后续数据集。</li>
+<li>本例使用 <code>tee &quot;$log_path&quot;</code>，每次运行会<strong>覆盖</strong>该数据集日志；若希望追加，应改成 <code>tee -a &quot;$log_path&quot;</code>，并另行设计每次运行的版本标识与日志分隔。</li>
+</ul>
+<p>假设 <code>train</code> 成功、<code>val</code> 失败，则 <code>test</code> 不再执行，脚本以非零状态退出。<code>val</code> 中 Python 程序产生的 stdout/stderr 写入 <code>logs/val.log</code>；Shell 函数自身的失败提示默认显示在终端 stderr，不自动属于该 Python 日志。实际工程中应进一步明确失败状态分类、日志归档命名、并发限制和结果文件的原子发布方式。</p>
+<h3 id="5-4-如何区分示例成功与真实质量结果">5.4 如何区分示例成功与真实质量结果</h3>
+<p>脚本返回 <code>0</code> 只能说明<strong>在已约定的程序接口和退出码语义下，流程报告成功</strong>；它不直接证明机器人数据没有异常，也不替代对检测规则、误报、漏报、人工复核与质量指标的独立验证。自动化执行、程序无异常退出、质检判定有效和模型任务成功是不同层次的结论。</p>
+<hr>
+<h2 id="六、常见混淆与排错速查">六、常见混淆与排错速查</h2>
+<table>
+<thead>
+<tr>
+<th>易混淆项</th>
+<th>正确认识</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code>、<code>root</code>、<code>/root</code></td>
+<td>分别是根目录、超级用户、超级用户家目录</td>
+</tr>
+<tr>
+<td>Linux 内核 vs Bash vs Python</td>
+<td>内核管理资源；Bash 解析并启动程序；Python 解释执行脚本</td>
+</tr>
+<tr>
+<td>Docker vs 虚拟机</td>
+<td>Docker 通常共享宿主机内核；虚拟机一般有独立客户机内核</td>
+</tr>
+<tr>
+<td><code>apt update</code> vs <code>apt upgrade</code></td>
+<td>更新软件包索引 vs 尝试升级已安装软件</td>
+</tr>
+<tr>
+<td><code>cp</code> vs <code>ln</code></td>
+<td>通常创建独立副本 vs 创建指向同一 inode 的硬链接</td>
+</tr>
+<tr>
+<td><code>-rwxr-xr--</code></td>
+<td>第一个字符是类型；之后三组各三位，顺序始终为 <code>rwx</code></td>
+</tr>
+<tr>
+<td><code>chmod</code> vs <code>chown</code></td>
+<td>修改权限位 vs 修改所有者/所属组</td>
+</tr>
+<tr>
+<td><code>find</code> vs <code>grep</code></td>
+<td>查找路径/文件属性 vs 查找文本内容</td>
+</tr>
+<tr>
+<td><code>*.log</code> vs <code>^epoch=[0-9]+</code></td>
+<td>文件名 glob 模式 vs 正则表达式</td>
+</tr>
+<tr>
+<td><code>grep -E 'A|B'</code></td>
+<td>ERE 中匹配字面 <code>A|B</code>，不等于 <code>A</code> 或 <code>B</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code> vs <code>&gt;&gt;</code></td>
+<td>覆盖 stdout 目标文件 vs 追加 stdout</td>
+</tr>
+<tr>
+<td><code>print('ERROR')</code> vs <code>file=sys.stderr</code></td>
+<td>信息语义不决定输出流；目标通道由程序代码指定</td>
+</tr>
+<tr>
+<td><code>|</code> vs <code>2&gt;&amp;1</code></td>
+<td>stdout 送入下一命令 vs 将 stderr 指向 stdout 当前目标</td>
+</tr>
+<tr>
+<td><code>uniq</code> vs <code>sort | uniq</code></td>
+<td>仅处理相邻重复行 vs 排序后按行去重</td>
+</tr>
+<tr>
+<td><code>bash script.sh</code> vs <code>source script.sh</code></td>
+<td>在子进程执行 vs 在当前 Shell 执行</td>
+</tr>
+<tr>
+<td><code>&quot;$HOME&quot;</code> vs <code>'$HOME'</code></td>
+<td>变量展开 vs 字面量保留</td>
+</tr>
+<tr>
+<td><code>$#</code> vs <code>$&#123;2:-default&#125;</code></td>
+<td>实际传入的参数数目 vs 未提供第二参数时取默认值</td>
+</tr>
+<tr>
+<td><code>exit 2</code> vs <code>echo $?</code></td>
+<td>设置退出状态 vs 输出最近一个状态</td>
+</tr>
+<tr>
+<td><code>ps</code> vs <code>top</code></td>
+<td>当前进程快照 vs 持续监控</td>
+</tr>
+<tr>
+<td><code>kill -TERM</code> vs <code>kill -9</code></td>
+<td>请求正常退出 vs 不可捕获的强制终止</td>
+</tr>
+<tr>
+<td><code>df -h</code> vs <code>du -sh</code></td>
+<td>文件系统容量/可用空间 vs 路径占用大小</td>
+</tr>
+<tr>
+<td>RAM vs VRAM vs 磁盘</td>
+<td>分别用 <code>free</code>、<code>nvidia-smi</code>、<code>df</code> 等不同工具排查</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="七、建议的后续动手验证路径">七、建议的后续动手验证路径</h2>
+<p>学习到这里，应将“记得命令”转化为“知道命令作用对象、数据流及风险”的工程能力。建议在不涉及真实生产数据的测试目录内，依次完成：</p>
+<ol>
+<li><strong>文件与路径实验</strong>：构建 <code>data/</code>、<code>configs/</code>、<code>logs/</code> 目录，使用相对路径复制、重命名并检查 <code>ls -l</code> 和 <code>stat</code>。</li>
+<li><strong>权限实验</strong>：在自己拥有的测试文件上试验 <code>chmod 640</code>、<code>chmod g+w</code>；对比普通文件与目录的 <code>rwx</code> 语义，不使用 <code>chmod 777</code> 作为捷径。</li>
+<li><strong>进程实验</strong>：运行短时间的 <code>sleep 60 &amp;</code>，结合 <code>jobs -l</code>、<code>ps -p</code> 和正常终止信号观察进程生命周期。</li>
+<li><strong>日志实验</strong>：用独立的小型 Python 脚本分别向 stdout 和 stderr 写入内容，比较 <code>&gt;</code>、<code>2&gt;</code>、<code>2&gt;&amp;1</code> 和 <code>tee -a</code>。</li>
+<li><strong>批处理实验</strong>：构建少量模拟日志，尝试 <code>grep -E</code>、<code>sed</code>、<code>awk</code>、<code>sort | uniq -c</code> 和 <code>find -exec</code>，最后封装成具备明确退出状态的 Bash 脚本。</li>
+</ol>
+<p>实践时先在测试文件中验证命令，再应用到真实训练、质检和数据集。对任何涉及删除、覆盖、权限提升及终止进程的操作，都应先确认当前路径、目标用户、影响范围和可恢复方式。</p>
+<hr>
+<h2 id="资料依据与边界">资料依据与边界</h2>
+<ul>
+<li>课程来源：四份 Linux 基础课程幻灯片，主题依次为 Linux 的价值与定位、文件系统与基础命令、用户权限与进程管理、文本处理与 Shell 脚本。</li>
+<li>组织方式：依据课程覆盖范围和课堂讨论，对知识点进行逻辑重排，不沿用幻灯片页码作为正文结构。</li>
+<li>扩展说明：文件系统差异、GPU 容器驱动关系、Python 异常与 stderr、CSV 解析局限、管道退出状态、脚本路径定位、可复核数据交付等为课堂学习基础上的工程补充。</li>
+<li>示例边界：RobotQC、VLA、<code>train.py</code>、<code>qc.py</code>、示例 PID、日志和目录均用于教学说明；不构成对任何实际项目代码接口、运行状态或性能结果的确认。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2026/11/16/Linux%E5%9F%BA%E7%A1%80%E4%B8%8EShell%E8%84%9A%E6%9C%AC-%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://ziyuan0315.github.io/2026/11/16/Linux%E5%9F%BA%E7%A1%80%E4%B8%8EShell%E8%84%9A%E6%9C%AC-%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">ZI YUAN · 机器人 & AI</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Shell/">Shell</a><a class="post-meta__tags" href="/tags/AI%E5%B7%A5%E7%A8%8B/">AI工程</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E7%A8%8B/">数据工程</a></div><div class="post-share"><div class="social-share" data-image="/img/Jura%20Mountains.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/11/15/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%BF%E7%9C%9F-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E9%80%9A%E4%BF%A1%E4%B8%8ESim2Real/" title="机器人仿真、数据格式与通信及 Sim2Real 基础"><img class="cover" src="/img/the_Alps.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">机器人仿真、数据格式与通信及 Sim2Real 基础</div></div><div class="info-2"><div class="info-item-1">机器人从算法验证走向真实部署，需要同时处理模型、物理环境、软件通信、数据接口和执行安全等问题。仿真环境用于在可控条件下验…</div></div></div></a><a class="pagination-related" href="/2026/11/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-01-%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/" title="人工智能的发展历程：从规则系统到神经网络"><img class="cover" src="/img/guilin.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">人工智能的发展历程：从规则系统到神经网络</div></div><div class="info-2"><div class="info-item-1">人工智能是怎样发展到今天的？理解这段历史，除了认识几个代表性的模型，还需要了解研究者一直在解决什么问题：怎样把知识交给计…</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">机器人运动学、人工智能、Python 与 Linux 的学习笔记与实践记录</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/songziyuan666@126.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Linux-%E5%9C%A8-AI-%E4%B8%8E%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.</span> <span class="toc-text">一、Linux 在 AI 与具身智能系统中的定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Linux-%E5%86%85%E6%A0%B8%E3%80%81%E7%94%A8%E6%88%B7%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%8F%91%E8%A1%8C%E7%89%88"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Linux 内核、用户空间与发行版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E-python-train-py-%E7%90%86%E8%A7%A3%E6%89%A7%E8%A1%8C%E9%93%BE"><span class="toc-number">1.1.1.</span> <span class="toc-text">从 python train.py 理解执行链</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Linux-%E5%9C%A8-AI-%E5%B7%A5%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9B%9B%E7%B1%BB%E5%9C%BA%E6%99%AF"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Linux 在 AI 工程中的四类场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E7%8E%AF%E5%A2%83%E5%85%BC%E5%AE%B9%E6%80%A7%E3%80%81APT%E3%80%81Python-%E7%8E%AF%E5%A2%83%E4%B8%8E-Docker"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 环境兼容性、APT、Python 环境与 Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-WSL2-%E4%B8%8E-Linux-%E8%B7%AF%E5%BE%84%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 WSL2 与 Linux 路径的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">二、Linux 文件系统与基础命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%BB%9F%E4%B8%80%E7%9B%AE%E5%BD%95%E6%A0%91%E4%B8%8E%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 统一目录树与关键路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E3%80%81%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E4%B8%8E%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 绝对路径、相对路径与隐藏文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%9B%E5%BB%BA%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%A7%BB%E5%8A%A8%E5%92%8C%E5%88%A0%E9%99%A4"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 创建、复制、移动和删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E3%80%81%E6%9D%83%E9%99%90%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 查看文件属性、权限和硬链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%9F%A5%E7%9C%8B%E4%B8%8E%E7%BB%9F%E8%AE%A1"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 文本内容查看与统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E3%80%81%E5%8C%B9%E9%85%8D%E5%86%85%E5%AE%B9%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8D%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 查找文件、匹配内容与文件名通配符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-tar-%E5%BD%92%E6%A1%A3%E3%80%81%E5%8E%8B%E7%BC%A9%E4%B8%8E%E4%BA%A4%E4%BB%98%E6%A3%80%E6%9F%A5"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 tar 归档、压缩与交付检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-APT-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 APT 软件包管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%94%A8%E6%88%B7%E3%80%81%E6%9D%83%E9%99%90%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">三、用户、权限与进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%94%A8%E6%88%B7%E3%80%81%E7%BB%84%E4%B8%8E-root"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 用户、组与 root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-rwx-%E7%9A%84%E8%BA%AB%E4%BB%BD%E5%88%86%E7%BB%84%E4%B8%8E%E6%95%B0%E5%AD%97%E6%9D%83%E9%99%90"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 rwx 的身份分组与数字权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-chmod%E3%80%81chown%E3%80%81chgrp"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 chmod、chown、chgrp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%A8%8B%E5%BA%8F%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8E-PID-PPID"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 程序、进程、线程与 PID&#x2F;PPID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BB%88%E6%AD%A2%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 查看进程、终止进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-systemd-%E6%9C%8D%E5%8A%A1%E4%B8%8E%E8%B5%84%E6%BA%90%E6%A3%80%E6%9F%A5"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 systemd 服务与资源检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E-Shell-%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">四、文本处理与 Shell 脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%B8%89%E7%A7%8D%E6%A0%87%E5%87%86%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 三种标准数据流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E9%87%8D%E5%AE%9A%E5%90%91%E3%80%81%E7%AE%A1%E9%81%93%E4%B8%8E-tee"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 重定向、管道与 tee</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-grep%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%81sed-%E4%B8%8E-awk"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 grep、正则表达式、sed 与 awk</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#grep%EF%BC%9A%E7%AD%9B%E9%80%89%E8%A1%8C"><span class="toc-number">4.3.1.</span> <span class="toc-text">grep：筛选行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sed%EF%BC%9A%E9%80%90%E8%A1%8C%E6%B5%81%E5%BC%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">4.3.2.</span> <span class="toc-text">sed：逐行流式变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#awk%EF%BC%9A%E6%8C%89%E5%AD%97%E6%AE%B5%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="toc-number">4.3.3.</span> <span class="toc-text">awk：按字段处理数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-sort%E3%80%81uniq-%E4%B8%8E%E9%A2%91%E6%AC%A1%E7%BB%9F%E8%AE%A1"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 sort、uniq 与频次统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-find-exec-%E4%B8%8E-xargs%EF%BC%9A%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 find -exec 与 xargs：批量处理文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-Shell-%E5%BC%95%E5%8F%B7%E3%80%81%E5%8F%98%E9%87%8F%E4%B8%8E%E7%8E%AF%E5%A2%83%E7%BB%A7%E6%89%BF"><span class="toc-number">4.6.</span> <span class="toc-text">4.6 Shell 引号、变量与环境继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D%E4%B8%8E%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">4.6.1.</span> <span class="toc-text">命令别名与历史记录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-Shell-%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F"><span class="toc-number">4.7.</span> <span class="toc-text">4.7 Shell 脚本的执行方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E3%80%81%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E3%80%81%E9%80%80%E5%87%BA%E7%8A%B6%E6%80%81"><span class="toc-number">4.8.</span> <span class="toc-text">4.8 条件判断、位置参数、退出状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">4.9.</span> <span class="toc-text">4.9 循环与函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%BB%BC%E5%90%88%E5%B7%A5%E7%A8%8B%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%8F%AF%E5%A4%8D%E6%A0%B8%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%95%B0%E6%8D%AE%E8%B4%A8%E6%A3%80%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">五、综合工程案例：可复核的机器人数据质检批处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%BA%A6%E5%AE%9A%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 约定的目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E8%84%9A%E6%9C%AC%E6%BA%90%E7%A0%81"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 脚本源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E8%A1%8C%E4%B8%BA%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 行为与验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E7%A4%BA%E4%BE%8B%E6%88%90%E5%8A%9F%E4%B8%8E%E7%9C%9F%E5%AE%9E%E8%B4%A8%E9%87%8F%E7%BB%93%E6%9E%9C"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 如何区分示例成功与真实质量结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E6%B7%B7%E6%B7%86%E4%B8%8E%E6%8E%92%E9%94%99%E9%80%9F%E6%9F%A5"><span class="toc-number">6.</span> <span class="toc-text">六、常见混淆与排错速查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%BB%BA%E8%AE%AE%E7%9A%84%E5%90%8E%E7%BB%AD%E5%8A%A8%E6%89%8B%E9%AA%8C%E8%AF%81%E8%B7%AF%E5%BE%84"><span class="toc-number">7.</span> <span class="toc-text">七、建议的后续动手验证路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E4%BE%9D%E6%8D%AE%E4%B8%8E%E8%BE%B9%E7%95%8C"><span class="toc-number">8.</span> <span class="toc-text">资料依据与边界</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-06-%E4%BB%8EVLM%E5%88%B0VLA/" title="从 VLM 到 VLA：让模型在环境中完成任务">从 VLM 到 VLA：让模型在环境中完成任务</a><time datetime="2026-11-22T02:00:00.000Z" title="发表于 2026-11-22 10:00:00">2026-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/21/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-05-Transformer/" title="Transformer：从文字的数字表示，到上下文中的关系">Transformer：从文字的数字表示，到上下文中的关系</a><time datetime="2026-11-21T02:00:00.000Z" title="发表于 2026-11-21 10:00:00">2026-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/20/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-04-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="循环神经网络：让前面的信息参与后面的计算">循环神经网络：让前面的信息参与后面的计算</a><time datetime="2026-11-20T02:00:00.000Z" title="发表于 2026-11-20 10:00:00">2026-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/19/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-03-%E5%8D%B7%E7%A7%AF%E4%B8%8E%E6%AE%8B%E5%B7%AE/" title="卷积与残差：从局部特征到深层网络">卷积与残差：从局部特征到深层网络</a><time datetime="2026-11-19T02:00:00.000Z" title="发表于 2026-11-19 10:00:00">2026-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="数据科学、机器学习与大语言模型：几个概念之间的关系">数据科学、机器学习与大语言模型：几个概念之间的关系</a><time datetime="2026-11-18T02:00:00.000Z" title="发表于 2026-11-18 10:00:00">2026-11-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/Jura Mountains.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

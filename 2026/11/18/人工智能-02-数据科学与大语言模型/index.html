@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据科学、机器学习与大语言模型：几个概念之间的关系 | ZI YUAN · 机器人 &amp; AI</title><meta name="author" content="ZI YUAN"><meta name="copyright" content="ZI YUAN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前面介绍了神经网络怎样处理输入、计算损失和更新参数。在继续讨论后续模型之前，我们先暂时离开时间线，梳理几个经常一起出现的…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据科学、机器学习与大语言模型：几个概念之间的关系">
+<meta property="og:url" content="https://ziyuan0315.github.io/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="ZI YUAN · 机器人 &amp; AI">
+<meta property="og:description" content="前面介绍了神经网络怎样处理输入、计算损失和更新参数。在继续讨论后续模型之前，我们先暂时离开时间线，梳理几个经常一起出现的…">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ziyuan0315.github.io/img/Fujiyama.jpg">
+<meta property="article:published_time" content="2026-11-18T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-22T10:16:41.609Z">
+<meta property="article:author" content="ZI YUAN">
+<meta property="article:tag" content="数据科学">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="大语言模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ziyuan0315.github.io/img/Fujiyama.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数据科学、机器学习与大语言模型：几个概念之间的关系",
+  "url": "https://ziyuan0315.github.io/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/",
+  "image": "https://ziyuan0315.github.io/img/Fujiyama.jpg",
+  "datePublished": "2026-11-18T02:00:00.000Z",
+  "dateModified": "2026-11-22T10:16:41.609Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZI YUAN",
+      "url": "https://ziyuan0315.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ziyuan0315.github.io/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据科学、机器学习与大语言模型：几个概念之间的关系',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/katex/katex.min.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-color: #f6f8fa;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-book-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Python%E5%9F%BA%E7%A1%80/"><i class="fa-fw fab fa-python"></i><span> Python基础</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/"><i class="fa-fw fas fa-robot"></i><span> 机器人运动学</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%BF%E7%9C%9F/"><i class="fa-fw fas fa-cube"></i><span> 机器人仿真</span></a></li><li><a class="site-page child" href="/categories/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-brain"></i><span> 人工智能</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-duotone fa-solid fa-pen"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/Fujiyama.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Sophon.jpg" alt="Logo"><span class="site-name">ZI YUAN · 机器人 &amp; AI</span></a><a class="nav-page-title" href="/"><span class="site-name">数据科学、机器学习与大语言模型：几个概念之间的关系</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-book-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Python%E5%9F%BA%E7%A1%80/"><i class="fa-fw fab fa-python"></i><span> Python基础</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/"><i class="fa-fw fas fa-robot"></i><span> 机器人运动学</span></a></li><li><a class="site-page child" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%BF%E7%9C%9F/"><i class="fa-fw fas fa-cube"></i><span> 机器人仿真</span></a></li><li><a class="site-page child" href="/categories/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-brain"></i><span> 人工智能</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-duotone fa-solid fa-pen"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据科学、机器学习与大语言模型：几个概念之间的关系</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-18T02:00:00.000Z" title="发表于 2026-11-18 10:00:00">2026-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-22T10:16:41.609Z" title="更新于 2026-11-22 18:16:41">2026-11-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>前面介绍了神经网络怎样处理输入、计算损失和更新参数。在继续讨论后续模型之前，我们先暂时离开时间线，梳理几个经常一起出现的概念：数据科学、机器学习、深度学习、强化学习和大语言模型。</p>
+<p>这些名称关注的层面有所不同。数据科学涉及从数据中获得认识的完整过程，机器学习研究如何从数据或经验中学习，深度学习强调多层神经网络，强化学习关注行动与回报，而大语言模型是一类具体的模型。弄清这些区别，有助于理解它们为什么既有包含关系，又能相互结合。</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>主要关注什么</th>
+<th>一个典型例子</th>
+<th>与其他概念的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据科学（Data Science，DS）</td>
+<td>如何通过数据分析回答问题、支持决策</td>
+<td>分析垃圾邮件误拦截的原因，并评估改进方案</td>
+<td>与统计学、计算机科学和领域知识交叉，可以采用机器学习方法</td>
+</tr>
+<tr>
+<td>机器学习（Machine Learning，ML）</td>
+<td>如何从数据或经验中学习可用于新情况的规律</td>
+<td>从已标注邮件中学习分类模型</td>
+<td>人工智能的重要分支，涵盖深度学习、强化学习等方向</td>
+</tr>
+<tr>
+<td>深度学习（Deep Learning，DL）</td>
+<td>如何利用多层神经网络学习数据表示</td>
+<td>从邮件文本中学习用于分类的特征</td>
+<td>机器学习的一类方法，可以结合不同学习方式</td>
+</tr>
+<tr>
+<td>强化学习（Reinforcement Learning，RL）</td>
+<td>如何根据行动反馈学习获得较高累计回报的策略</td>
+<td>让机器人通过行动经验学习到达目标的路线</td>
+<td>机器学习中的一种学习与决策范式，可以使用深度学习</td>
+</tr>
+<tr>
+<td>大语言模型（Large Language Model，LLM）</td>
+<td>如何通过大规模语言建模获得处理和生成语言的能力</td>
+<td>根据邮件内容生成摘要或起草回复</td>
+<td>当代主流 LLM 属于深度学习模型，训练中也可以使用强化学习</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据科学：从问题出发，组织整个分析过程">数据科学：从问题出发，组织整个分析过程</h3>
+<p>数据科学是一门交叉领域，结合统计方法、计算工具和具体领域的知识，通过数据回答问题。它的工作包括问题定义、数据采集与整理、探索分析、建模、结果解释和效果验证。[1]</p>
+<p>仍以垃圾邮件为例。假设用户抱怨正常邮件经常被拦截，数据科学首先需要弄清楚：哪些邮件容易被误判？误判是否集中在某些语言、发件人或邮件类型中？评价指标是否体现了误拦截给用户造成的影响？</p>
+<p>接下来，可能需要整理日志、检查标签、比较不同用户群体，并设计实验验证修改是否有效。这个过程可以使用机器学习模型，也可能通过统计分析、可视化和规则调整解决问题。</p>
+<p>因此，机器学习是数据科学的重要工具之一。数据科学还关心数据是否可信、问题是否定义得当，以及分析结论能否支持实际决策。理解两者的关系时，更适合关注它们在具体工作中的分工，而不必把整个数据科学领域塞进某个算法类别。</p>
+<h3 id="机器学习：从数据或经验中学习规律">机器学习：从数据或经验中学习规律</h3>
+<p>机器学习研究如何让系统利用数据或经验改善完成任务的能力。我们提供数据、模型和学习目标，由学习算法调整模型，使它能够对新情况作出有效预测或决策。</p>
+<p>前面的邮件分类就是一个例子：给模型看已经标注为“正常”或“垃圾”的邮件，再根据预测与标签之间的差距调整模型。这种使用目标答案指导训练的方式，称为监督学习。</p>
+<p>机器学习也可以采用其他学习方式。例如，在没有类别标签的数据中寻找分组或结构，属于无监督学习的典型任务；根据行动带来的回报学习决策，则属于强化学习。后面介绍的大语言模型，还经常使用从数据自身构造训练目标的自监督学习。</p>
+<p>用于学习的模型也有很多种，包括线性模型、决策树、支持向量机、随机森林和神经网络。使用机器学习，并不意味着一定要使用神经网络。</p>
+<p>有些模型最终学到的结果，也可以表现为规则。例如，决策树可以从样本中学出一系列判断条件。因此，看到一个系统在执行规则，还需要进一步了解这些规则来自人工编写，还是从数据中学习得到。</p>
+<h3 id="深度学习：利用多层神经网络学习表示">深度学习：利用多层神经网络学习表示</h3>
+<p>深度学习是机器学习的一个分支，主要利用多层神经网络逐步变换输入，学习对任务有用的数据表示。这里的“深度”主要指多层表示与计算结构。[2]</p>
+<p>在前面的简化邮件模型中，我们事先选定了可疑词数量、陌生链接数量等特征。使用深度学习时，可以先把文本转换为模型能够处理的数值输入，再让多层网络学习其中有助于分类的信息，减少逐项手工设计特征的工作。</p>
+<p>图像任务也类似：一些网络的前面几层会学习边缘、纹理等局部模式，后续层再组合这些信息，形成更复杂的表示。具体学到什么，由网络结构、数据和训练目标共同决定。</p>
+<p>深度学习强调的是模型和表示方式，监督学习、自监督学习和强化学习则涉及不同的训练设置。因此，一个深度神经网络可以用类别标签训练，也可以从数据本身构造目标，或者根据行动回报进行更新。</p>
+<h3 id="强化学习：根据行动反馈学习决策">强化学习：根据行动反馈学习决策</h3>
+<p>强化学习研究智能体如何利用与环境交互得到的经验，学习获得较高累计回报的行为策略。它关注的核心，是当前的行动会怎样影响后续处境和最终结果。[3]</p>
+<p>以机器人走迷宫为例，机器人观察当前位置，选择前进或转弯，环境随后发生变化，并给出相应反馈。到达目标可以获得奖励，碰撞或耗费过多时间可以受到惩罚。经过学习，机器人需要找到一种在不同位置选择行动的方法，这种方法称为策略。</p>
+<p>这里通常没有人为每一步提供标准动作。机器人可能要走过很多步，才知道这条路线是否有效，因此需要把较晚出现的结果与先前的行动联系起来。同时，它还要在尝试新行动与使用已有经验之间取得平衡，这就是探索与利用的问题。</p>
+<p>强化学习可以使用很简单的表示。在状态和动作数量较少的情况下，可以用一张表记录不同情况下采取某个动作的价值；当输入是图像等复杂数据时，则可以用神经网络估计价值或表示策略。</p>
+<p>当强化学习使用深度神经网络时，就形成了<strong>深度强化学习</strong>（Deep Reinforcement Learning）。例如，网络负责从游戏画面中提取信息，强化学习算法则根据游戏得分等反馈调整行为。深度学习和强化学习在这里分别承担了不同的作用。</p>
+<h3 id="大语言模型：以语言建模为基础的大规模模型">大语言模型：以语言建模为基础的大规模模型</h3>
+<p>大语言模型通常指在大量语言数据上训练、具有较大参数规模的语言模型。当代主流 LLM 使用深度神经网络，许多采用 Transformer 架构。它们可以用于文本生成、问答、摘要、翻译等多种语言任务。[4]</p>
+<p>以 GPT 类自回归语言模型为例，一种基本训练任务是：根据前面的文本，预测下一个 token。Token 是模型处理文本的基本片段，可以是一个字、一个词的一部分，也可以是标点等内容。真实文本中的下一个 token 本身就提供了训练目标，不需要人逐条编写答案，这种方式称为自监督学习。</p>
+<p>虽然单次训练目标很具体，但模型为了在大量不同语境中完成预测，需要学习词语搭配、语法以及文本中的各种关联。训练得到的能力随后可以用于不同任务。例如，给模型一封邮件和“请概括主要内容”的指令，它就可以生成相应摘要；是否准确完成任务，还需要具体评价。</p>
+<p>大语言模型与强化学习也有联系。一个常见流程是先完成语言模型预训练，再用指令与示范回答进行监督微调，随后利用偏好或其他奖励信号进一步调整模型。基于人类反馈的强化学习（RLHF）就是其中一种方法。[5]</p>
+<p>因此，LLM 描述的是一类模型，RL 描述的是一种学习范式。一个语言模型可以在某个训练阶段使用强化学习，但使用强化学习并不是成为大语言模型的必要条件。强化学习也有大量与语言无关的应用，例如机器人控制和游戏决策。</p>
+<h3 id="它们的包含与交叉关系">它们的包含与交叉关系</h3>
+<p>按照本章讨论的范围，可以先记住三条关系：</p>
+<ul>
+<li><strong>机器学习属于人工智能，深度学习属于机器学习。</strong> 当代主流大语言模型，是深度学习在语言建模中的一类大规模模型。</li>
+<li><strong>强化学习也属于机器学习。</strong> 它可以与深度学习结合，形成深度强化学习；简单的强化学习方法也可以不使用神经网络。</li>
+<li><strong>数据科学与这些技术有广泛交叉。</strong> 它可以使用机器学习、深度学习和大语言模型，同时还包括统计分析、实验设计、数据处理等工作。</li>
+</ul>
+<p>下图用带有说明的箭头，区分包含关系、技术结合和方法使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    AI[人工智能 AI] --&gt;|包含| ML[机器学习 ML]</span><br><span class="line">    DS[数据科学 DS] -.-&gt;|可采用| ML</span><br><span class="line">    ML --&gt;|技术分支| DL[深度学习 DL]</span><br><span class="line">    ML --&gt;|学习范式| RL[强化学习 RL]</span><br><span class="line">    DL --&gt;|一类大规模模型| LLM[大语言模型 LLM]</span><br><span class="line">    DL --&gt;|提供深度网络| DRL[深度强化学习]</span><br><span class="line">    RL --&gt;|提供决策学习方法| DRL</span><br><span class="line">    RL -.-&gt;|可参与后训练| LLM</span><br></pre></td></tr></table></figure>
+<p>例如，一个邮件服务项目可以同时涉及这些概念：用数据科学的方法调查误拦截问题，用机器学习训练分类器，用深度学习处理复杂文本，再用大语言模型提供摘要和回复建议。是否使用强化学习，则取决于训练目标和反馈方式，而不是系统中是否出现了一个“智能”功能。</p>
+<h3 id="ML、DL-和-RL-的代表性里程碑论文">ML、DL 和 RL 的代表性里程碑论文</h3>
+<p>下面按讲解重点选取一些代表性论文，每篇只介绍作者和它推动解决的问题。由于深度学习和强化学习都属于机器学习，这些分组也存在交叉，例如 DQN 同时是深度学习与强化学习的代表工作。</p>
+<h4 id="机器学习：从经验中形成可用的模型">机器学习：从经验中形成可用的模型</h4>
+<ul>
+<li><strong>1959，早期的经验学习</strong>：Arthur L. Samuel 在《<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/5392560">Some Studies in Machine Learning Using the Game of Checkers</a>》中展示了程序如何利用对局经验改善跳棋水平，探索让机器通过学习减少对人工逐条编程的依赖。</li>
+<li><strong>1986，决策树</strong>：J. Ross Quinlan 在《<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF00116251">Induction of Decision Trees</a>》中系统介绍了 ID3，说明如何从样本中自动归纳出用于分类的树状判断规则。</li>
+<li><strong>1995，支持向量机</strong>：Corinna Cortes 和 Vladimir Vapnik 在《<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF00994018">Support-vector Networks</a>》中将支持向量方法扩展到不能完全分开的训练数据，使其能够处理更实际的分类问题。</li>
+<li><strong>2001，随机森林</strong>：Leo Breiman 在《<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1023/A:1010933404324">Random Forests</a>》中通过组合多棵随机化的决策树，改善单棵树预测不稳定的问题，并提高整体预测能力。</li>
+</ul>
+<h4 id="深度学习：学习表示，并让更深的网络可训练">深度学习：学习表示，并让更深的网络可训练</h4>
+<ul>
+<li><strong>1986，反向传播</strong>：David E. Rumelhart、Geoffrey E. Hinton 和 Ronald J. Williams 在《<a target="_blank" rel="noopener" href="https://www.nature.com/articles/323533a0">Learning Representations by Back-propagating Errors</a>》中展示了通过反向传播训练多层网络、让隐藏单元学习有用内部表示的方法。</li>
+<li><strong>1998，卷积网络与文档识别</strong>：Yann LeCun、Léon Bottou、Yoshua Bengio 和 Patrick Haffner 在《<a target="_blank" rel="noopener" href="https://doi.org/10.1109/5.726791">Gradient-Based Learning Applied to Document Recognition</a>》中介绍了包括 LeNet-5 在内的模型，用从图像中学习的特征完成手写数字等文档识别任务。</li>
+<li><strong>2006，深度信念网络</strong>：Geoffrey E. Hinton、Simon Osindero 和 Yee-Whye Teh 在《<a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf">A Fast Learning Algorithm for Deep Belief Nets</a>》中提出逐层学习再整体微调的方法，为多层深度信念网络难以有效训练的问题提供了一条可行路径。</li>
+<li><strong>2012，AlexNet</strong>：Alex Krizhevsky、Ilya Sutskever 和 Geoffrey E. Hinton 在《<a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">ImageNet Classification with Deep Convolutional Neural Networks</a>》中结合深层卷积网络与 GPU 训练，大幅改善了大规模图像分类效果。</li>
+<li><strong>2015，ResNet 预印本</strong>：何恺明、张祥雨、任少卿和孙剑在《<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>》中引入残差学习，使显著加深的网络更容易优化，缓解增加深度后性能反而退化的问题。</li>
+<li><strong>2017，Transformer</strong>：Ashish Vaswani、Noam Shazeer 等人在《<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>》中提出 Transformer，通过注意力机制处理序列，缓解循环结构难以并行训练的问题。</li>
+</ul>
+<h4 id="强化学习：从行动结果中学习更好的策略">强化学习：从行动结果中学习更好的策略</h4>
+<ul>
+<li><strong>1988，时序差分学习</strong>：Richard S. Sutton 在《<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF00115009">Learning to Predict by the Methods of Temporal Differences</a>》中系统分析了利用相邻时刻预测差异进行学习的方法，为处理延迟反馈提供了重要基础。</li>
+<li><strong>1992，Q-learning</strong>：Christopher J. C. H. Watkins 和 Peter Dayan 在《<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF00992698">Q-learning</a>》中分析了无需预先知道环境转移规律的 Q 学习，并证明它在特定条件下可以收敛到最优动作价值。</li>
+<li><strong>2015，DQN</strong>：Volodymyr Mnih、Koray Kavukcuoglu、David Silver 等人在《<a target="_blank" rel="noopener" href="https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf">Human-level Control through Deep Reinforcement Learning</a>》中将深度神经网络与 Q 学习结合，使智能体能够直接根据游戏画面和得分学习控制策略。</li>
+<li><strong>2016，AlphaGo</strong>：David Silver、Aja Huang 等人在《<a target="_blank" rel="noopener" href="https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf">Mastering the Game of Go with Deep Neural Networks and Tree Search</a>》中结合监督学习、强化学习和树搜索，处理围棋中庞大的决策搜索空间。</li>
+<li><strong>2017，PPO</strong>：John Schulman、Filip Wolski 等人在《<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.06347">Proximal Policy Optimization Algorithms</a>》中提出近端策略优化，通过裁剪等目标设计减少过大策略更新带来的不稳定，同时简化算法实现。</li>
+</ul>
+<h3 id="概念部分的参考资料">概念部分的参考资料</h3>
+<ol>
+<li>David Donoho：<a target="_blank" rel="noopener" href="https://doi.org/10.1080/10618600.2017.1384734">50 Years of Data Science</a>；另可阅读 <a target="_blank" rel="noopener" href="https://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf">2015 年讲稿</a>。</li>
+<li>Yann LeCun、Yoshua Bengio、Geoffrey Hinton，2015：<a target="_blank" rel="noopener" href="https://www.nature.com/articles/nature14539">Deep Learning</a>。</li>
+<li>Richard S. Sutton、Andrew G. Barto，2018：<a target="_blank" rel="noopener" href="https://mitpress.mit.edu/9780262039246/reinforcement-learning/">Reinforcement Learning: An Introduction，第二版</a>。</li>
+<li>Tom B. Brown 等，2020：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165">Language Models Are Few-Shot Learners</a>。</li>
+<li>Long Ouyang 等，2022：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155">Training Language Models to Follow Instructions with Human Feedback</a>。</li>
+</ol>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io">ZI YUAN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ziyuan0315.github.io/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">https://ziyuan0315.github.io/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ziyuan0315.github.io" target="_blank">ZI YUAN · 机器人 & AI</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></div><div class="post-share"><div class="social-share" data-image="/img/Fujiyama.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/11/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-01-%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/" title="人工智能的发展历程：从规则系统到神经网络"><img class="cover" src="/img/guilin.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">人工智能的发展历程：从规则系统到神经网络</div></div><div class="info-2"><div class="info-item-1">人工智能是怎样发展到今天的？理解这段历史，除了认识几个代表性的模型，还需要了解研究者一直在解决什么问题：怎样把知识交给计…</div></div></div></a><a class="pagination-related" href="/2026/11/19/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-03-%E5%8D%B7%E7%A7%AF%E4%B8%8E%E6%AE%8B%E5%B7%AE/" title="卷积与残差：从局部特征到深层网络"><img class="cover" src="/img/the_Alps.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">卷积与残差：从局部特征到深层网络</div></div><div class="info-2"><div class="info-item-1">前面介绍全连接层时，我们遇到了一个问题：输入越多，每个神经元需要处理的信息就越多，连接权重也会迅速增加。讨论训练时，又遇…</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/11/21/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-05-Transformer/" title="Transformer：从文字的数字表示，到上下文中的关系"><img class="cover" src="/img/Swan%20Castle.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-21</div><div class="info-item-2">Transformer：从文字的数字表示，到上下文中的关系</div></div><div class="info-2"><div class="info-item-1">上一节介绍 RNN 时，我们把一句话切成若干个 token，再把每个 token 换成一个向量，交给网络逐步处理。这个转…</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/ziyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZI YUAN</div><div class="author-info-description">机器人运动学、人工智能、Python 与 Linux 的学习笔记与实践记录</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ziyuan0315/ziyuan0315.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/songziyuan666@126.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%EF%BC%9A%E4%BB%8E%E9%97%AE%E9%A2%98%E5%87%BA%E5%8F%91%EF%BC%8C%E7%BB%84%E7%BB%87%E6%95%B4%E4%B8%AA%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">数据科学：从问题出发，组织整个分析过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%E4%BB%8E%E6%95%B0%E6%8D%AE%E6%88%96%E7%BB%8F%E9%AA%8C%E4%B8%AD%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">机器学习：从数据或经验中学习规律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%88%A9%E7%94%A8%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">深度学习：利用多层神经网络学习表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%A0%B9%E6%8D%AE%E8%A1%8C%E5%8A%A8%E5%8F%8D%E9%A6%88%E5%AD%A6%E4%B9%A0%E5%86%B3%E7%AD%96"><span class="toc-number">4.</span> <span class="toc-text">强化学习：根据行动反馈学习决策</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%9A%E4%BB%A5%E8%AF%AD%E8%A8%80%E5%BB%BA%E6%A8%A1%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">大语言模型：以语言建模为基础的大规模模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%83%E4%BB%AC%E7%9A%84%E5%8C%85%E5%90%AB%E4%B8%8E%E4%BA%A4%E5%8F%89%E5%85%B3%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text">它们的包含与交叉关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ML%E3%80%81DL-%E5%92%8C-RL-%E7%9A%84%E4%BB%A3%E8%A1%A8%E6%80%A7%E9%87%8C%E7%A8%8B%E7%A2%91%E8%AE%BA%E6%96%87"><span class="toc-number">7.</span> <span class="toc-text">ML、DL 和 RL 的代表性里程碑论文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%E4%BB%8E%E7%BB%8F%E9%AA%8C%E4%B8%AD%E5%BD%A2%E6%88%90%E5%8F%AF%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.1.</span> <span class="toc-text">机器学习：从经验中形成可用的模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%AD%A6%E4%B9%A0%E8%A1%A8%E7%A4%BA%EF%BC%8C%E5%B9%B6%E8%AE%A9%E6%9B%B4%E6%B7%B1%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8F%AF%E8%AE%AD%E7%BB%83"><span class="toc-number">7.2.</span> <span class="toc-text">深度学习：学习表示，并让更深的网络可训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E4%BB%8E%E8%A1%8C%E5%8A%A8%E7%BB%93%E6%9E%9C%E4%B8%AD%E5%AD%A6%E4%B9%A0%E6%9B%B4%E5%A5%BD%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-number">7.3.</span> <span class="toc-text">强化学习：从行动结果中学习更好的策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E9%83%A8%E5%88%86%E7%9A%84%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">概念部分的参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-06-%E4%BB%8EVLM%E5%88%B0VLA/" title="从 VLM 到 VLA：让模型在环境中完成任务">从 VLM 到 VLA：让模型在环境中完成任务</a><time datetime="2026-11-22T02:00:00.000Z" title="发表于 2026-11-22 10:00:00">2026-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/21/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-05-Transformer/" title="Transformer：从文字的数字表示，到上下文中的关系">Transformer：从文字的数字表示，到上下文中的关系</a><time datetime="2026-11-21T02:00:00.000Z" title="发表于 2026-11-21 10:00:00">2026-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/20/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-04-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="循环神经网络：让前面的信息参与后面的计算">循环神经网络：让前面的信息参与后面的计算</a><time datetime="2026-11-20T02:00:00.000Z" title="发表于 2026-11-20 10:00:00">2026-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/19/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-03-%E5%8D%B7%E7%A7%AF%E4%B8%8E%E6%AE%8B%E5%B7%AE/" title="卷积与残差：从局部特征到深层网络">卷积与残差：从局部特征到深层网络</a><time datetime="2026-11-19T02:00:00.000Z" title="发表于 2026-11-19 10:00:00">2026-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/11/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-02-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="数据科学、机器学习与大语言模型：几个概念之间的关系">数据科学、机器学习与大语言模型：几个概念之间的关系</a><time datetime="2026-11-18T02:00:00.000Z" title="发表于 2026-11-18 10:00:00">2026-11-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/Fujiyama.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By ZI YUAN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
